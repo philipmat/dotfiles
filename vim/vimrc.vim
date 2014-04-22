@@ -125,7 +125,7 @@ set statusline+=%r    " Readonly flag, text is "[RO]".
 set statusline+=%<
 set statusline+=\ %=                        " Right align
 set statusline+=\ [
-if !has("gui")
+if !has("gui_running")
 	set statusline+=b%n: 					"buffer number
 endif
 set statusline+=%Y:  						" Type of file in the buffer, e.g., ",VIM".
@@ -166,7 +166,7 @@ let g:solarized_termcolors=256
 " let g:solarized_hitrail=0
 " let g:solarized_menu=1"
 
-if has('gui')
+if has('gui_running')
 	if s:running_windows
 		"colorscheme vividchalk
 		colorscheme solarized
