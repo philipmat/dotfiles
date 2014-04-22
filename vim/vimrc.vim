@@ -150,10 +150,22 @@ syntax on
 "	set t_Co=256
 "endif
 set background=dark
+
 let g:molokai_original = 0
-let g:solarized_contrast = "high"
-"colorscheme desert256
-"colorscheme slate2
+ 
+" Solarized
+let g:solarized_contrast='normal'  " high, normal, or low   
+" let g:solarized_termtrans=0
+" let g:solarized_degrade=0
+" let g:solarized_bold=1
+" let g:solarized_underline=1
+" let g:solarized_italic=1
+let g:solarized_termcolors=256
+" let g:solarized_visibility="normal"
+" let g:solarized_diffmode="normal"
+" let g:solarized_hitrail=0
+" let g:solarized_menu=1"
+
 if has('gui')
 	if s:running_windows
 		"colorscheme vividchalk
@@ -551,6 +563,7 @@ let g:ctrlp_custom_ignore = {
     \ 'file': '\v\.(exe|so|dll|pyc)$',
     \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	\ }
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions
