@@ -1,1 +1,5 @@
-gvimrc.vim
+let s:vim1=expand('%:p')
+echo s:vim1
+let s:gvimrc=expand(expand('%:p:h') . '/gvimrc.vim')
+echo ":source  " . s:gvimrc
+exec ":source " . s:gvimrc
