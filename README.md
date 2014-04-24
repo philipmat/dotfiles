@@ -40,5 +40,14 @@ cd .dotfiles/
     .dot
     vimrc
 
+    1. If a folder contains a file called `.dot-something`, the folder
+       will be linked into `$HOME` with a name of `something`:
+
+           ~/.vimfiles -> ~/.dotfiles/vim
+
+           $ ls -1 ~/.dotfiles/vim/
+           .dot-.vimfiles
+           vimrc
+
 4. If a folder contains an `_install.sh` it'll be sourced during the install.
 
