@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
 # current folder should be vim
-echo "Will link $(pwd -P) to $HOME/.vim"
-# ln -s `pwd -P` $HOME/.vim
+source=$(pwd -P)
+linking_me_softly "$source" "$HOME/.vim"
