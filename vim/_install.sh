@@ -2,4 +2,4 @@
 
 # current folder should be vim
 source=$(pwd -P)
-linking_me_softly "$source" "$HOME/.vim"
+# linking_me_softly "$source" "$HOME/.vim"
