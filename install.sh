@@ -13,7 +13,7 @@ for directory in $(ls -d */) ; do
 	fi
 	for dotfile in ${directory}.??* ; do
 		basedot=$(basename $dotfile)
-		[[ $basedot == '.dot' ]] && continue
+		[[ $basedot == '.dot' || $basedot == .dot-* ]] && continue
 		linking_me_softly $dotfile $HOME/$basedot
 	done
 	if [[ -s ${directory}_install.sh ]] ; then
