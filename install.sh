@@ -11,6 +11,7 @@ for directory in $(ls -d */) ; do
 	if [[ -f ${directory}.dot ]] ; then
 		linking_me_softly ${directory%%/} $HOME/.${directory%%/}
 	fi
+	for dotfile 
 	for dotfile in ${directory}.??* ; do
 		basedot=$(basename $dotfile)
 		[[ $basedot == '.dot' || $basedot == .dot-* ]] && continue
