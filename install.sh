@@ -9,7 +9,7 @@ function linking_me_softly() {
 
 for directory in $(ls -d */) ; do
 	if [[ -f ${directory}.dot ]] ; then
-		linking_me_softly $directory $HOME/.${directory}
+		linking_me_softly ${directory%%/} $HOME/.${directory%%/}
 	fi
 	for dotfile in ${directory}.??* ; do
 		basedot=$(basename $dotfile)
