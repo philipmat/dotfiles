@@ -1,0 +1,33 @@
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[user]
+	name = Philip Mateescu
+	email = github@philipmat.net
+[pretty]
+	changes = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+[alias]
+	ctags = !.git/hooks/ctags
+	stat  = !git status -s
+	ca    = !git commit -a -m
+	lo    = !git log --oneline --decorate
+	lg    = log --color --graph --pretty=changes --abbrev-commit
+	lf    = log --color --graph --pretty=changes --abbrev-commit -p
+	ln    = log --color --graph --pretty=changes --abbrev-commit --name-only
+[core]
+	excludesfile = /Users/philip/.gitignore_global
+	editor = /usr/bin/vim
+	quotepath = false
+[init]
+	templatedir = ~/.git_template
+[gui]
+	recentrepo = /Users/philip/Projects/ShortStatus
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/mvimdiff $LOCAL $BASE $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[push]
+	default = simple
