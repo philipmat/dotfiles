@@ -1,0 +1,7 @@
+--exclude=*~
+--exclude=\._*
+--exclude=.git
+--exclude=log
+--exclude=Session.vim
+--exclude=node_modules
+
