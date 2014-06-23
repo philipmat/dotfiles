@@ -9,8 +9,12 @@
 	changes = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [alias]
 	ctags = !.git/hooks/ctags
-	stat  = !git status -s
-	ca    = !git commit -a -m
+	stat  = status -s
+	s     = status -s
+	ca    = commit -a -m
+	co    = checkout
+	cof   = checkout -f
+	fap   = fetch --all --prune
 	lo    = !git log --oneline --decorate
 	lg    = log --color --graph --pretty=changes --abbrev-commit
 	lf    = log --color --graph --pretty=changes --abbrev-commit -p
@@ -21,8 +25,6 @@
 	quotepath = false
 [init]
 	templatedir = ~/.git_template
-[gui]
-	recentrepo = /Users/philip/Projects/ShortStatus
 [difftool "sourcetree"]
 	cmd = /usr/local/bin/mvimdiff $LOCAL $BASE $REMOTE
 	path = 
