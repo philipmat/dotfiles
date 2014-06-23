@@ -110,5 +110,7 @@ endfunction
 set guitablabel=%{GuiTabLabel()}
 
 " Disable the print key which I keep hitting instead of Ctrl-P
-macmenu File.Print key=<nop>
+if has("gui_macvim")
+	macmenu File.Print key=<nop>
+endif
 nmap <D-p> <C-p>
