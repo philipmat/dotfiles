@@ -175,7 +175,11 @@ if has('gui_running')
 		colorscheme solarized
 	endif
 else
-	colorscheme ir_black
+	try
+		colorscheme ir_black
+	catch /^Vim\%((\a\+)\)\=:E185/
+    	" deal with it
+	endtry
 endif
 
 "colorscheme solarized
