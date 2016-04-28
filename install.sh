@@ -27,7 +27,7 @@ function linking_me_softly() {
 	if [ $TEST == true ] ; then
 		return
 	fi
-	real_source=$(get_abs_filename source)
+	real_source=$(get_abs_filename $1)
 	ln -sf $real_source $2
 }
 
