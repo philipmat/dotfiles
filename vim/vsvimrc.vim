@@ -1,20 +1,26 @@
-source c:\Users\pmateescu\_vimrc
+source c:\users\pmateescu\vimfiles\vimrc
 " VsVim picks weird colors for BG that don't work well with dark themes?
 set nocursorline
+" This project likes to use spaces
+set et
 iunmap <Space>
-unmap /
+" unmap /
 unmap <C-Tab>
 unmap <C-S-Tab>
 
-nmap <C-T> :vsc Edit.NavigateTo<CR>
+" nmap <C-T> :vsc Edit.NavigateTo<CR>
 imap <C-j> <CR>
 imap <C-s> <Esc>:w<CR>
 nmap <C-s> :w<CR>
 nmap <C-z> u
 imap <C-z> <Esc>u
 nmap <C-]> :vsc Edit.GoToDefinition<CR>
+nmap gd :vsc Edit.GoToDefinition<CR>
 nmap <C-O> :vsc View.NavigateBackward<CR>
 nmap <C-I> :vsc View.NagivateForward<CR>
+nmap <C-W>q :close<CR>
+nmap <Space> <C-D>
+nmap <S-Space> <C-U>
 
 " when VsVim implements let
 " puts the three-line /// <summary> on a single line
@@ -61,3 +67,6 @@ noremap <C-Q>		<C-V>
 "noremap <C-A> gggH<C-O>G
 noremap <C-A> ggVGl
 
+
+" collapse comments
+let @r="kJJT>dt<i"
