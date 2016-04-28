@@ -293,6 +293,8 @@ if !exists("autocommands_loaded")
 	
 	augroup yaml
 		au FileType yaml setl expandtab shiftwidth=2 softtabstop=2
+		au BufNewFile,BufReadPost *playbook*.yml setl syntax=ansible
+		au BufNewFile,BufReadPost */playbooks/*.yml setl syntax=ansible
 	augroup END
 
 	augroup coffeescript
