@@ -68,7 +68,7 @@ xvimrc.vim = $HOME/xvimrc.vim
 
 Specify only certain operating system.
 ```
-[ALL]
+[AL]
 os = linux,darwin
 ```
 
