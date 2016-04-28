@@ -51,3 +51,7 @@ cd .dotfiles/
 
 4. If a folder contains an `_install.sh` it'll be sourced during the install.
 
+## Update submodules
+
+1. First time: `git submodule update --init --recursive`
+2. Afterward: `git submodule foreach git pull origin master`
