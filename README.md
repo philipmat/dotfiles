@@ -55,16 +55,21 @@ cd .dotfiles/
 
 ## `_install.cfg` configuration
 ```
-[all]
+[ALL]
 root = ~/.vim
 
 [windows]
-os=windows
 root = $USERPROFILE/vimfiles
 vsvimrc.vim = $USERPROFILE/vsvimrc.vim
 
 [darwin]
 xvimrc.vim = $HOME/xvimrc.vim
+```
+
+Specify only certain operating system.
+```
+[ALL]
+os = linux,darwin
 ```
 
 ## Update submodules
