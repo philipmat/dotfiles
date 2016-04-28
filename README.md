@@ -31,7 +31,7 @@ cd .dotfiles/
 
     ~/.bash_alias -> ~/.dotfiles/bash/.bash_alias
 
-3. If a folder contain a file called `.dot`, the folder will be linked
+3. If a folder contain a file called `.dot`, the *whole folder* will be linked
    as such into `$HOME`:
 
     ~/.vim -> ~/.dotfiles/vim
@@ -49,7 +49,23 @@ cd .dotfiles/
            .dot-.vimfiles
            vimrc
 
-4. If a folder contains an `_install.sh` it'll be sourced during the install.
+4. If a folder contains an `_install.cfg` it'll be configured according to its 
+   specifications. 
+   Read below for configuration directives.
+
+## `_install.cfg` configuration
+```
+[all]
+root = ~/.vim
+
+[windows]
+os=windows
+root = $USERPROFILE/vimfiles
+vsvimrc.vim = $USERPROFILE/vsvimrc.vim
+
+[darwin]
+xvimrc.vim = $HOME/xvimrc.vim
+```
 
 ## Update submodules
 
