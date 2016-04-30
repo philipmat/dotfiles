@@ -23,10 +23,12 @@ def get_apps():
     for potential in os.listdir(SOURCE_DIR):
         if not os.path.isdir(potential): continue
         if potential.startswith('.'): continue
-        # TODO: ignore if it has a .exclude file
         yield potential
 
 def install_app(app):
+    """Analyses configuration and creates links."""
+    if os.path.exists(os.path.join(app, '.exclude')): 
+        print("Excluding %s..." % (app, ))
     print("Installing %s..." % (app, ))
     
 def link(source, target):
