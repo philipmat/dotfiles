@@ -35,4 +35,6 @@ function Is-ReparsePoint([string]$path) {
 
 # also
 # https://gist.github.com/jpoehls/2891103
+# new-symlink ps1 script
+# https://gallery.technet.microsoft.com/scriptcenter/New-SymLink-60d2531e
 
