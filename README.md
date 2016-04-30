@@ -31,16 +31,19 @@ cd .dotfiles/
 
     ~/.bash_alias -> ~/.dotfiles/bash/.bash_alias
 
-3. If a folder contain a file called `.dot`, the *whole folder* will be linked
-   as such into `$HOME`:
+3. Folders can contain marker files that affect how the whole folder is treated,
+   rather than the individual files:
+   
+   1. If there is a file called `.dot`, the *whole folder* will be linked
+      as such into `$HOME`:
 
-    ~/.vim -> ~/.dotfiles/vim
+            ~/.vim -> ~/.dotfiles/vim
 
-    $ ls -1 ~/.dotfiles/vim/
-    .dot
-    vimrc
+            $ ls -1 ~/.dotfiles/vim/
+            .dot
+            vimrc
 
-    1. If a folder contains a file called `.dot-something`, the folder
+    2. If a folder contains a file called `.dot-something`, the folder
        will be linked into `$HOME` with a name of `something`:
 
            ~/.vimfiles -> ~/.dotfiles/vim
@@ -48,9 +51,12 @@ cd .dotfiles/
            $ ls -1 ~/.dotfiles/vim/
            .dot-.vimfiles
            vimrc
+    
+    3. Add a `.exclude` file to completely ignore a folder,
+       that is to indicate that folder does not contain settings.
 
 4. If a folder contains an `_install.cfg` it'll be configured according to its 
-   specifications. 
+   specifications.  
    Read below for configuration directives.
 
 ## `_install.cfg` configuration
