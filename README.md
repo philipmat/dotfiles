@@ -13,6 +13,14 @@ cd .dotfiles/
 python install.py
 ```
 
+On a typical Windows setting, you might need to run with elevated
+privileges.
+
+>  The default security settings in Windows Vista/Windows 7 disallow 
+   non-elevated administrators and all non-administrators from creating 
+   symbolic links.
+   https://en.wikipedia.org/wiki/NTFS_symbolic_link
+   
 
 ## Rules for settings file
 
