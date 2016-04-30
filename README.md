@@ -5,24 +5,14 @@ Config files and system bootstrap.
 
 ## How to bootstrap it
 
-### On a *nix computer
+Python is required. This program was tested against v2.7 and v3.5.
 
 ```
 git clone https://github.com/philipmat/dotfiles .dotfiles
 cd .dotfiles/
-source install.sh
+python install.py
 ```
 
-
-### On a Windows computer
-
-Using PowerShell:
-
-```
-git clone https://github.com/philipmat/dotfiles .dotfiles
-cd .dotfiles/
-./install.ps1
-```
 
 ## Rules for settings file
 
@@ -72,7 +62,7 @@ vsvimrc.vim = $USERPROFILE/vsvimrc.vim
 xvimrc.vim = $HOME/xvimrc.vim
 ```
 
-Specify only certain operating system.
+Specify only certain operating system(s).
 ```
 [AL]
 os = linux,darwin
