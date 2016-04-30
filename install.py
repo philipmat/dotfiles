@@ -1,7 +1,9 @@
 #/usr/bin/env python
 import sys, os
-import configparser as cfg
-
+try :
+    import configparser as cfg
+except ImportError:
+    import ConfigParser as cfg
 
 PLATFORM = sys.platform # one of
 # Linux (2.x and 3.x)	'linux2'
@@ -12,12 +14,20 @@ VERBOSE = False
 TEST = False
 UPDATE = False
 
+SOURCE_DIR = os.path.dirname(os.path.abspath(__file__))
+TARGET_DIR = os.path.expanduser("~") 
+
 def get_apps():
     """Returns all 'apps', that is all the directories at the same level as install.py"""
-    pass
+    apps = []
+    for potential in os.listdir(SOURCE_DIR):
+        if not os.path.isdir(potential): continue
+        if potential.startswith('.'): continue
+        # TODO: ignore if it has a .exclude file
+        yield potential
 
 def install_app(app):
-    pass
+    print("Installing %s..." % (app, ))
     
 def link(source, target):
     """Creates a link from source to target.
@@ -25,10 +35,14 @@ def link(source, target):
     Is aware of operating system."""
     if os.name == 'posix':
         # use
-        os.link(source, target)
+        if (VERBOSE) :
+            print("Linking: %s => %s" % (source, target))
+        # os.link(source, target)
     elif PLATFORM == 'win32':
         # use mklink
-        pass
+        mklink_dir_flag = "/d" if os.path.isdir(source) else ""
+        if (VERBOSE) :
+            print("mklink %s %s %s", (mklink_dir_flag, target, source))
 
 
 if __name__ == '__main__':
