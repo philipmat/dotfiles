@@ -1,5 +1,5 @@
 #/usr/bin/env python
-import sys, os, shutil
+import sys, os, shutil, subprocess
 import datetime as dt
 try :
     import configparser as cfg
@@ -43,11 +43,12 @@ def install_app(app):
             the_something = dot_something[5:]
             link(app_path, os.path.join(TARGET_DIR, the_something))
             has_instructions = True
-            
+
     if os.path.exists(os.path.join(app_path, '_install.cfg')):
         if VERBOSE:
             print("Installing according to config file.")
         has_instructions = True
+
     # install all app files into root
     if not has_instructions:
         for f in os.listdir(app_path):
@@ -62,17 +63,22 @@ def link(source, target):
         backup = "%s-%s.bak" % (target, dt.datetime.today().strftime("%Y%m%d%H%M%S"))
         if VERBOSE:
             print("%s already exists. Backing up to %s." % (target, backup))
-        
+        if not TEST:
+            shutil.move(target, backup)
+
     if os.name == 'posix':
         # use
         if VERBOSE :
             print("Linking: %s => %s." % (source, target))
-        # os.link(source, target)
+        if not TEST:
+            os.symlink(source, target)
     elif PLATFORM == 'win32':
         # use mklink
         mklink_dir_flag = "/d" if os.path.isdir(source) else ""
         if VERBOSE :
             print("mklink %s %s %s." % (mklink_dir_flag, target, source))
+        if not TEST:
+            subprocess.call("cmd", "/c", "mklink", mklink_dir_flag, target, source)
 
 
 if __name__ == '__main__':
