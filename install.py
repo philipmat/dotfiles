@@ -46,7 +46,7 @@ def install_app(app):
             
     if os.path.exists(os.path.join(app_path, '_install.cfg')):
         if VERBOSE:
-            print "Installing according to config file."
+            print("Installing according to config file.")
         has_instructions = True
     # install all app files into root
     if not has_instructions:
@@ -72,7 +72,7 @@ def link(source, target):
         # use mklink
         mklink_dir_flag = "/d" if os.path.isdir(source) else ""
         if VERBOSE :
-            print("mklink %s %s %s.", (mklink_dir_flag, target, source))
+            print("mklink %s %s %s." % (mklink_dir_flag, target, source))
 
 
 if __name__ == '__main__':
