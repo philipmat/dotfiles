@@ -1,0 +1,10 @@
+[core]
+	excludesfile = /Users/philip/.gitignore_global
+	editor = /usr/bin/vim
+	quotepath = false
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/mvimdiff $LOCAL $BASE $REMOTE
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
