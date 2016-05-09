@@ -1,0 +1,1 @@
+linking_me_softly .tmux $HOME/.tmux
