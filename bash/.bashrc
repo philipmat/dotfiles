@@ -44,7 +44,7 @@ function dcat() {
 	fi
 }
 
-source dnvm.sh
+[[ -f dnvm.sh ]] && source dnvm.sh
 vscode () {
     if [[ $# = 0 ]]
     then
