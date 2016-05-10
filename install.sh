@@ -79,7 +79,7 @@ for directory in $(ls -d */) ; do
 			linking_me_softly $dir $HOME/$newfile
 		done
 		for dotfile in $dir/.??* ; do
-		# only link in files
+			# only link in files
 			[[ ! -f $dotfile ]] && continue
 			basedot=$(basename $dotfile)
 			[[ $basedot == '.dot' || $basedot == .dot-* ]] && continue
