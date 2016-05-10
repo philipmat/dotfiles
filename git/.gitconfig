@@ -44,6 +44,13 @@
 	default = simple
 [init]
 	templatedir = ~/.git_template
+[pack]
+    windowMemory = 128m
+    threads = 1
+    window = 1
+    depth = 1
+    deltaCacheSize = 1
+    packSizeLimit = 128m
 
 [include]
 	path = .gitconfig-extra
