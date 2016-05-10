@@ -42,7 +42,7 @@ function get_abs_filename() {
 function linking_me_softly() {
 	# $1 = source, $2 = destination
 	real_source="$(get_abs_filename "$1")"
-	echo "linking_me_softly: 1=$1, 2=$2, real=$real_source."
+	# echo "linking_me_softly: 1=$1, 2=$2, real=$real_source."
     if [[ -z $real_source ]] ; then
 		[[ $VERBOSE == true ]] && echo "Cannot find absolute path for $1. File might not exist."
 		return
@@ -57,7 +57,7 @@ function linking_me_softly() {
 	if [ $TEST == true ] ; then
 		return
 	fi
-	ln -sf $real_source $2
+	ln -sfFn $real_source $2
 }
 
 # init the submodules
