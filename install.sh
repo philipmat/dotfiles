@@ -41,6 +41,12 @@ function linking_me_softly() {
 	ln -sf $real_source $2
 }
 
+# init the submodules
+[[ $VERBOSE == true || $TEST == true ]] && echo "Updating git submodules."
+if [[ $TEST == false ]] ; then
+	git submodule update --init
+	git submodule update --recursive --remote
+fi
 
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}
