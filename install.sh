@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 TEST=false
 VERBOSE=false
+OVERRIDE=false
 
 for i in "$@" ; do
 	case $i in
@@ -9,6 +10,9 @@ for i in "$@" ; do
 			;;
 		"-v"|"--verbose")
 			VERBOSE=true
+			;;
+		"-o"|"--override")
+			OVERRIDE=true
 			;;
 		*)
 			;;
@@ -23,11 +27,17 @@ function get_abs_filename() {
 }
 function linking_me_softly() {
 	# $1 = source, $2 = destination
-	[[ $VERBOSE == true || $TEST == true ]] && echo "Link: $1 => $2"
+	real_source=$(get_abs_filename $1)
+	[[ $VERBOSE == true || $TEST == true ]] && echo "Link: $real_source => $2"
+	if [[ -e $2 ]] ; then
+		if [[ $OVERRIDE == false ]] ; then
+			[[ $VERBOSE == true ]] && echo "Skipping: $2 already exists."
+			return
+		fi
+	fi	
 	if [ $TEST == true ] ; then
 		return
 	fi
-	real_source=$(get_abs_filename $1)
 	ln -sf $real_source $2
 }
 
