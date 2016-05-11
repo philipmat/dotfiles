@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 TEST=false
 VERBOSE=false
+OVERRIDE=false
 
 for i in "$@" ; do
 	case $i in
@@ -10,31 +11,65 @@ for i in "$@" ; do
 		"-v"|"--verbose")
 			VERBOSE=true
 			;;
+		"-o"|"--override")
+			OVERRIDE=true
+			;;
 		*)
 			;;
 	esac
 	shift
 done
 function get_abs_filename() {
-  # $1 : relative filename
-  if [ -d "$(dirname "$1")" ]; then
-    echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"
-  fi
+	# generate absolute path from relative path
+	# $1     : relative filename
+	# return : absolute path
+	# >&2 echo "ABS 0=$1"
+	if [ -d "$1" ]; then
+    	# dir
+    	# >&2 echo "ABS 1. $(cd "$1"; pwd)"
+    	echo "$(cd "$1"; pwd)"
+	elif [ -f "$1" ]; then
+    	# file
+    	if [[ $1 == */* ]]; then
+        	# >&2 echo "ABS 2. $(cd "${1%/*}"; pwd)/${1##*/}"
+        	echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+    	else
+        	# >&2 echo "ABS 3. $(pwd)/$1"
+        	echo "$(pwd)/$1"
+    	fi
+	fi
 }
 function linking_me_softly() {
 	# $1 = source, $2 = destination
-	[[ $VERBOSE == true || $TEST == true ]] && echo "Link: $1 => $2"
+	real_source="$(get_abs_filename "$1")"
+	# echo "linking_me_softly: 1=$1, 2=$2, real=$real_source."
+    if [[ -z $real_source ]] ; then
+		[[ $VERBOSE == true ]] && echo "Cannot find absolute path for $1. File might not exist."
+		return
+	fi
+	[[ $VERBOSE == true || $TEST == true ]] && echo "Link: $real_source => $2"
+	if [[ -e $2 ]] ; then
+		if [[ $OVERRIDE == false ]] ; then
+			[[ $VERBOSE == true ]] && echo "Skipping: $2 already exists."
+			return
+		fi
+	fi	
 	if [ $TEST == true ] ; then
 		return
 	fi
-	real_source=$(get_abs_filename $1)
-	ln -sf $real_source $2
+	ln -sfFn $real_source $2
 }
 
+# init the submodules
+[[ $VERBOSE == true || $TEST == true ]] && echo "Updating git submodules."
+if [[ $TEST == false ]] ; then
+	git submodule update --init
+	git submodule update --recursive --remote
+fi
 
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}
-	[[ $VERBOSE == true ]] && echo "Handling $dir:"
+	[[ $VERBOSE == true ]] && echo -e "\nHandling $dir:"
 	if [[ -s $dir/_install.sh ]] ; then
 		cd $directory
 		source _install.sh
@@ -42,8 +77,9 @@ for directory in $(ls -d */) ; do
 		basedot=$(basename $directory)
 		install_func="_dotfiles_install_$basedot"
 		[[ $VERBOSE == true ]] && echo "Installing according to $dir/_install.sh::$install_func."
-		install_to=$(get_abs_filename $dir)
-		[[ $(type -t $install_func) == 'function' ]] && eval $install_func $install_to $HOME
+		install_from="$(pwd)"
+		echo "install_to=$dir=$install_from"
+		[[ $(type -t $install_func) == 'function' ]] && eval $install_func "$install_from" "$HOME"
 		unset install_func
 		cd ..
 	else
@@ -63,6 +99,7 @@ for directory in $(ls -d */) ; do
 			linking_me_softly $dir $HOME/$newfile
 		done
 		for dotfile in $dir/.??* ; do
+			# only link in files
 			[[ ! -f $dotfile ]] && continue
 			basedot=$(basename $dotfile)
 			[[ $basedot == '.dot' || $basedot == .dot-* ]] && continue

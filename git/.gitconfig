@@ -8,22 +8,49 @@
 [pretty]
 	changes = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [alias]
-	ctags = !.git/hooks/ctags
-	stat  = status -s
-	s     = status -s
-	ca    = commit -a -m
-	co    = checkout
-	cof   = checkout -f
-	fap   = fetch --all --prune
-	lo    = !git log --oneline --decorate
-	lg    = log --color --graph --pretty=changes --abbrev-commit
-	lf    = log --color --graph --pretty=changes --abbrev-commit -p
-	ln    = log --color --graph --pretty=changes --abbrev-commit --name-only
-
+    b = branch
+    br = branch -vv
+    ca = commit -a -m
+    chirp = cherry-pick
+    co = checkout
+    cob = checkout -b
+    cof = checkout -f
+    conf = diff --name-only --diff-filter=U
+    ctags = !.git/hooks/ctags
+    conflicts = diff --name-only --diff-filter=U
+    d = pull
+    fap   = fetch --all --prune
+    last = log -1 HEAD
+    lf    = log --color --graph --pretty=changes --abbrev-commit -p
+    lg    = log --color --graph --pretty=changes --abbrev-commit
+    ln    = log --color --graph --pretty=changes --abbrev-commit --name-only
+    lo    = !git log --oneline --decorate
+    ignore-start = update-index --assume-unchanged
+    ignore-stop = update-index --no-assume-unchanged
+    lf = log --color --full-diff -p
+    lg = log --color --graph --decorate --pretty=fuller --abbrev-commit
+    ln = log --color --graph --decorate --pretty=fuller --abbrev-commit --name-only
+    lo = log --oneline --decorate
+    log-file = log --color --full-diff -p
+    p = pull
+    s = status -s
+    safe-merge = merge --no-commit
+    safe-pull = !git stash && git pull && git stash pop
+    stat = status -s
+    submodule-update = submodule update --recursive --remote
+    test-merge = merge --no-commit --no-ff
+    up = push
 [push]
 	default = simple
 [init]
 	templatedir = ~/.git_template
+[pack]
+    windowMemory = 128m
+    threads = 1
+    window = 1
+    depth = 1
+    deltaCacheSize = 1
+    packSizeLimit = 128m
 
 [include]
 	path = .gitconfig-extra
