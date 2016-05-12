@@ -1,0 +1,1 @@
+mklink %USERPROFILE%\_test.ps1 %CD%\Microsoft.PowerShell_profile.ps1

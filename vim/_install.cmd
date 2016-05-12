@@ -1,4 +1,4 @@
 
-mklink /d %HOME%\vimfile ..\vim
-mklink %HOME%\_vsvimrc vsvimrc.vim
+echo mklink /d %USERPROFILE%/vimfile %CD%
+echo mklink %USERPROFILE%/_vsvimrc %CD%\vsvimrc.vim
  
