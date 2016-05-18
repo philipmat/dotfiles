@@ -29,8 +29,25 @@ shift & GOTO LOOP_ARG
 if !VERBOSE!==Y echo Verbose!
 if !TEST!==Y echo Test mode!
 if !OVERRIDE!==Y echo Override!
+GOTO RUN_LOOP
 
+:LINK_FILE
+SETLOCAL
+set _source=%1
+set _dest=%2
+set _dir=%3 :: /d - indicates directory
 
+if exist %_dest% (
+    if !OVERRIDE!==Y (
+        if !VERBOSE!==Y echo %_dest% already exists. Removing to relink.
+        if !TEST!==N rm %_dest%
+    )
+)
+if !VERBOSE!==Y echo mklink %_dir% %_dest% %_source%
+if !TEST!==N mklink %_dir% %_dest% %_source%
+ENDLOCAL & GOTO :EOF
+
+:RUN_LOOP
 for /D %%i in (*) do (
     set _inst=%%i\_install.cmd
     if exist !_inst! (
@@ -40,3 +57,6 @@ for /D %%i in (*) do (
         cd ..
     )
 )
+
+
+:EOF
