@@ -35,7 +35,8 @@ GOTO RUN_LOOP
 SETLOCAL
 set _source=%1
 set _dest=%2
-set _dir=%3 :: /d - indicates directory
+:: 3rd param /d - indicates directory
+set _dir=%3 
 
 if exist %_dest% (
     if !OVERRIDE!==Y (
@@ -47,16 +48,25 @@ if !VERBOSE!==Y echo mklink %_dir% %_dest% %_source%
 if !TEST!==N mklink %_dir% %_dest% %_source%
 ENDLOCAL & GOTO :EOF
 
-:RUN_LOOP
-for /D %%i in (*) do (
-    set _inst=%%i\_install.cmd
-    if exist !_inst! (
-        if !VERBOSE!==Y echo Will execute !_inst!
-        cd %%i
-        call _install.cmd
-        cd ..
-    )
-)
+::: =================================================================
+::: Configure applications here 
+::: =================================================================
 
+:VIM
+call :LINK_FILE "%CD%\vim" "%USERPROFILE%\vimfiles" /d
+call :LINK_FILE "%CD%\vim\vsvimrc.vim" "%USERPROFILE%\_vsvimrc" 
+goto :EOF
+
+:POWERSHELL
+call :LINK_FILE "%CD%\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" 
+goto :EOF
+
+
+::: =================================================================
+::: Enumerate applications here 
+::: =================================================================
+:RUN_LOOP
+call :VIM
+call :POWERSHELL
 
 :EOF
