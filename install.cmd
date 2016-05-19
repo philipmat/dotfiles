@@ -67,6 +67,11 @@ goto :EOF
 call :LINK_FILE "%CD%\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" 
 goto :EOF
 
+:GIT
+call :LINK_FILE "%CD%\git\.gitconfig" "%USERPROFILE%\.gitconfig"
+call :LINK_FILE "%CD%\git\.gitconfig-win" "%USERPROFILE%\.gitconfig-extra"
+call :LINK_FILE "%CD%\git\.gitignore_global" "%USERPROFILE%\.gitignore_global"
+goto :EOF
 
 ::: =================================================================
 ::: Enumerate applications here 
@@ -74,5 +79,6 @@ goto :EOF
 :RUN_LOOP
 call :VIM
 call :POWERSHELL
+call :GIT
 
 :EOF
