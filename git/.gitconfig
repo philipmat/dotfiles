@@ -52,5 +52,5 @@
     deltaCacheSize = 1
     packSizeLimit = 128m
 
-[include]
-	path = .gitconfig-extra
+# [include]
+#	path = .gitconfig-extra
