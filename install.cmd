@@ -9,17 +9,17 @@ set OVERRIDE=N
 
 :LOOP_ARG
 if "%~1"=="" GOTO PROG
-if /i "%~1"=="/v" OR SET VERBOSE=Y
+if /i "%~1"=="/v" SET VERBOSE=Y
 if /i "%~1"=="/verbose" SET VERBOSE=Y
 if /i "%~1"=="--verbose" SET VERBOSE=Y
 if /i "%~1"=="-v" SET VERBOSE=Y
 
-if /i "%~1"=="/t" OR SET TEST=Y
+if /i "%~1"=="/t" SET TEST=Y
 if /i "%~1"=="/test" SET TEST=Y
 if /i "%~1"=="--test" SET TEST=Y
 if /i "%~1"=="-t" SET TEST=Y
 
-if /i "%~1"=="/o" OR SET OVERRIDE=Y
+if /i "%~1"=="/o" SET OVERRIDE=Y
 if /i "%~1"=="/override" SET OVERRIDE=Y
 if /i "%~1"=="--override" SET OVERRIDE=Y
 if /i "%~1"=="-o" SET OVERRIDE=Y
@@ -32,21 +32,27 @@ if !OVERRIDE!==Y echo Override!
 GOTO RUN_LOOP
 
 :LINK_FILE
-SETLOCAL
-set _source=%1
-set _dest=%2
-:: 3rd param /d - indicates directory
-set _dir=%3 
+    SETLOCAL
+    set _source="%~1"
+    set _dest="%~2"
+    :: 3rd param /d - indicates directory
+    set _dir=%3 
 
-if exist %_dest% (
-    if !OVERRIDE!==Y (
-        if !VERBOSE!==Y echo %_dest% already exists. Removing to relink.
-        if !TEST!==N rm %_dest%
+    if exist %_dest% (
+        if !OVERRIDE!==Y (
+            if !VERBOSE!==Y echo %_dest% already exists. Removing to relink.
+            if exist %~2%\* (
+                if !VERBOSE!==Y echo rmdir /s /q %~2%
+                if !TEST!==N rmdir /s /q %~2%
+            ) else (
+                if !VERBOSE!==Y echo del /f /q %_dest%
+                if !TEST!==N del /f /q %_dest%
+            )
+        )
     )
-)
-if !VERBOSE!==Y echo mklink %_dir% %_dest% %_source%
-if !TEST!==N mklink %_dir% %_dest% %_source%
-ENDLOCAL & GOTO :EOF
+    if !VERBOSE!==Y echo mklink %_dir% %_dest% %_source%
+    if !TEST!==N mklink %_dir% %_dest% %_source%
+    ENDLOCAL & GOTO :EOF
 
 ::: =================================================================
 ::: Configure applications here 
