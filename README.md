@@ -10,21 +10,29 @@ Config files and system bootstrap.
 ```
 git clone https://github.com/philipmat/dotfiles .dotfiles
 cd .dotfiles/
-source install.sh
+source install.sh # --verbose --override
 ```
 
 
 ### On a Windows computer
 
-Using PowerShell:
+Using an *elevated* command prompt (because `mklink` requires admin rights):
 
 ```
 git clone https://github.com/philipmat/dotfiles .dotfiles
 cd .dotfiles/
-./install.ps1
+install.cmd /v /overide
 ```
 
-## Rules for settings file
+### Parameters for install script
+- `-v`, `--verbose` - verbose details about the script executions;
+- `-o`, `--override` - override existing files (default is to leave existing files alone);
+- `-t`, `--test` - does not actual perform the commands that change the file system.
+
+To keep with traditional semantics, on Windows `install.cmd` also accepts `/`-parameters, 
+e.g. `/v` or `/override`. 
+
+## Rules for settings file on non-Windows systems
 
 1. Files are grouped in folders.
 2. If a file starts with a dot, it'll be linked as such into `$HOME`:
