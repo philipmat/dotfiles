@@ -3,7 +3,7 @@
 	autocrlf = true
 [credential]
 	helper = !'C:\\Users\\pmateescu\\AppData\\Roaming\\GitCredStore\\git-credential-winstore.exe'
-[mergetool]
+[merge]
 	tool = kdiff3
 [difftool "kdiff3"]
 	path = 'C:/Program Files/KDiff3/kdiff3.exe'
