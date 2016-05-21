@@ -195,6 +195,11 @@ endif
 " Bash syntax
 let g:is_bash=1
 
+" netrw settings
+let g:netrw_preview   = 1  "1 - vertical splitting for preview
+let g:netrw_liststyle = 3  "3 - tree-style
+let g:netrw_winsize   = 30 "30 - %of columns available for listing
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
