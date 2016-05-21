@@ -2,6 +2,9 @@
 TEST=false
 VERBOSE=false
 OVERRIDE=false
+LN_FLAGS=-sfFn
+
+[ $(uname) == 'Linux' ] && LN_FLAGS=-sfn
 
 for i in "$@" ; do
 	case $i in
@@ -19,6 +22,7 @@ for i in "$@" ; do
 	esac
 	shift
 done
+unset i
 get_abs_filename() {
 	# generate absolute path from relative path
 	# $1     : relative filename
@@ -42,80 +46,79 @@ get_abs_filename() {
 
 linking_me_softly() {
 	# $1 = source, $2 = destination
-	real_source="$(get_abs_filename "$1")"
+	local real_source="$(get_abs_filename "$1")"
 	# echo "linking_me_softly: 1=$1, 2=$2, real=$real_source."
     if [ -z $real_source ] ; then
 		[ "$VERBOSE" = "true" ] && echo "Cannot find absolute path for $1. File might not exist."
 		return
 	fi
-	( [ "$VERBOSE"="true" ] || [ "$TEST"="true" ] ) && echo "Link: $real_source => $2"
+	( [ "$VERBOSE" = "true" ] || [ "$TEST" = "true" ] ) && echo "Link: $real_source => $2"
 	if [ -e $2 ] ; then
-		if [ "$OVERRIDE"="false" ] ; then
-			[ "$VERBOSE"="true" ] && echo "Skipping: $2 already exists."
+		if [ "$OVERRIDE" = "false" ] ; then
+			[ "$VERBOSE" = "true" ] && echo "Skipping: $2 already exists."
 			return
 		fi
 	fi	
 	if [ "$TEST" = "true" ] ; then
-		echo "Test only TEST=$TEST"
-		[ "false" = "true" ] && echo "false=true"
-		[ "true" = "true" ] && echo "true=true"
-		[ "$TEST" = "true" ] && echo "TEST=true"
-		[ "$TEST" = "false" ] && echo "TEST=false"
+		echo "Test only"
+		# echo "Test only TEST=$TEST"
+		# [ "false" = "true" ] && echo "false=true"
+		# [ "true" = "true" ] && echo "true=true"
+		# [ "$TEST" = "true" ] && echo "TEST=true"
+		# [ "$TEST" = "false" ] && echo "TEST=false"
 		return
 	fi
-	echo ln -sfFn $real_source $2
+	ln $LN_FLAGS $real_source $2
 }
 
 # init the submodules
-( [ "$VERBOSE"="true" ] || [ "$TEST"="true" ] ) && echo "Updating git submodules."
-if [ "$TEST"="false" ] ; then
+( [ "$VERBOSE" = "true" ] || [ "$TEST" = "true" ] ) && echo "Updating git submodules."
+if [ "$TEST" = "false" ] ; then
 	echo "Updating git"
 	# git submodule update --init
 	# git submodule update --recursive --remote
 fi
 
-echo "OVERRIDE=$OVERRIDE, TEST=$TEST, VERBOSE=$VERBOSE"
+# echo "OVERRIDE=$OVERRIDE, TEST=$TEST, VERBOSE=$VERBOSE"
 
-for directory in $(ls -d */) ; do
-	dir=${directory%%/}
-	[ "$VERBOSE"="true" ] && echo -e "\nHandling $dir:"
-	if [ -s $dir/_install.sh ] ; then
-		echo "_install.sh temporarily unavailable"
-		# cd $directory
-		# source _install.sh
-		# # this should import a _dotfiles_install_$directory function into the space
-		# basedot=$(basename $directory)
-		# install_func="_dotfiles_install_$basedot"
-		# [ "$VERBOSE"="true" ] && echo "Installing according to $dir/_install.sh::$install_func."
-		# install_from="$(pwd)"
-		# echo "install_to=$dir=$install_from"
-		# [ $(type -t $install_func) == 'function' ] && eval $install_func "$install_from" "$HOME"
-		# unset install_func
-		# cd ..
-	else
-		has_dot=false
-		if [ -f $dir/.dot ] ; then
-			has_dot=true
-			[ "$VERBOSE"="true" ] && echo "Has .dot; will link into $HOME"
-			linking_me_softly $dir $HOME/.$dir
-		fi
-		for dotfile in $dir/.dot-* ; do
-			has_dot=true
-			[ ! -f $dotfile ] && continue
-			basedot=$(basename $dotfile)
-			newfile=${basedot##.dot-}
-			dir=$(dirname $dotfile)
-			[ "$VERBOSE"="true" ] && echo "Has $basedot; will link $dir into $HOME/$newfile"
-			linking_me_softly $dir $HOME/$newfile
-		done
-		for dotfile in $dir/.??* ; do
-			# only link in files
-			[ ! -f "$dotfile" ] && echo "$dotfile - not a file" && continue
-			basedot=$(basename $dotfile)
-			( [ "$basedot"='.dot' ] || [ "$basedot"= .dot-* ] ) && echo ".dot - continue" && continue
-			[ "$VERBOSE"="true" ] && echo "$basedot is dot-file; will link into $HOME/$basedot"
-			linking_me_softly $dotfile $HOME/$basedot
-		done
-		
-	fi
+DIRECTS="bash ctags hg python tmux"
+
+for d in $DIRECTS ; do
+	[ "$VERBOSE" = "true" ] && echo "Processing $d"
+
+	for f in $d/.??* ; do
+		linking_me_softly $f $HOME/$(basename $f)
+	done
+	unset f
 done
+unset d DIRECTS
+
+
+###############
+# git
+###############
+[ "$VERBOSE" = "true" ] && echo "Installing git configuration"
+GIT="git-prompt.sh gitconfig gitignore_global git_template"
+for f in $GIT ; do 
+	linking_me_softly "git/.$f" $HOME/.$f
+done
+unset f
+
+[ "$(uname)" == 'Darwin' ] && \
+    linking_me_softly "git/.gitconfig-osx" "$HOME/.gitconfig-extra"
+
+[ "$(uname)" == 'Linux' ] && \
+    linking_me_softly "git/.gitconfig-linux" "$HOME/.gitconfig-extra"
+unset GIT
+
+
+###############
+# VIM
+###############
+[ "$VERBOSE" = "true" ] && echo "Installing vim configuration"
+linking_me_softly "vim" "$HOME/.vim"
+
+[ "$(uname)" == 'Darwin' ] && \
+    linking_me_softly "vim/xvimrc.vim" "$HOME/.xvimrc"
+
+unset LN_FLAGS OVERRIDE TEST VERBOSE
