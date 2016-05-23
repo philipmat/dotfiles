@@ -32,8 +32,8 @@
     ln = log --color --graph --decorate --pretty=fuller --abbrev-commit --name-only
     lo = log --oneline --decorate
     log-file = log --color --full-diff -p
-    p = pull
-    s = status -s
+    p = pull --no-edit
+    s = status -s 
     safe-merge = merge --no-commit
     safe-pull = !git stash && git pull && git stash pop
     stat = status -s
