@@ -71,7 +71,7 @@ fi
 complete -F _python_django_completion -o default $pythons
 
 # git completion
-source ~/git-completion.bash
+[ -f $HOME/git-completion.bash ] && source ~/git-completion.bash
 
 complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
 	|| complete -o default -o nospace -F _git g

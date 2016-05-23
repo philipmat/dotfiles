@@ -81,6 +81,9 @@ fi
 
 # echo "OVERRIDE=$OVERRIDE, TEST=$TEST, VERBOSE=$VERBOSE"
 
+##################################
+# simple directory-content links
+##################################
 DIRECTS="bash ctags hg python tmux"
 
 for d in $DIRECTS ; do
@@ -92,6 +95,14 @@ for d in $DIRECTS ; do
 	unset f
 done
 unset d DIRECTS
+
+
+#####################
+# supplemental bash
+#####################
+URL=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+wget $URL -O $HOME/git-completion.bash
+unset URL
 
 
 ###############
