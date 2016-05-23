@@ -1,4 +1,6 @@
-source c:\users\pmateescu\vimfiles\vimrc
+" source c:\users\pmateescu\vimfiles\vimrc
+source ~/vimfiles/vimrc
+
 " VsVim picks weird colors for BG that don't work well with dark themes?
 set nocursorline
 " This project likes to use spaces
