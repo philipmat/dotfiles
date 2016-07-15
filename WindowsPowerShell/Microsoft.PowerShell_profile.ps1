@@ -56,7 +56,10 @@ Function Reload-Module($ModuleName) {
 Function n() {} # this is to fix the multiple Ns when coming out of git unlink index failed issue
 New-Alias -Name rlo -Value Reload-Module
 
-Enable-GitColors
+if ($gitStatus) {
+	# Enable-GitColors
+	Start-SshAgent -Quiet
+}
 
 Import-Module -ErrorAction:Ignore PowerYaml
 
