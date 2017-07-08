@@ -56,9 +56,10 @@ Function Reload-Module($ModuleName) {
 Function n() {} # this is to fix the multiple Ns when coming out of git unlink index failed issue
 New-Alias -Name rlo -Value Reload-Module
 
+Start-SshAgent -Quiet
+
 if ($gitStatus) {
 	# Enable-GitColors
-	Start-SshAgent -Quiet
 }
 
 Import-Module -ErrorAction:Ignore PowerYaml
@@ -67,10 +68,18 @@ New-Alias d Get-ChildItem
 # New-Alias cat Get-Content
 New-Alias g git
 New-Alias p Invoke-PSake
-
+If (Test-Path Alias:wget) {Remove-Item Alias:wget}
+New-Alias pbcopy clip
 
 # any per-machine settings can be set in a local.ps1 file
 $localps1 = Join-Path $PSScriptRoot 'local.ps1'
 if((Test-Path $localps1)){ 
 	. $localps1
 }
+
+# Chocolatey profile
+$ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
+if (Test-Path($ChocolateyProfile)) {
+  Import-Module "$ChocolateyProfile"
+}
+
