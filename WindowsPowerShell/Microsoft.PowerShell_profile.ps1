@@ -1,5 +1,3 @@
-
-
 # Import-Module "C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\SQLPS\SQLPS.PS1" 
 Import-Module -ErrorAction:Ignore PsGet
 
@@ -59,7 +57,25 @@ New-Alias -Name rlo -Value Reload-Module
 Start-SshAgent -Quiet
 
 if ($gitStatus) {
-	# Enable-GitColors
+    # Enable-GitColors
+    # Set up tab expansion and include psake expansion
+    ############### Start psakeTabExpansion Initialization Code #########################
+    Push-Location (Split-Path -Path $MyInvocation.MyCommand.Definition-Parent)
+    . ./Modules/psake/tabexpansion/PsakeTabExpansion.ps1
+    Pop-Location
+    if ((Test-Path Function:\TabExpansion) -and (-not (Test-Path Function:\DefaultTabExpansion))) {
+        Rename-Item Function:\TabExpansion DefaultTabExpansion
+    }
+    function TabExpansion($line, $lastWord) {
+        $lastBlock = [regex]::Split($line, '[|;]')[-1]
+        switch -regex ($lastBlock) {
+            # Execute psake tab completion for all psake-related commands
+            '(Invoke-psake|psake) (.*)' { PsakeTabExpansion $lastBlock }
+            # Fall back on existing tab expansion
+            default { DefaultTabExpansion $line $lastWord }
+        }
+    }
+    ############### End psakeTabExpansion Initialization Code ###########################
 }
 
 Import-Module -ErrorAction:Ignore PowerYaml
