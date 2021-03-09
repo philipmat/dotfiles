@@ -27,7 +27,9 @@ function global:prompt {
     $realLASTEXITCODE = $LASTEXITCODE
 
     # Reset color, which can be messed up by Enable-GitColors
-    $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
+    if ($GitPromptSettings.DefaultForegroundColor) {
+        $Host.UI.RawUI.ForegroundColor =  $GitPromptSettings.DefaultForegroundColor
+    }
 
 	Write-Host -NoNewline -ForegroundColor Gray "[ "
     Write-Host($pwd.ProviderPath) -nonewline -ForegroundColor White
