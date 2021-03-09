@@ -67,6 +67,18 @@ if [[ $TEST == false ]] ; then
 	git submodule update --recursive --remote
 fi
 
+# file links
+file_links = (bash ctags hg python tmux)
+
+x=<<<OLD
+for d in file_links ; do
+	for f in d/.?? ; do
+		fdot=$(basename $f)
+		linking_me_softly $f $HOME/$f
+	done 
+done 
+OLD
+
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}
 	[[ $VERBOSE == true ]] && echo -e "\nHandling $dir:"
