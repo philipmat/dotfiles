@@ -1,4 +1,9 @@
-# Import-Module "C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\SQLPS\SQLPS.PS1" 
+if ($host.UI.RawUI.WindowTitle -match "Administrator") {
+    $host.UI.RawUI.BackgroundColor = "DarkBlue";
+    $host.UI.RawUI.ForegroundColor = "White"
+}
+
+# Import-Module "C:\Program Files (x86)\Microsoft SQL Server\120\Tools\PowerShell\Modules\SQLPS\SQLPS.PS1"
 Import-Module -ErrorAction:Ignore PsGet
 
 Import-Module -ErrorAction:Ignore PSake
@@ -54,6 +59,38 @@ Function Reload-Module($ModuleName) {
 Function n() {} # this is to fix the multiple Ns when coming out of git unlink index failed issue
 New-Alias -Name rlo -Value Reload-Module
 
+Function Init-File
+{
+    $Usage = "Usage: Init-File [file1 ... fileN]";
+    # if no arguments, display an error
+    if ($args.Count -eq 0) {
+        throw $Usage;
+    }
+    # see if any arguments match -h[elp] or --h[elp] 
+    foreach($file in $args) {
+        if ($file -ilike "-h*" -or $file -ilike "--h*") {
+            echo $Usage;
+            return;
+        }
+    }
+
+    foreach($file in $args) {
+        if(Test-Path $file)
+        {
+            # file exists, update last write time to now
+            (Get-ChildItem $file).LastWriteTime = Get-Date
+        }
+        else
+        {
+            # create new file. 
+            # don't use `echo $null > $file` because it creates an UTF-16 (LE)
+            # and a lot of tools have issues with that
+            echo $null | Out-File -Encoding utf8 $file
+        }
+    }
+}
+New-Alias -Name touch -Value Init-File
+
 Start-SshAgent -Quiet
 
 if ($gitStatus) {
@@ -86,6 +123,9 @@ New-Alias g git
 New-Alias p Invoke-PSake
 If (Test-Path Alias:wget) {Remove-Item Alias:wget}
 New-Alias pbcopy clip
+New-Alias make "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\SDK\ScopeCppSDK\VC\bin\nmake.exe"
+New-Alias python3 python
+Remove-Item alias:curl
 
 # any per-machine settings can be set in a local.ps1 file
 $localps1 = Join-Path $PSScriptRoot 'local.ps1'
