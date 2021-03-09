@@ -1,0 +1,86 @@
+{
+    "git.confirmSync": false,
+    "window.zoomLevel": 0,
+    "editor.mouseWheelZoom": true,
+    "editor.rulers": [
+        80,
+        100
+    ],
+    "window.menuBarVisibility": "toggle",
+
+    // vim settings
+    "macros": {
+        "saveAndExitVimInsertMode": [
+            "workbench.action.files.save",
+            "extension.vim_escape"
+        ]
+    },
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        },
+        {
+            "before": ["<C-e>"],
+            "after": [],
+            "commands": [{
+                "command": "cursorEnd"
+            }]
+        },
+        {
+            "before": ["<C-a>"],
+            "after": [],
+            "commands": [{ "command": "cursorHome"}]
+        },
+    ],
+
+    // "vim.useSystemClipboard": true,
+    "git.enableSmartCommit": true,
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "gitlens.keymap": "alternate",
+    "window.titleBarStyle": "custom",
+    "emmet.triggerExpansionOnTab": true,
+    "vim.easymotion": true,
+    "python.linting.pylintEnabled": false,
+    "git.autofetch": true,
+    "cSpell.userWords": [
+        "reddit"
+    ],
+    "window.restoreWindows": "none",
+    "workbench.activityBar.visible": true,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "vim.gdefault": true,
+    "window.autoDetectColorScheme": true,
+    "workbench.preferredDarkColorTheme": "Dracula",
+    "workbench.colorTheme": "Abyss",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "python.formatting.provider": "black",
+    "python.linting.prospectorEnabled": true,
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
+    "csharpsortusings.sort.usings.splitGroups": false,
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "120"
+    ],
+    "editor.linkedEditing": true,
+    "workbench.sideBar.location": "right",
+    "mssql.connections": [
+        {
+            "connectionString": "Server=(localdb)\\localdev;Integrated Security=True;Initial Catalog=discogs",
+            "profileName": "LocalDev-Discogs",
+            "database": "discogs",
+            "user": "",
+            "server": "(localdb)\\localdev",
+            "authenticationType": "Integrated",
+            "password": ""
+        }
+    ],
+}
