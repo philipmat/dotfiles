@@ -72,3 +72,6 @@ noremap <C-A> ggVGl
 
 " collapse comments
 let @r="kJJT>dt<i"
+
+" VsVim doesn't handle status line quite correct
+set laststatus=0
