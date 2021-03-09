@@ -64,13 +64,22 @@ call :LINK_FILE "%CD%\vim\vsvimrc.vim" "%USERPROFILE%\_vsvimrc"
 goto :EOF
 
 :POWERSHELL
-call :LINK_FILE "%CD%\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" 
+::: old powershell
+call :LINK_FILE "%CD%\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+::: new powershell
+call :LINK_FILE "%CD%\PowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 goto :EOF
 
 :GIT
 call :LINK_FILE "%CD%\git\.gitconfig" "%USERPROFILE%\.gitconfig"
 call :LINK_FILE "%CD%\git\.gitconfig-win" "%USERPROFILE%\.gitconfig-extra"
 call :LINK_FILE "%CD%\git\.gitignore_global" "%USERPROFILE%\.gitignore_global"
+goto :EOF
+
+:VSCODE
+call :LINK_FILE "%CD%\VSCode\keybindings.json" "%APPDATA%\Code\User\keybindings.json"
+call :LINK_FILE "%CD%\VSCode\settings.json" "%APPDATA%\Code\User\settings.json"
+call :LINK_FILE "%CD%\VSCode\snippets" "%APPDATA%\Code\User\snippets"
 goto :EOF
 
 ::: =================================================================
@@ -80,5 +89,6 @@ goto :EOF
 call :VIM
 call :POWERSHELL
 call :GIT
+call :VSCODE
 
 :EOF
