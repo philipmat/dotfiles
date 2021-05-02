@@ -25,6 +25,8 @@ export EDITOR=vim
 export HISTCONTROL=ignoreboth
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Projects
+export JAVA_HOME=$(/usr/libexec/java_home)
+
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
