@@ -37,3 +37,5 @@ e.g. `/v` or `/override`.
 
 1. First time: `git submodule update --init --recursive`
 2. Afterward: `git submodule foreach git pull origin master`
+   or `git submodule update --recursive --remote` (after 1.8.2)
+   or `git pull --recurse-submodules` (after 1.8.5).
