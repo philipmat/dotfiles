@@ -108,8 +108,19 @@ unset URL
 # zsh. First install oh-my-zsh, then link our zshrc
 # This is because oh-my-zsh overrides zshrc anyway
 #####################
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-linking_me_softly zsh/.zshrc $HOME/.zshrc
+[ "$VERBOSE" = "true" ] && echo "Installing zshrc"
+if [ "$(uname)" == 'Darwin' ] ; then
+
+	if [ ! -d "$HOME/.oh-my-zsh" ] ; then
+		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
+		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	else
+		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
+	fi
+
+	[ "$VERBOSE" = "true" ] && echo "Linking .zshrc"
+	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
+fi
 
 ###############
 # git
