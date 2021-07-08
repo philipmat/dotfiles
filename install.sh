@@ -84,7 +84,7 @@ fi
 ##################################
 # simple directory-content links
 ##################################
-DIRECTS="bash ctags hg python tmux zsh"
+DIRECTS="bash ctags hg python tmux"
 
 for d in $DIRECTS ; do
 	[ "$VERBOSE" = "true" ] && echo "Processing $d"
@@ -104,6 +104,12 @@ URL=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-comp
 wget $URL -O $HOME/git-completion.bash
 unset URL
 
+#####################
+# zsh. First install oh-my-zsh, then link our zshrc
+# This is because oh-my-zsh overrides zshrc anyway
+#####################
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+linking_me_softly zsh/.zshrc $HOME/.zshrc
 
 ###############
 # git
