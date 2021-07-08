@@ -84,7 +84,7 @@ fi
 ##################################
 # simple directory-content links
 ##################################
-DIRECTS="bash ctags hg python tmux"
+DIRECTS="bash ctags hg python tmux zsh"
 
 for d in $DIRECTS ; do
 	[ "$VERBOSE" = "true" ] && echo "Processing $d"
