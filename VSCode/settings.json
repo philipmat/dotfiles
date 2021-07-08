@@ -1,86 +1,99 @@
 {
-    "git.confirmSync": false,
-    "window.zoomLevel": 0,
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    "cSpell.userWords": [
+        "reddit"
+    ],
+    "csharpsortusings.sort.usings.splitGroups": false,
+    "debug.toolBarLocation": "docked",
+    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, Monaco, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 11,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
     "editor.mouseWheelZoom": true,
     "editor.rulers": [
         80,
         100
     ],
-    "window.menuBarVisibility": "toggle",
-
-    // vim settings
+    "editor.suggestSelection": "first",
+    "emmet.triggerExpansionOnTab": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    // "vim.useSystemClipboard": true,
+    "git.enableSmartCommit": true,
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.over": "line",
+    "gitlens.keymap": "alternate",
+    "gruvboxMaterial.darkContrast": "soft",
+    "gruvboxMaterial.lightContrast": "soft",
     "macros": {
         "saveAndExitVimInsertMode": [
             "workbench.action.files.save",
             "extension.vim_escape"
         ]
     },
-    "vim.useSystemClipboard": true,
-    "vim.insertModeKeyBindings": [
+    "mssql.connections": [
         {
-            "before": ["j", "j"],
-            "after": ["<Esc>"]
-        },
-        {
-            "before": ["<C-e>"],
-            "after": [],
-            "commands": [{
-                "command": "cursorEnd"
-            }]
-        },
-        {
-            "before": ["<C-a>"],
-            "after": [],
-            "commands": [{ "command": "cursorHome"}]
-        },
+            "authenticationType": "Integrated",
+            "connectionString": "Server=(localdb)\\localdev;Integrated Security=True;Initial Catalog=discogs",
+            "database": "discogs",
+            "password": "",
+            "profileName": "LocalDev-Discogs",
+            "server": "(localdb)\\localdev",
+            "user": ""
+        }
     ],
-
-    // "vim.useSystemClipboard": true,
-    "git.enableSmartCommit": true,
-    "editor.minimap.enabled": false,
-    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true,
-    "gitlens.keymap": "alternate",
-    "window.titleBarStyle": "custom",
-    "emmet.triggerExpansionOnTab": true,
-    "vim.easymotion": true,
-    "python.linting.pylintEnabled": false,
-    "git.autofetch": true,
-    "cSpell.userWords": [
-        "reddit"
-    ],
-    "window.restoreWindows": "none",
-    "workbench.activityBar.visible": true,
-    "gitlens.currentLine.enabled": false,
-    "gitlens.hovers.currentLine.over": "line",
-    "vim.gdefault": true,
-    "window.autoDetectColorScheme": true,
-    "workbench.preferredDarkColorTheme": "Dracula",
-    "workbench.colorTheme": "Abyss",
-    "workbench.preferredLightColorTheme": "Solarized Light",
-    "python.formatting.provider": "black",
-    "python.linting.prospectorEnabled": true,
-    "[python]": {
-        "editor.formatOnSave": true
-    },
-    "python.jediEnabled": false,
-    "python.languageServer": "Pylance",
-    "csharpsortusings.sort.usings.splitGroups": false,
+    "python.defaultInterpreterPath": "/usr/bin/python3",
     "python.formatting.blackArgs": [
         "--line-length",
         "120"
     ],
-    "editor.linkedEditing": true,
-    "workbench.sideBar.location": "right",
-    "mssql.connections": [
+    "python.formatting.provider": "black",
+    "python.jediEnabled": false,
+    "python.languageServer": "Pylance",
+    "python.linting.prospectorEnabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "sqltools.connections": [],
+    "sqltools.highlightQuery": false,
+    "terminal.integrated.rendererType": "dom",
+    "vim.easymotion": true,
+    "vim.gdefault": true,
+    "vim.insertModeKeyBindings": [
         {
-            "connectionString": "Server=(localdb)\\localdev;Integrated Security=True;Initial Catalog=discogs",
-            "profileName": "LocalDev-Discogs",
-            "database": "discogs",
-            "user": "",
-            "server": "(localdb)\\localdev",
-            "authenticationType": "Integrated",
-            "password": ""
+            "after": [ "<Esc>" ],
+            "before": [ "j", "j" ]
+        },
+        {
+            "after": [],
+            "before": [ "<C-e>" ],
+            "commands": [
+                { "command": "cursorEnd" }
+            ]
+        },
+        {
+            "after": [],
+            "before": [ "<C-a>" ],
+            "commands": [
+                { "command": "cursorHome" }
+            ]
         }
     ],
+    "vim.useSystemClipboard": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "window.autoDetectColorScheme": true,
+    "window.menuBarVisibility": "toggle",
+    "window.restoreWindows": "none",
+    "window.titleBarStyle": "custom",
+    "window.zoomLevel": 0,
+    "workbench.activityBar.visible": true,
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.preferredDarkColorTheme": "Solarized Dark",
+    "workbench.preferredLightColorTheme": "Solarized Light",
+    "workbench.sideBar.location": "right"
 }

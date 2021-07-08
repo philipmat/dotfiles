@@ -53,7 +53,7 @@ linking_me_softly() {
 		return
 	fi
 	( [ "$VERBOSE" = "true" ] || [ "$TEST" = "true" ] ) && echo "Link: $real_source => $2"
-	if [ -e $2 ] ; then
+	if [ -e "$2" ] ; then
 		if [ "$OVERRIDE" = "false" ] ; then
 			[ "$VERBOSE" = "true" ] && echo "Skipping: $2 already exists."
 			return
@@ -68,7 +68,8 @@ linking_me_softly() {
 		# [ "$TEST" = "false" ] && echo "TEST=false"
 		return
 	fi
-	ln $LN_FLAGS $real_source $2
+
+	ln $LN_FLAGS $real_source "$2"
 }
 
 # init the submodules
@@ -148,5 +149,16 @@ linking_me_softly "vim" "$HOME/.vim"
 
 [ "$(uname)" == 'Darwin' ] && \
     linking_me_softly "vim/xvimrc.vim" "$HOME/.xvimrc"
+
+
+###############
+# VSCode
+###############
+[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
+if [ "$(uname)" == 'Darwin' ] ; then
+	[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
+    linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+    linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
+fi
 
 unset LN_FLAGS OVERRIDE TEST VERBOSE
