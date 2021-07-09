@@ -159,6 +159,8 @@ if [ "$(uname)" == 'Darwin' ] ; then
 	[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
     linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
     linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
+    linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
+    linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code - Insiders/User/snippets"
 fi
 
 unset LN_FLAGS OVERRIDE TEST VERBOSE

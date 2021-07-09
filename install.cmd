@@ -80,6 +80,9 @@ goto :EOF
 call :LINK_FILE "%CD%\VSCode\keybindings.json" "%APPDATA%\Code\User\keybindings.json"
 call :LINK_FILE "%CD%\VSCode\settings.json" "%APPDATA%\Code\User\settings.json"
 call :LINK_FILE "%CD%\VSCode\snippets" "%APPDATA%\Code\User\snippets"
+call :LINK_FILE "%CD%\VSCode\keybindings.json" "%APPDATA%\Code - Insiders\User\keybindings.json"
+call :LINK_FILE "%CD%\VSCode\settings.json" "%APPDATA%\Code - Insiders\User\settings.json"
+call :LINK_FILE "%CD%\VSCode\snippets" "%APPDATA%\Code - Insiders\User\snippets"
 goto :EOF
 
 ::: =================================================================
