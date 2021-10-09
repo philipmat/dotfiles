@@ -126,3 +126,5 @@ alias dir="ls -al"
 
 # Functions
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
+autoload zmv
+
