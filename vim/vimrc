@@ -176,7 +176,11 @@ if has('gui_running')
 	endif
 else
 	try
-		colorscheme ir_black
+		if has('mac')
+			colorscheme elflord
+		else
+			colorscheme ir_black
+		endif
 	catch /^Vim\%((\a\+)\)\=:E185/
     	" deal with it
 	endtry
