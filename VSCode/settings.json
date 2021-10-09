@@ -45,7 +45,6 @@
             "user": ""
         }
     ],
-    "python.defaultInterpreterPath": "/usr/bin/python3",
     "python.formatting.blackArgs": [
         "--line-length",
         "120"
@@ -89,11 +88,17 @@
     "window.titleBarStyle": "custom",
     "window.zoomLevel": 0,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Quiet Light",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
     "workbench.preferredDarkColorTheme": "Solarized Dark",
     "workbench.preferredLightColorTheme": "Solarized Light",
-    "workbench.sideBar.location": "right"
+    "workbench.sideBar.location": "right",
+    "debug.onTaskErrors": "showErrors",
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+    "editor.bracketPairColorization.enabled": true
 }
