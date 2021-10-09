@@ -210,7 +210,10 @@ endif
 
 let macvim_hig_shift_movement = 1
 
-set diffopt+=iwhite
+if !has('mac')
+	" macOS vim does not support iwhite
+  	set diffopt+=iwhite
+endif
 "if s:running_windows
 	"set diffexpr=MyDiff()
 "endif
