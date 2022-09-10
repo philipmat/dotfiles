@@ -1,0 +1,10 @@
+{
+    "Express.js (req,res)": {
+        "prefix": ["req", "reqres"],
+        "body": [
+            "(req: express.Request, res: express.Response) => {",
+            "res.status(200).send(${1:response});",
+            "}"
+        ]
+    }
+}
