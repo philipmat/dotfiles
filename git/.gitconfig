@@ -20,6 +20,8 @@
     conflicts = diff --name-only --diff-filter=U
     d = pull
     fap   = fetch --all --prune
+    fetch-master = fetch origin master:master
+    fetch-develop = fetch origin develop:develop
     last = log -1 HEAD
     lf    = log --color --graph --pretty=changes --abbrev-commit -p
     lg    = log --color --graph --pretty=changes --abbrev-commit
@@ -43,6 +45,7 @@
 [push]
 	default = simple
 [init]
+    defaultBranch = main
 	templatedir = ~/.git_template
 [pack]
     windowMemory = 128m

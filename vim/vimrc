@@ -550,12 +550,12 @@ let g:use_emmet_complete_tag = 1
 let g:SuperTabDefaultCompletionType = "context"
 
 "if !exists("autocommands_loaded")
-	" putting SuperTab in chaining mode:
-	" https://github.com/ervandew/supertab/issues/52
-	autocmd FileType *
-		\ if &omnifunc != '' |
-		\ 	call SuperTabChain(&omnifunc, "<c-p>") |
-		\ endif
+"~	" putting SuperTab in chaining mode:
+"~	" https://github.com/ervandew/supertab/issues/52
+"~	autocmd FileType *
+"~		\ if &omnifunc != '' |
+"~		\ 	call SuperTabChain(&omnifunc, "<c-p>") |
+"~		\ endif
 "endif
 
 " Jedi-vim
