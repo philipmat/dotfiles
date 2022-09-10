@@ -473,7 +473,7 @@ nnoremap <Leader>n //b<CR>v//e<CR>
 "vnoremap ,n <ESC>/<C-R>//b<CR>ma/<C-R>//e<CR>mb`av`b
 
 " Split windows and move into the next (right) window
-nnoremap <Leader>w <C-w>v<C-w>l
+"nnoremap <Leader>w <C-w>v<C-w>l
 
 " Toggles invisible characters
 nnoremap <Leader>h :set invlist<CR>
@@ -498,7 +498,7 @@ nnoremap <Leader>%<Space> %r<Space>``.
 nnoremap <Leader>z <Esc>:%foldc!
 
 " Shortcut for ls followed by mapping buffer
-nnoremap <Leader><Leader> :ls<CR>:b<Space><Space><BS>
+"nnoremap <Leader><Leader> :ls<CR>:b<Space><Space><BS>
 nnoremap <Leader><Tab> :ls<CR>:sb<Space><Space><BS>
 
 " Remove spaces at the end of line
