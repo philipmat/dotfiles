@@ -61,6 +61,9 @@ GOTO RUN_LOOP
 :VIM
 call :LINK_FILE "%CD%\vim" "%USERPROFILE%\vimfiles" /d
 call :LINK_FILE "%CD%\vim\vsvimrc.vim" "%USERPROFILE%\_vsvimrc" 
+
+:NVIM
+call :LINK_FILE "%CD%\nvim" "%LOCALAPPDATA%\nvim" /d
 goto :EOF
 
 :POWERSHELL
