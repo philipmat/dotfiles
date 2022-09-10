@@ -23,7 +23,7 @@ function global:prompt {
     $Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
 
     Write-Host -NoNewline -ForegroundColor Gray "[ "
-    Write-Host($pwd.ProviderPath) -nonewline -ForegroundColor White
+    Write-Host($pwd.ProviderPath) -nonewline -ForegroundColor White -BackgroundColor DarkGray
     Write-Host -NoNewline -ForegroundColor Gray " ] "
 
     Write-VcsStatus
@@ -97,6 +97,10 @@ New-Alias pbcopy clip
 New-Alias python3 python
 Remove-Item alias:curl -ErrorAction SilentlyContinue
 
+New-Alias ll ls
+New-Alias vim nvim
+New-Alias x ls
+
 # any per-machine settings can be set in a local.ps1 file
 $localps1 = Join-Path $PSScriptRoot 'local.ps1'
 if((Test-Path $localps1)){ 
@@ -109,3 +113,4 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+Invoke-Expression (&starship init powershell)
