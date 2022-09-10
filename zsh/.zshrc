@@ -71,10 +71,18 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-prompt)
+plugins=(fd dotenv copypath git git-prompt history-substring-search python)
 
 # Disable compinit warnings
 ZSH_DISABLE_COMPFIX="true"
+
+# Fuzzy search for history
+# ^r: ab c searches for "*ab*c*"
+HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+setopt HIST_IGNORE_SPACE autocd autopushd histignoredups
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -120,11 +128,24 @@ RPROMPT="%B${return_code}%b"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
+alias vim="nvim"
+alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dir="ls -al"
+alias ll="ls -al"
+alias S="sudo"
+alias py="python3"
+alias x="exa -al"
+alias xt="exa -T"
 
-# Functions
+# Functions for interactive mode
+# For non-interactive mode, place functions in ~/.zshenv
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
+
+# Load local settings
+[[-f ~/.zshrc.local ]] && source ~/.zshrc.local
+
 autoload zmv
 
+# Starship prompt
+eval "$(starship init zsh)"
