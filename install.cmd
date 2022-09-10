@@ -61,6 +61,9 @@ GOTO RUN_LOOP
 :VIM
 call :LINK_FILE "%CD%\vim" "%USERPROFILE%\vimfiles" /d
 call :LINK_FILE "%CD%\vim\vsvimrc.vim" "%USERPROFILE%\_vsvimrc" 
+
+:NVIM
+call :LINK_FILE "%CD%\nvim" "%LOCALAPPDATA%\nvim" /d
 goto :EOF
 
 :POWERSHELL
@@ -80,6 +83,9 @@ goto :EOF
 call :LINK_FILE "%CD%\VSCode\keybindings.json" "%APPDATA%\Code\User\keybindings.json"
 call :LINK_FILE "%CD%\VSCode\settings.json" "%APPDATA%\Code\User\settings.json"
 call :LINK_FILE "%CD%\VSCode\snippets" "%APPDATA%\Code\User\snippets"
+call :LINK_FILE "%CD%\VSCode\keybindings.json" "%APPDATA%\Code - Insiders\User\keybindings.json"
+call :LINK_FILE "%CD%\VSCode\settings.json" "%APPDATA%\Code - Insiders\User\settings.json"
+call :LINK_FILE "%CD%\VSCode\snippets" "%APPDATA%\Code - Insiders\User\snippets"
 goto :EOF
 
 ::: =================================================================
@@ -90,5 +96,6 @@ call :VIM
 call :POWERSHELL
 call :GIT
 call :VSCODE
+call :NVIM
 
 :EOF
