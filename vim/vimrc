@@ -11,12 +11,13 @@ if s:running_windows
 	set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-" PATHOGEN
-filetype off
-silent! call pathogen#infect()
-silent! call pathogen#helptags()
-filetype plugin indent on
+" VIM-PLUG
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin()
+Plug 'easymotion/vim-easymotion'
+call plug#end()
 
+filetype plugin indent on
 
 " Display
 set number			"Show line numbers
