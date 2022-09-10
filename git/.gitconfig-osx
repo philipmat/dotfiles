@@ -8,7 +8,7 @@
     guitool = kdiff3
     algorithm = patience
 [difftool "sourcetree"]
-	cmd = /usr/local/bin/mvimdiff $LOCAL $BASE $REMOTE
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"

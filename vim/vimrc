@@ -176,7 +176,11 @@ if has('gui_running')
 	endif
 else
 	try
-		colorscheme ir_black
+		if has('mac')
+			colorscheme elflord
+		else
+			colorscheme ir_black
+		endif
 	catch /^Vim\%((\a\+)\)\=:E185/
     	" deal with it
 	endtry
@@ -195,6 +199,11 @@ endif
 " Bash syntax
 let g:is_bash=1
 
+" netrw settings
+let g:netrw_preview   = 1  "1 - vertical splitting for preview
+let g:netrw_liststyle = 3  "3 - tree-style
+let g:netrw_winsize   = 30 "30 - %of columns available for listing
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
@@ -205,7 +214,10 @@ endif
 
 let macvim_hig_shift_movement = 1
 
-set diffopt+=iwhite
+if !has('mac')
+	" macOS vim does not support iwhite
+  	set diffopt+=iwhite
+endif
 "if s:running_windows
 	"set diffexpr=MyDiff()
 "endif

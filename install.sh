@@ -1,7 +1,10 @@
-#!/usr/bin/env bash
+#!/bin/sh
 TEST=false
 VERBOSE=false
 OVERRIDE=false
+LN_FLAGS=-sfFn
+
+[ $(uname) == 'Linux' ] && LN_FLAGS=-sfn
 
 for i in "$@" ; do
 	case $i in
@@ -19,7 +22,8 @@ for i in "$@" ; do
 	esac
 	shift
 done
-function get_abs_filename() {
+unset i
+get_abs_filename() {
 	# generate absolute path from relative path
 	# $1     : relative filename
 	# return : absolute path
@@ -30,7 +34,7 @@ function get_abs_filename() {
     	echo "$(cd "$1"; pwd)"
 	elif [ -f "$1" ]; then
     	# file
-    	if [[ $1 == */* ]]; then
+    	if [ "$1" = "*/*" ]; then
         	# >&2 echo "ABS 2. $(cd "${1%/*}"; pwd)/${1##*/}"
         	echo "$(cd "${1%/*}"; pwd)/${1##*/}"
     	else
@@ -39,32 +43,41 @@ function get_abs_filename() {
     	fi
 	fi
 }
-function linking_me_softly() {
+
+linking_me_softly() {
 	# $1 = source, $2 = destination
-	real_source="$(get_abs_filename "$1")"
+	local real_source="$(get_abs_filename "$1")"
 	# echo "linking_me_softly: 1=$1, 2=$2, real=$real_source."
-    if [[ -z $real_source ]] ; then
-		[[ $VERBOSE == true ]] && echo "Cannot find absolute path for $1. File might not exist."
+    if [ -z $real_source ] ; then
+		[ "$VERBOSE" = "true" ] && echo "Cannot find absolute path for $1. File might not exist."
 		return
 	fi
-	[[ $VERBOSE == true || $TEST == true ]] && echo "Link: $real_source => $2"
-	if [[ -e $2 ]] ; then
-		if [[ $OVERRIDE == false ]] ; then
-			[[ $VERBOSE == true ]] && echo "Skipping: $2 already exists."
+	( [ "$VERBOSE" = "true" ] || [ "$TEST" = "true" ] ) && echo "Link: $real_source => $2"
+	if [ -e "$2" ] ; then
+		if [ "$OVERRIDE" = "false" ] ; then
+			[ "$VERBOSE" = "true" ] && echo "Skipping: $2 already exists."
 			return
 		fi
 	fi	
-	if [ $TEST == true ] ; then
+	if [ "$TEST" = "true" ] ; then
+		echo "Test only"
+		# echo "Test only TEST=$TEST"
+		# [ "false" = "true" ] && echo "false=true"
+		# [ "true" = "true" ] && echo "true=true"
+		# [ "$TEST" = "true" ] && echo "TEST=true"
+		# [ "$TEST" = "false" ] && echo "TEST=false"
 		return
 	fi
-	ln -sfFn $real_source $2
+
+	ln $LN_FLAGS $real_source "$2"
 }
 
 # init the submodules
-[[ $VERBOSE == true || $TEST == true ]] && echo "Updating git submodules."
-if [[ $TEST == false ]] ; then
-	git submodule update --init
-	git submodule update --recursive --remote
+( [ "$VERBOSE" = "true" ] || [ "$TEST" = "true" ] ) && echo "Updating git submodules."
+if [ "$TEST" = "false" ] ; then
+	echo "Updating git"
+	# git submodule update --init
+	# git submodule update --recursive --remote
 fi
 
 # file links
@@ -95,29 +108,51 @@ for directory in $(ls -d */) ; do
 		unset install_func
 		cd ..
 	else
-		has_dot=false
-		if [[ -f $dir/.dot ]] ; then
-			has_dot=true
-			[[ $VERBOSE == true ]] && echo "Has .dot; will link into $HOME"
-			linking_me_softly $dir $HOME/.$dir
-		fi
-		for dotfile in $dir/.dot-* ; do
-			has_dot=true
-			[[ ! -f $dotfile ]] && continue
-			basedot=$(basename $dotfile)
-			newfile=${basedot##.dot-}
-			dir=$(dirname $dotfile)
-			[[ $VERBOSE == true ]] && echo "Has $basedot; will link $dir into $HOME/$newfile"
-			linking_me_softly $dir $HOME/$newfile
-		done
-		for dotfile in $dir/.??* ; do
-			# only link in files
-			[[ ! -f $dotfile ]] && continue
-			basedot=$(basename $dotfile)
-			[[ $basedot == '.dot' || $basedot == .dot-* ]] && continue
-			[[ $VERBOSE == true ]] && echo "$basedot is dot-file; will link into $HOME/$basedot"
-			linking_me_softly $dotfile $HOME/$basedot
-		done
-		
+		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
 	fi
+
+	[ "$VERBOSE" = "true" ] && echo "Linking .zshrc"
+	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
+fi
+
+###############
+# git
+###############
+[ "$VERBOSE" = "true" ] && echo "Installing git configuration"
+GIT="git-prompt.sh gitconfig gitignore_global git_template"
+for f in $GIT ; do 
+	linking_me_softly "git/.$f" $HOME/.$f
 done
+unset f
+
+[ "$(uname)" == 'Darwin' ] && \
+    linking_me_softly "git/.gitconfig-osx" "$HOME/.gitconfig-extra"
+
+[ "$(uname)" == 'Linux' ] && \
+    linking_me_softly "git/.gitconfig-linux" "$HOME/.gitconfig-extra"
+unset GIT
+
+
+###############
+# VIM
+###############
+[ "$VERBOSE" = "true" ] && echo "Installing vim configuration"
+linking_me_softly "vim" "$HOME/.vim"
+
+[ "$(uname)" == 'Darwin' ] && \
+    linking_me_softly "vim/xvimrc.vim" "$HOME/.xvimrc"
+
+
+###############
+# VSCode
+###############
+[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
+if [ "$(uname)" == 'Darwin' ] ; then
+	[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
+    linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
+    linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
+    linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
+    linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code - Insiders/User/snippets"
+fi
+
+unset LN_FLAGS OVERRIDE TEST VERBOSE

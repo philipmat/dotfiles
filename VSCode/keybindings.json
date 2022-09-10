@@ -1,0 +1,19 @@
+[
+    {
+        "key": "ctrl+shift+t",
+        "command": "workbench.action.tasks.test"
+    },
+    {
+        "key": "ctrl+k ctrl+,",
+        "command": "editor.emmet.action.expandAbbreviation"
+    },
+{
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion",
+    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+},
+{
+    "key": "ctrl+s",
+    "command": "macros.saveAndExitVimInsertMode"
+ }
+]
