@@ -1,0 +1,12 @@
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
+fi
+END_PATH_COLOR='\e[2m'
+# END_COLOR="$(tput sgr0)"
+END_COLOR='\e[0m'
+REPO_START_COLOR='\e[32m'
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export PS1="[\[$START_PATH_COLOR\] \w \[$END_COLOR\]] $REPO_START_COLOR\$(__git_ps1)$END_COLOR \t \u@\h\n\$\[$END_COLOR\] "
+# export PS1="[ \w ] \t \u@\h\n\$ "
+export PS2='PS2\$ '
