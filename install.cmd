@@ -83,5 +83,6 @@ goto :EOF
 call :VIM
 call :POWERSHELL
 call :GIT
+call :NVIM
 
 :EOF
