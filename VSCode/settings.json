@@ -1,11 +1,7 @@
 {
     "git.confirmSync": false,
-    "window.zoomLevel": 0,
     "editor.mouseWheelZoom": true,
-    "editor.rulers": [
-        80,
-        100
-    ],
+    "editor.rulers": [80, 100],
     "window.menuBarVisibility": "toggle",
 
     // vim settings
@@ -24,21 +20,23 @@
         {
             "before": ["<C-e>"],
             "after": [],
-            "commands": [{
-                "command": "cursorEnd"
-            }]
+            "commands": [
+                {
+                    "command": "cursorEnd"
+                }
+            ]
         },
         {
             "before": ["<C-a>"],
             "after": [],
-            "commands": [{ "command": "cursorHome"}]
-        },
+            "commands": [{ "command": "cursorHome" }]
+        }
     ],
 
     // "vim.useSystemClipboard": true,
     "git.enableSmartCommit": true,
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "'Cascadia Code', 'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontFamily": "'Cascadia Code',  'Victor Mono Medium', 'Fira Code', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "gitlens.keymap": "alternate",
     "window.titleBarStyle": "custom",
@@ -46,9 +44,7 @@
     "vim.easymotion": true,
     "python.linting.pylintEnabled": false,
     "git.autofetch": true,
-    "cSpell.userWords": [
-        "reddit"
-    ],
+    "cSpell.userWords": ["reddit"],
     "window.restoreWindows": "none",
     "workbench.activityBar.visible": true,
     "gitlens.currentLine.enabled": false,
@@ -56,20 +52,16 @@
     "vim.gdefault": true,
     "window.autoDetectColorScheme": true,
     "workbench.preferredDarkColorTheme": "Dracula",
-    "workbench.colorTheme": "Abyss",
+    "workbench.colorTheme": "GitHub Dark High Contrast",
     "workbench.preferredLightColorTheme": "Solarized Light",
     "python.formatting.provider": "black",
     "python.linting.prospectorEnabled": true,
     "[python]": {
         "editor.formatOnSave": true
     },
-    "python.jediEnabled": false,
     "python.languageServer": "Pylance",
     "csharpsortusings.sort.usings.splitGroups": false,
-    "python.formatting.blackArgs": [
-        "--line-length",
-        "120"
-    ],
+    "python.formatting.blackArgs": ["--line-length", "120"],
     "editor.linkedEditing": true,
     "workbench.sideBar.location": "right",
     "mssql.connections": [
@@ -83,4 +75,42 @@
             "password": ""
         }
     ],
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    },
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "debug.toolBarLocation": "docked",
+    "workbench.welcomePage.hiddenCategories": ["Beginner", "Setup"],
+    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7Ym9vdHN0cmFwXCIsXCJjdXN0b21MaWJyYXJpZXNcIjpbXCJMLnNjcmF0Y2hwYWRcIl0sXCJwbHVnaW5zXCI6W10sXCJyZWNlbnRDb2xvcnNcIjpbXCIzMzMzMzNcIl0sXCJmb3JtYXRXaWR0aFwiOlwiMjQwXCIsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4NTAsXCJoZWlnaHRcIjoxMTAwfSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
+    "editor.fontSize": 13,
+    "vim.foldfix": true,
+    "editor.bracketPairColorization.enabled": true,
+    "python.defaultInterpreterPath": "C:\\Python39\\python.exe",
+    "workbench.tree.indent": 16,
+    "terminal.integrated.autoReplies": {
+        "Terminate batch job (Y/N)": "Y\r"
+    },
+    "editor.inlineSuggest.enabled": true,
+    "sqltools.useNodeRuntime": true,
+    "emmet.includeLanguages": {
+        "django-html": "html"
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false,
+        "python": false
+    },
+    "git.mergeEditor": true,
+    "terminal.integrated.shellIntegration.enabled": true,
+    "window.zoomLevel": 1,
+    "editor.stickyScroll.enabled": true
 }
