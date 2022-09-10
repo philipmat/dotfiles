@@ -80,41 +80,33 @@ if [ "$TEST" = "false" ] ; then
 	# git submodule update --recursive --remote
 fi
 
-# echo "OVERRIDE=$OVERRIDE, TEST=$TEST, VERBOSE=$VERBOSE"
+# file links
+file_links = (bash ctags hg python tmux)
 
-##################################
-# simple directory-content links
-##################################
-DIRECTS="bash ctags hg python tmux"
+x=<<<OLD
+for d in file_links ; do
+	for f in d/.?? ; do
+		fdot=$(basename $f)
+		linking_me_softly $f $HOME/$f
+	done 
+done 
+OLD
 
-for d in $DIRECTS ; do
-	[ "$VERBOSE" = "true" ] && echo "Processing $d"
-
-	for f in $d/.??* ; do
-		linking_me_softly $f $HOME/$(basename $f)
-	done
-	unset f
-done
-unset d DIRECTS
-
-
-#####################
-# supplemental bash
-#####################
-URL=https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
-wget $URL -O $HOME/git-completion.bash
-unset URL
-
-#####################
-# zsh. First install oh-my-zsh, then link our zshrc
-# This is because oh-my-zsh overrides zshrc anyway
-#####################
-[ "$VERBOSE" = "true" ] && echo "Installing zshrc"
-if [ "$(uname)" == 'Darwin' ] ; then
-
-	if [ ! -d "$HOME/.oh-my-zsh" ] ; then
-		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
-		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+for directory in $(ls -d */) ; do
+	dir=${directory%%/}
+	[[ $VERBOSE == true ]] && echo -e "\nHandling $dir:"
+	if [[ -s $dir/_install.sh ]] ; then
+		cd $directory
+		source _install.sh
+		# this should import a _dotfiles_install_$directory function into the space
+		basedot=$(basename $directory)
+		install_func="_dotfiles_install_$basedot"
+		[[ $VERBOSE == true ]] && echo "Installing according to $dir/_install.sh::$install_func."
+		install_from="$(pwd)"
+		echo "install_to=$dir=$install_from"
+		[[ $(type -t $install_func) == 'function' ]] && eval $install_func "$install_from" "$HOME"
+		unset install_func
+		cd ..
 	else
 		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
 	fi

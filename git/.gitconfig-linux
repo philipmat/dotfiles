@@ -2,6 +2,7 @@
 	excludesfile = ~/.gitignore_global
 	editor = /usr/bin/vim
 	quotepath = false
+	autocrlf = input
 [diff]
 	tool = vimdiff
 [merge]

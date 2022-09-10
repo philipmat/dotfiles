@@ -4,21 +4,28 @@ Config files and system bootstrap.
 
 ## How to bootstrap it
 
-### On a *nix computer
-
 ```sh
 git clone https://github.com/philipmat/dotfiles .dotfiles
 cd .dotfiles/
-source install.sh # --verbose --override
+```
+
+### On a *nix computer
+
+```sh
+source install.sh
+``` 
+
+or better yet
+
+```sh
+source install.sh --verbose --override 
 ```
 
 ### On a Windows computer
 
 Using an *elevated* command prompt (because `mklink` requires admin rights):
 
-```sh
-git clone https://github.com/philipmat/dotfiles .dotfiles
-cd .dotfiles/
+```cmd
 install.cmd /v /overide
 ```
 
