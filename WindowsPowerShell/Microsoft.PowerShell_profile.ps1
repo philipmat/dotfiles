@@ -8,15 +8,13 @@ Import-Module -ErrorAction:Ignore PsGet
 
 Import-Module -ErrorAction:Ignore PSake
 
-if(!(Test-Path Alias:\psake)){ 
-	New-Alias psake Invoke-PSake 
-}
+if(!(Test-Path Alias:\psake)){ New-Alias psake Invoke-PSake }
 function poop { Invoke-PSake gutcheck }
 
 Import-Module -ErrorAction:Ignore posh-git
 function prompt {
 	Write-Host -NoNewline -ForegroundColor Gray "[ "
-	Write-Host -NoNewline -ForegroundColor White "$pwd"
+	Write-Host -NoNewline -ForegroundColor White -BackgroundColor DarkGray "$pwd"
 	Write-Host -ForegroundColor Gray " ]  $(Get-Date -Format 'r')"
 	return "> "
 }
@@ -32,7 +30,7 @@ function global:prompt {
     }
 
 	Write-Host -NoNewline -ForegroundColor Gray "[ "
-    Write-Host($pwd.ProviderPath) -nonewline -ForegroundColor White
+    Write-Host($pwd.ProviderPath) -nonewline -ForegroundColor White -BackgroundColor DarkGray
 	Write-Host -NoNewline -ForegroundColor Gray " ] "
 
     Write-VcsStatus
@@ -140,4 +138,6 @@ $ChocolateyProfile = "$env:ChocolateyInstall\helpers\chocolateyProfile.psm1"
 if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
+
+Invoke-Expression (&starship init powershell)
 
