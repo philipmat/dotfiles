@@ -12,13 +12,13 @@ cd .dotfiles/
 ### On a *nix computer
 
 ```sh
-source install.sh
+bash install.sh
 ```
 
 or better yet
 
 ```sh
-source install.sh --verbose --override 
+bash install.sh --verbose --override 
 ```
 
 ### On a Windows computer

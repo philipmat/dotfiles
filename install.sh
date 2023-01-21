@@ -4,7 +4,7 @@ VERBOSE=false
 OVERRIDE=false
 LN_FLAGS=-sfFn
 
-[ $(uname) == 'Linux' ] && LN_FLAGS=-sfn
+[ "$(uname)" == 'Linux' ] && LN_FLAGS=-sfn
 
 for i in "$@" ; do
 	case $i in
@@ -81,7 +81,7 @@ if [ "$TEST" = "false" ] ; then
 fi
 
 # file links
-file_links = (bash ctags hg python tmux)
+file_links=(bash ctags hg python tmux)
 
 x=<<<OLD
 for d in file_links ; do
