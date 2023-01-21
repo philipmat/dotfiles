@@ -142,6 +142,11 @@ alias S="sudo"
 alias py="python3"
 alias x="exa -al"
 alias xt="exa -T"
+alias S='sudo'
+alias df='df -h'
+alias l='less'
+alias tmuxa='tmux -s -a'
+alias g='git'
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
