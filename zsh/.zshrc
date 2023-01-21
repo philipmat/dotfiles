@@ -123,6 +123,10 @@ PROMPT="%F{8}╭─[%f ${current_dir}%F{8}]%f ${git_branch}${venv_prompt} %* ${u
 %F{8}╰─%f%B${user_symbol}%b "
 RPROMPT="%B${return_code}%b"
 
+
+# git completion
+[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
