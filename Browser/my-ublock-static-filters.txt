@@ -1,0 +1,286 @@
+! 7/9/2017, 12:51:36 PM https://www.cnet.com/how-to/how-to-enable-or-disable-hibernate-in-windows-10/
+www.cnet.com###featuredVideo
+
+! 7/9/2017, 12:52:36 PM https://www.cnet.com/news/the-brutal-reality-of-online-hate/
+www.cnet.com###uvpJs_1
+
+! 7/9/2017, 12:52:52 PM https://www.cnet.com/news/the-brutal-reality-of-online-hate/
+www.cnet.com##.playbackStarted.isPlaying.compact.pausedAtStartup.playerLoaded.ui-draggable.popOut.videoContainer
+
+! 7/9/2017, 12:58:58 PM https://www.cnet.com/how-to/how-to-enable-or-disable-hibernate-in-windows-10/
+www.cnet.com###featuredVideo
+
+! 7/9/2017, 1:01:15 PM http://winaero.com/blog/add-hibernate-to-the-start-menu-in-windows-10/
+winaero.com###ffacebook
+
+! 7/22/2017, 12:43:21 PM http://smallbusiness.chron.com/check-availability-business-names-1384.html
+||embed.sendtonews.com$subdocument
+
+! 2/3/2018, 10:53:39 AM https://www.simplyrecipes.com/recipes/tomato_and_bread_soup_pappa_al_pomodoro/
+www.simplyrecipes.com##.widget.fexy-video-widget
+
+! 2/7/2018, 1:40:26 PM https://docs.google.com/document/d/1xOfnj_JaCaMTpIm5i8xczseTtvBJ0tY5o_ldfXbY9p4/edit
+docs.google.com##.docs-ui-unprintable.docs-border-selection-button-normal.goog-inline-block
+
+! 3/14/2018, 2:42:59 PM https://www.amazon.com/
+www.amazon.com##.amzlv-banner-player-container
+
+qnylrfckbp.com
+
+! 3/17/2018, 10:43:18 AM https://www.dreamalittlebigger.com/post/glue-guide-use-the-right-glue-for-the-job.html
+www.dreamalittlebigger.com##.nc_socialPanel
+
+! JW player - always horrible
+jwplatform.com
+jwpcdn.com
+
+! ads
+akamaized.net
+sdk.vmh.univision.com
+
+! 4/2/2018, 1:36:05 PM http://fortune.com/2018/03/31/facebook-employees-are-reportedly-deleting-controversial-internal-messages/
+fortune.com###jumpstart_video_1_html5_api
+
+! 4/2/2018, 1:36:16 PM http://fortune.com/2018/03/31/facebook-employees-are-reportedly-deleting-controversial-internal-messages/
+fortune.com##.lead-media.video.component
+cdn.video.timeinc.com
+
+! 4/11/2018, 6:56:11 PM https://www.imdb.com/title/tt0123816/
+www.imdb.com###main_bottom  .ab_widget
+
+! 4/18/2018, 8:00:33 AM https://www.wish.com/c/5974abea83ecd127d60c922d
+www.wish.com###login-modal-overlay
+
+! 4/18/2018, 8:00:47 AM https://www.wish.com/c/5974abea83ecd127d60c922d
+www.wish.com###new-login-modal
+
+! 4/18/2018, 8:02:05 AM https://www.wish.com/c/5974abea83ecd127d60c922d
+www.wish.com###simplemodal-container
+
+! 5/10/2018, 12:47:39 PM https://www.macworld.com/article/2685356/bugs-and-fixes-dymo-labelwriter-s-living-death.html
+www.macworld.com###video-howto-wrapper
+
+! 5/10/2018, 12:48:50 PM http://www.fixya.com/support/t298865-dymo_400_turbo_shows_offlline
+www.fixya.com##.secondary-300
+
+www.cnet.com##.videoPlayer
+sdad.guru
+
+! 10/22/2018, 9:33:28 AM https://www.chron.com/news/houston-texas/houston/article/Harris-County-judges-responsible-for-1-in-five-13322222.php
+www.chron.com##.jw-reset.jw-video
+g00.chron.com
+
+! 10/24/2018, 9:31:09 AM https://medium.com/s/powertrip/i-know-the-salaries-of-thousands-of-tech-employees-4841bc26d753
+medium.com##.metabar
+
+! 1/31/2019 https://www.digitaltrends.com
+www.digitaltrends.com###vjs_video_1_html5_api
+staticxx.facebook.com/connect/xd_arbiter
+players.brightcove.net
+
+! 2/8/2019 http://www.fountainpennetwork.com
+www.fountainpennetwork.com##.signature
+www.fountainpennetwork.com##.user_details
+
+! 3/1/2019 https://developercommunity.visualstudio.com
+developercommunity.visualstudio.com###headerRegion
+
+! 2022-09-11 https://www.goodreads.com
+www.goodreads.com##.modal--centered.modal--overlay.modal
+
+! 2022-12-16 https://www.msn.com
+www.msn.com##.article-video-slot
+
+! 2/6/2020, 8:44:58 PM https://www.msn.com/en-us/money/taxes/what-for-w-4-why-you-should-care-about-the-new-tax-form/ar-BBZGBPt
+www.msn.com###aside
+
+! 2/6/2020, 8:45:18 PM https://www.msn.com/en-us/money/taxes/what-for-w-4-why-you-should-care-about-the-new-tax-form/ar-BBZGBPt
+www.msn.com##.floatleft.emsinline.section-layout.ec-module
+
+! 2/6/2020, 8:46:24 PM https://www.msn.com/en-us/money/taxes/what-for-w-4-why-you-should-care-about-the-new-tax-form/ar-BBZGBPt
+www.msn.com##.contentActionsToolbar_vertical-1.contentActionsToolbar-1
+
+! 2020-08-20 https://www.cnet.com
+www.cnet.com##.uvpjs__btn-large-play--hidden.uvpjs__btn-large-play
+www.cnet.com##.dock.popOnScroll
+
+! 2020-08-20 https://www.laptopmag.com
+www.laptopmag.com##.jw-carousel
+
+! 2020-08-20 https://www.techradar.com
+www.techradar.com##.jw-carousel
+
+! JW player
+||content.jwplatform.com^$domain=variety.com
+||jwplayer.com
+||jwpcdn.com
+||jwplatform.com
+||jwpltx.com
+||jwpsrv.com
+
+! 2020-11-19 https://www.ehow.com
+www.ehow.com##.jw-reset.jw-video
+
+! 2020-12-11 https://whereisxur.com
+||embed.twitch.tv/?channel=xurwatch&height=450&migration=true&parent=whereisxur.com&referrer=https%3A%2F%2Fwhereisxur.com%2F&width=1000$subdocument
+
+! 2021-01-06 https://www.forbes.com
+www.forbes.com###brightcove_perform_0_html5_api
+www.forbes.com##.right-rail
+
+##msft-content-card[data-t~=NativeAd]
+
+! 2021-04-16 https://whereisxur.com
+||embed.twitch.tv/$subdocument
+
+! 2021-05-04 https://www.theglforum.com
+www.theglforum.com##li.js-poll__parent.js-slideshow__gallery-node.h-clear.h-left.js-conversation-reply.b-post--text.h-restore--on-preview.js-comment-entry__parent.js-post.b-post > .l-row__fixed--left.l-row > .l-column-desktop.h-restore--on-preview.l-col__small--full.l-col--post__body.l-col__flex-3.js-post__content-wrapper > .h-clearfix.h-padding-bottom-m.h-padding-top-xl.h-padding-horiz-xxl.h-restore--on-preview.b-post__body > .js-post__content.b-post__content > .b-post__hide-when-deleted > .restore.post-signature
+www.theglforum.com##li.js-poll__parent.js-slideshow__gallery-node.h-clear.h-left.js-conversation-reply.b-post--text.h-restore--on-preview.js-comment-entry__parent.js-post.b-post > .l-row__fixed--left.l-row > .l-column-small.l-column-xsmall.h-padding-right-l.h-hide--on-preview.l-col__small--full.l-col--userinfo.l-col__fixed-3 > .b-post__hide-when-deleted.js-comp-menu--dropdown-on-small.js-comp-menu-horizontal.js-sharing-menu.b-sharing-menu
+www.theglforum.com##.js-poll__parent.js-slideshow__gallery-node.h-clear.h-left.js-conversation-starter.b-post--first.b-post--text.h-restore--on-preview.js-comment-entry__parent.js-post.b-post > .l-row__fixed--left.l-row > .l-column-small.l-column-xsmall.h-padding-right-l.h-hide--on-preview.l-col__small--full.l-col--userinfo.l-col__fixed-3 > .b-post__hide-when-deleted.js-comp-menu--dropdown-on-small.js-comp-menu-horizontal.js-sharing-menu.b-sharing-menu
+
+! 2021-05-12 https://www.goodreads.com
+www.goodreads.com##.modal--centered.modal--overlay.modal
+
+! 2021-08-26 https://www.ninjette.org
+www.ninjette.org##[id^="td_post_"] > .smallfont
+
+! 2021-08-28 https://www.techwalla.com
+www.techwalla.com##.component-article-jwplayer-wrapper
+
+! 2021-09-25 https://www.nytimes.com
+www.nytimes.com###modal-portal-regiwall
+www.nytimes.com##body:style(overflow: auto !important)
+
+! 2021-09-28 https://www.ebay.com
+www.ebay.com##.yolo-show
+
+! 2022-02-02 https://www.google.com
+www.google.com##[src="https://ogs.google.com/widget/callout?prid=19018054&pgid=19008535&puid=a87840e5a60f1228&cce=1&dc=1&origin=https%3A%2F%2Fwww.google.com&cn=callout&pid=1&spid=113&hl=en"]
+
+! 2022-02-13 https://www.toptal.com
+www.toptal.com##.blog_post-sidebar
+
+! 2022-02-17 https://www.geeksforgeeks.org
+www.geeksforgeeks.org##.modal-container
+
+! 2022-02-24 https://www.upgrad.com
+www.upgrad.com##.mpp-overlay-bg
+www.upgrad.com##.mpp-content
+www.upgrad.com##.mpp-wrap
+
+! 2022-03-02 https://stackify.com
+stackify.com##.elementor-popup-modal.dialog-type-lightbox.dialog-type-buttons.dialog-lightbox-widget.dialog-widget
+
+! 2022-03-20 https://www.cnet.com
+www.cnet.com###video_videoPlayer1
+www.cnet.com##.entered.dock.inviewElement
+
+
+! 2022-03-21 https://www.unitedcapitalsource.com
+www.unitedcapitalsource.com##.has-click-through.js-gfs-widget.cleanslate.gfs-popup-052018
+www.unitedcapitalsource.com##.openbar.bottom-banner-bar
+
+! 2022-03-21 https://www.samsung.com
+www.samsung.com###iframe-notification-a1f2322b-32d6-4b98-9708-a53992dd5ce0
+
+! 2022-03-22 https://www.rei.com
+www.rei.com##.cdr-modal_11-1-0
+
+! 2022-03-24 https://bicyclewarehouse.com
+bicyclewarehouse.com###smsbump-form-45469
+
+! 2022-03-24 https://www.bikeexchange.com
+www.bikeexchange.com##body > div > .kl-private-reset-css-Xuajs1.needsclick
+
+! 2022-03-24 https://www.williams-sonoma.com
+www.williams-sonoma.com##.overlayScroll
+www.williams-sonoma.com##.overlay-mask.overlayMask
+
+! 2022-03-29 https://www.dappuniversity.com
+www.dappuniversity.com##.show.fade.modal
+www.dappuniversity.com##.show.fade.modal-backdrop
+
+! 2022-04-26 https://softwarekeep.com
+softwarekeep.com##div > .kl-private-reset-css-Xuajs1.needsclick
+
+! 2022-04-26 https://download.cnet.com
+download.cnet.com##.c-avStickyVideo
+
+! 2022-06-23 https://vanness1938.com
+vanness1938.com##.remodal-is-opened.remodal-wrapper
+vanness1938.com##.pushowl-optin
+vanness1938.com##.ssw-reward-box-quest-wrapper
+vanness1938.com##.remodal-is-opened.remodal-overlay
+vanness1938.com##body:style(overflow: auto !important)
+
+! 2022-06-30 https://www.nerdwallet.com
+www.nerdwallet.com##.__reakit-portal
+
+! 2022-08-22 https://www.yahoo.com
+www.yahoo.com##.vp-docked-mode.player
+
+! 2022-08-27 https://en.wikipedia.org
+en.wikipedia.org##.cn-fundraising
+
+daringfireball.net##body:style(font-size: 16px !important)
+
+ext.ascendion.com##+js(remove-attr, class, body.pace-running)
+ext.ascendion.com##+js(remove-attr, class, body.pace-done)
+
+! 2022-12-12 https://intellipaat.com
+intellipaat.com##.ip-blog-show-vids-popup.ip-vk-blog-iframe
+
+! 2023-01-06 https://stackoverflow.com
+stackoverflow.com##.js-consent-banner
+
+! 2022-04-20 https://thesweetsetup.com
+thesweetsetup.com##.rm-lightbox
+thesweetsetup.com##.rm-is-offer.rm-plain.rm-modal
+
+! 2022-04-22 https://www.geeksforgeeks.org
+www.geeksforgeeks.org##.modal-container
+
+! 2022-04-22 https://www.overstock.com
+www.overstock.com##.cl-dialog-body-modal.cl-dialog-body
+www.overstock.com##.cl-dialog-backdrop
+
+! 2022-03-20 https://www.overstock.com
+www.overstock.com###page_triggers
+
+! 2022-05-23 https://www.nme.com
+www.nme.com##.jw-reset.jw-wrapper
+
+! 2022-07-10 https://starwars.fandom.com
+starwars.fandom.com###WikiaBar
+
+! 2022-07-10 https://www.cheatsheet.com
+www.cheatsheet.com##.sticky-ad
+
+! 2022-07-11 https://www.polygon.com
+www.polygon.com##.c-toaster-stuck.c-toaster-active.c-toaster
+
+||f.convertkit.com/ckjs/ck.5.js
+
+! 2022-07-13 https://en.wikipedia.org
+en.wikipedia.org###siteNotice
+en.wikipedia.org##.frb-country-US.frb-rml-enabled.frb
+en.wikipedia.org##.cn-fundraising
+
+! 2022-08-19 https://www.nerdwallet.com
+www.nerdwallet.com##.nw-auth-stepper
+
+! 2022-10-04 https://www.nerdwallet.com
+www.nerdwallet.com###reg-modal-desktop
+
+! 2022-10-18 https://www.youtube.com
+www.youtube.com##tp-yt-paper-dialog.ytd-popup-container.style-scope
+
+daringfireball.net##body:style(font-size: 16px !important)
+wallmine.com##+js(cookie-remover)
+
+! 2022-12-21 https://unix.stackexchange.com
+unix.stackexchange.com##.js-consent-banner
+
+! 2022-12-22 https://bikez.com
+bikez.com##.css-1b9xz1q.qc-cmp-cleanslate
+
