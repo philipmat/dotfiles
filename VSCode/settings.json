@@ -83,7 +83,6 @@
     "python.testing.pytestEnabled": true,
     "sqltools.connections": [],
     "sqltools.highlightQuery": false,
-    "sqltools.useNodeRuntime": true,
     "terminal.integrated.autoReplies": {
         "Terminate batch job (Y/N)": "Y\r"
     },
