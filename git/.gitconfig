@@ -34,6 +34,8 @@
     ln = log --color --graph --decorate --pretty=fuller --abbrev-commit --name-only
     lo = log --oneline --decorate
     log-file = log --color --full-diff -p
+    merge-master = !git fetch origin master:master && git merge master
+    merge-develop = !git fetch origin develop:develop && git merge develop
     p = pull --no-edit
     s = status -s 
     safe-merge = merge --no-commit
@@ -44,6 +46,7 @@
     up = push
 [push]
 	default = simple
+    autoSetupRemote = true
 [init]
     defaultBranch = main
 	templatedir = ~/.git_template
