@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 TEST=false
 VERBOSE=false
 OVERRIDE=false
