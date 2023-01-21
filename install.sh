@@ -83,15 +83,6 @@ fi
 # file links
 file_links=(bash ctags hg python tmux)
 
-x=<<<OLD
-for d in file_links ; do
-	for f in d/.?? ; do
-		fdot=$(basename $f)
-		linking_me_softly $f $HOME/$f
-	done 
-done 
-OLD
-
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}
 	[[ $VERBOSE == true ]] && echo -e "\nHandling $dir:"
@@ -107,6 +98,27 @@ for directory in $(ls -d */) ; do
 		[[ $(type -t $install_func) == 'function' ]] && eval $install_func "$install_from" "$HOME"
 		unset install_func
 		cd ..
+	fi
+done
+
+#####################
+# supplemental bash
+#####################
+URL=https://raw.githubusercontent.com/git/git/master/contrib/completion
+wget "$URL/git-completion.bash" -O $HOME/git-completion.bash
+wget "$URL/git-completion.zsh" -O $HOME/git-completion.zsh
+unset URL
+
+#####################
+# zsh. First install oh-my-zsh, then link our zshrc
+# This is because oh-my-zsh overrides zshrc anyway
+#####################
+[ "$VERBOSE" = "true" ] && echo "Installing zshrc"
+if [ "$(uname)" == 'Darwin' ] ; then
+
+	if [ ! -d "$HOME/.oh-my-zsh" ] ; then
+		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
+		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	else
 		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
 	fi
@@ -114,6 +126,7 @@ for directory in $(ls -d */) ; do
 	[ "$VERBOSE" = "true" ] && echo "Linking .zshrc"
 	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
 fi
+
 
 ###############
 # git
