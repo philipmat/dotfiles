@@ -153,7 +153,7 @@ alias g='git'
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 
 # Load local settings
-[[-f ~/.zshrc.local ]] && source ~/.zshrc.local
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 autoload zmv
 
