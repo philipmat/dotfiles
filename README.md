@@ -75,10 +75,14 @@ brew install \
   pyenv \
   ripgrep sqlite \
   starship tmux watch \
-  font-caskaydia-cove-nerd-font \
-  font-fira-mono-nerd-font \
-  font-victor-mono-nerd-font \
   glance kdiff3 rectangle
+```
+
+```sh
+brew install --cask \
+  homebrew/cask-fonts/font-caskaydia-cove-nerd-font \
+  homebrew/cask-fonts/font-fira-mono-nerd-font \
+  homebrew/cask-fonts/font-victor-mono-nerd-font
 ```
 
 Optional: nushell, xonsh
