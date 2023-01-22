@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -94,6 +97,9 @@ export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
 export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # User configuration
+# Use fzf for Ctrl-R
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -166,3 +172,6 @@ autoload zmv
 
 # Starship prompt
 eval "$(starship init zsh)"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

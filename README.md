@@ -71,12 +71,15 @@ cat VSCode/extensions.txt | xargs -L 1 code --install-extension
 ```sh
 brew install \
   bat curlie difftastic exa \
-  fd fzf jq neovim \
+  fd fzf fig jq neovim \
   pyenv \
   ripgrep sqlite \
   starship tmux watch \
-  glance kdiff3 rectangle
+  glance kdiff3 rectangle \
+  xz
 ```
+
+Nerd Fonts required for *starship*:
 
 ```sh
 brew install --cask \
@@ -84,6 +87,12 @@ brew install --cask \
   homebrew/cask-fonts/font-fira-mono-nerd-font \
   homebrew/cask-fonts/font-victor-mono-nerd-font
 ```
+
+Other installation steps:
+
+- setup `fzf`: `$(brew --prefix)/opt/fzf/install`
+- Install python: `pyenv install 3.10.9`
+
 
 Optional: nushell, xonsh
 
