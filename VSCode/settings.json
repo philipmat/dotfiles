@@ -127,6 +127,7 @@
     "vim.useSystemClipboard": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.autoDetectColorScheme": true,
+    "window.commandCenter": true,
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
     "window.titleBarStyle": "custom",
@@ -143,5 +144,8 @@
     "workbench.welcomePage.hiddenCategories": [
         "Beginner",
         "Setup"
-    ]
+    ],
+    "terminal.integrated.env.osx": {
+        "FIG_NEW_SESSION": "1"
+    }
 }
