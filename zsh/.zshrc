@@ -86,6 +86,13 @@ setopt HIST_IGNORE_SPACE autocd autopushd histignoredups
 
 source $ZSH/oh-my-zsh.sh
 
+# requires to build some python version
+# brew install xz
+export CFLAGS="-I$(brew --prefix xz)/include $CFLAGS"
+export CPPFLAGS="-I$(brew --prefix xz)/include $CPPFLAGS"
+export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
+export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
