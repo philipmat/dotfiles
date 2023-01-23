@@ -159,7 +159,7 @@ alias xd="exa -al -d .*"
 alias S='sudo'
 alias df='df -h'
 alias l='less'
-alias tmuxa='tmux -s -a'
+alias tmuxa='tmux new -A -s'
 alias g='git'
 
 # Functions for interactive mode
