@@ -147,5 +147,11 @@
     ],
     "terminal.integrated.env.osx": {
         "FIG_NEW_SESSION": "1"
+    },
+    "editor.accessibilitySupport": "off",
+    "files.association": {
+        "*.vim": "vimrc",
+        "vimrc": "vimrc",
+        "gvimrc": "vimrc"
     }
 }
