@@ -127,6 +127,10 @@ if [ "$(uname)" == 'Darwin' ] ; then
 	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
 fi
 
+[ "$VERBOSE" = "true" ] && echo "Installing zshrc"
+if [ "$(uname)" == 'Darwin' ] ; then
+	linking_me_softly "config-extras/starship.toml" "$HOME/.config/starship.toml"
+
 
 ###############
 # git

@@ -71,6 +71,8 @@ goto :EOF
 call :LINK_FILE "%CD%\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
 ::: new powershell
 call :LINK_FILE "%CD%\PowerShell\Microsoft.PowerShell_profile.ps1" "%USERPROFILE%\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
+::: starship (should have installed nerd fonts, too)
+call :LINK_FILE "%CD%\config-extra\starship.toml" "%USERPROFILE%\.config\starship.toml"
 goto :EOF
 
 :GIT
