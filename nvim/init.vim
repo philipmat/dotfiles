@@ -1,4 +1,4 @@
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 " The default plugin directory will be as follows:
 "   - Vim (Linux/macOS): '~/.vim/plugged'
 "   - Vim (Windows): '~/vimfiles/plugged'
@@ -42,7 +42,14 @@ Plug 'phaazon/hop.nvim'
 " Initialize plugin system
 call plug#end()
 
-source ~/vimfiles/vimrc
+
+let s:running_windows = has("win16") || has("win32") || has("win64")
+
+if s:running_windows
+    source ~/vimfiles/vimrc
+else
+    source ~/.vim/vimrc
+endif
 
 lua require('config')
 "lua << EOF

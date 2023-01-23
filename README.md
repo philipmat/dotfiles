@@ -92,7 +92,7 @@ Other installation steps:
 
 - setup `fzf`: `$(brew --prefix)/opt/fzf/install`
 - Install python: `pyenv install 3.10.9`
-
+- install nvim plugins: `nvim --headless +PlugInstall +qa`
 
 Optional: nushell, xonsh
 
