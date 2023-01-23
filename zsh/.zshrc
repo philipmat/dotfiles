@@ -161,6 +161,9 @@ alias df='df -h'
 alias l='less'
 alias tmuxa='tmux new -A -s'
 alias g='git'
+alias H="history"
+alias HG="history | ag "
+alias HF="history | fzf "
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
