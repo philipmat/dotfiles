@@ -66,6 +66,17 @@ cat VSCode/extensions.txt | xargs -L 1 code --install-extension
 
 ### Windows
 
+- PowerShell 7
+- Scoop
+- PowerToys
+- WindowGrid
+
+```ps
+scoop install git
+scoop bucket aff extras
+```
+
+
 ### MacOS
 
 ```sh
