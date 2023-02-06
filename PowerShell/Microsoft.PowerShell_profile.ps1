@@ -84,7 +84,9 @@ Function Init-File
 }
 New-Alias -Name touch -Value Init-File
 
-Start-SshAgent -Quiet
+if (Get-Command Start-SshAgent -errorAction SilentlyContinue) {
+   Start-SshAgent -Quiet
+}
 
 Import-Module -ErrorAction:Ignore PowerYaml
 
