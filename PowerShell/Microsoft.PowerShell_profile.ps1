@@ -115,4 +115,29 @@ if (Test-Path($ChocolateyProfile)) {
   Import-Module "$ChocolateyProfile"
 }
 
+function New-PyEnv {
+    param(
+        [string] $envName = ".venv"
+    )
+    if (Test-Path $envName) {
+        Write-Host -ForegroundColor Red "Virtual env $envName already exists. Activating..."
+    } else {
+        python3 -m venv "$name"
+    }
+    Start-PyEnv $envName
+}
+
+function Start-PyEnv {
+    param(
+        [string] $envName = ".venv"
+    )
+    if (Test-Path $envName) {
+        & "$envName/Scripts/Activate.ps1"
+    } else {
+        Write-Host -ForegroundColor Red "Virtual env $envName does not exist."
+    }
+}
+New-Alias mkv New-PyEnv
+New-Alias vrun Start-PyEnv
+
 Invoke-Expression (&starship init powershell)
