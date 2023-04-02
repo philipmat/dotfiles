@@ -182,7 +182,8 @@ alias g='git'
 alias H="history"
 alias HG="history | ag "
 alias HF="history | fzf "
-
+alias rgi="rg -i"
+alias rgj="rg -tjs -i"
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
@@ -192,6 +193,13 @@ function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 autoload zmv
+
+export PYENV_ROOT="$HOME/.pyenv"
+if command -v pyenv >/dev/null
+then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 
 # Starship prompt
 eval "$(starship init zsh)"
