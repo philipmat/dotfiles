@@ -4,7 +4,7 @@ VERBOSE=false
 OVERRIDE=false
 LN_FLAGS=-sfFn
 
-[ "$(uname)" == 'Linux' ] && LN_FLAGS=-sfn
+[ "$(uname)" = 'Linux' ] && LN_FLAGS=-sfn
 
 for i in "$@" ; do
 	case $i in
@@ -85,17 +85,17 @@ file_links=(bash ctags hg python tmux)
 
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}
-	[[ $VERBOSE == true ]] && echo -e "\nHandling $dir:"
+	[[ $VERBOSE = true ]] && echo -e "\nHandling $dir:"
 	if [[ -s $dir/_install.sh ]] ; then
 		cd $directory
 		source _install.sh
 		# this should import a _dotfiles_install_$directory function into the space
 		basedot=$(basename $directory)
 		install_func="_dotfiles_install_$basedot"
-		[[ $VERBOSE == true ]] && echo "Installing according to $dir/_install.sh::$install_func."
+		[[ $VERBOSE = true ]] && echo "Installing according to $dir/_install.sh::$install_func."
 		install_from="$(pwd)"
 		echo "install_to=$dir=$install_from"
-		[[ $(type -t $install_func) == 'function' ]] && eval $install_func "$install_from" "$HOME"
+		[[ $(type -t $install_func) = 'function' ]] && eval $install_func "$install_from" "$HOME"
 		unset install_func
 		cd ..
 	fi
@@ -114,21 +114,20 @@ unset URL
 # This is because oh-my-zsh overrides zshrc anyway
 #####################
 [ "$VERBOSE" = "true" ] && echo "Installing zshrc"
-if [ "$(uname)" == 'Darwin' ] ; then
-
-	if [ ! -d "$HOME/.oh-my-zsh" ] ; then
-		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
-		sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	else
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	if [ -d "$HOME/.oh-my-zsh" ] ; then
 		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
+	else
+		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
+		#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	fi
 
 	[ "$VERBOSE" = "true" ] && echo "Linking .zshrc"
 	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
 fi
 
-[ "$VERBOSE" = "true" ] && echo "Installing zshrc"
-if [ "$(uname)" == 'Darwin' ] ; then
+[ "$VERBOSE" = "true" ] && echo "Installing starship"
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	linking_me_softly "config-extras/starship.toml" "$HOME/.config/starship.toml"
 fi
 
@@ -143,10 +142,10 @@ for f in $GIT ; do
 done
 unset f
 
-[ "$(uname)" == 'Darwin' ] && \
+[ "$(uname)" = 'Darwin' ]  && \
     linking_me_softly "git/.gitconfig-osx" "$HOME/.gitconfig-extra"
 
-[ "$(uname)" == 'Linux' ] && \
+[ "$(uname)" = 'Linux' ] && \
     linking_me_softly "git/.gitconfig-linux" "$HOME/.gitconfig-extra"
 unset GIT
 
@@ -157,7 +156,7 @@ unset GIT
 [ "$VERBOSE" = "true" ] && echo "Installing vim configuration"
 linking_me_softly "vim" "$HOME/.vim"
 
-[ "$(uname)" == 'Darwin' ] && \
+[ "$(uname)" = 'Darwin' ] && \
     linking_me_softly "vim/xvimrc.vim" "$HOME/.xvimrc"
 
 
@@ -165,8 +164,8 @@ linking_me_softly "vim" "$HOME/.vim"
 # VSCode
 ###############
 [ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
-if [ "$(uname)" == 'Darwin' ] ; then
-	[ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
+if [ "$(uname)" = 'Darwin' ] ; then
+    [ "$VERBOSE" = "true" ] && echo "Linking VSCode settings"
     linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code/User/settings.json"
     linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code/User/snippets"
     linking_me_softly "VSCode/settings.json" "$HOME/Library/Application Support/Code - Insiders/User/settings.json"
@@ -174,3 +173,4 @@ if [ "$(uname)" == 'Darwin' ] ; then
 fi
 
 unset LN_FLAGS OVERRIDE TEST VERBOSE
+
