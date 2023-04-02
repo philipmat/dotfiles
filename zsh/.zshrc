@@ -91,10 +91,13 @@ source $ZSH/oh-my-zsh.sh
 
 # requires to build some python version
 # brew install xz
-export CFLAGS="-I$(brew --prefix xz)/include $CFLAGS"
-export CPPFLAGS="-I$(brew --prefix xz)/include $CPPFLAGS"
-export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
-export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
+if command -v brew > /dev/null
+then
+    export CFLAGS="-I$(brew --prefix xz)/include $CFLAGS"
+    export CPPFLAGS="-I$(brew --prefix xz)/include $CPPFLAGS"
+    export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
 
 # User configuration
 # Use fzf for Ctrl-R
@@ -138,7 +141,7 @@ RPROMPT="%B${return_code}%b"
 
 
 # git completion
-[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+#[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
 
 # nvim support
 export NVM_DIR="$HOME/.nvm"
@@ -151,16 +154,26 @@ export NVM_DIR="$HOME/.nvm"
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vim="nvim"
+if command -v nvim > /dev/null
+then
+    alias vim="nvim"
+fi
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias dir="ls -al"
 alias ll="ls -al"
 alias S="sudo"
 alias py="python3"
-alias x="exa -al"
-alias xt="exa -T"
-alias xd="exa -al -d .*"  
+if command -v nvim > /dev/null
+then
+    alias x="exa -al"
+    alias xt="exa -T"
+    alias xd="exa -al -d .*"  
+else
+    alias x="ls -al"
+    # alias xt="exa -T"
+    alias xd="ls -al -d .*/"  
+fi
 alias S='sudo'
 alias df='df -h'
 alias l='less'
@@ -169,6 +182,7 @@ alias g='git'
 alias H="history"
 alias HG="history | ag "
 alias HF="history | fzf "
+
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
