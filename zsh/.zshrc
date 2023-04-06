@@ -90,9 +90,6 @@ setopt HIST_IGNORE_SPACE autocd autopushd histignoredups
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-# Use fzf for Ctrl-R
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
