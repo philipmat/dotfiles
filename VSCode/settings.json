@@ -83,12 +83,17 @@
     "python.testing.pytestEnabled": true,
     "sqltools.connections": [],
     "sqltools.highlightQuery": false,
+    "sqltools.autoOpenSessionFiles": false,
     "terminal.integrated.autoReplies": {
         "Terminate batch job (Y/N)": "Y\r"
     },
     "terminal.integrated.rendererType": "dom",
     "terminal.integrated.shellIntegration.enabled": true,
     "vim.easymotion": true,
+    "vim.easymotionMarkerBackgroundColor": "#606060FF", // '#0000'
+    "vim.easymotionMarkerForegroundColorOneChar": "#FEE715FF", // '#ff0000'
+    "vim.easymotionMarkerForegroundColorTwoCharFirst": "#ADEFD1FF", // "#ffb400",
+    "vim.easymotionMarkerForegroundColorTwoCharSecond": "#D6ED17FF", // "#b98300",
     "vim.foldfix": true,
     "vim.gdefault": true,
     "vim.insertModeKeyBindings": [
