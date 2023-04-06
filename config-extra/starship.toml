@@ -30,15 +30,28 @@ $nix_shell\
 $conda\
 $aws \
 $env_var\
-${custom.tztime} \
+$time ${custom.utctime} \
 $cmd_duration\
 $line_break\
 $character"""
 
 [custom.tztime]
-command = 'date --iso-8601=seconds'
+# command = 'date --iso-8601=seconds'
+command = 'date "+%Y-%m-%d %H:%M:%S%z"'
 when = "true"
 format = '[\[$symbol($output)\]](green)'
+
+
+[time]
+disabled = false
+# format = '\[[$time]($style)\]'
+format = '🕙[\[ $time]($style) '
+time_format = '%T'
+
+[custom.utctime]
+command = 'date -u +"%HUTC"'
+when = "true"
+format = '[$symbol($output) \]](yellow dimmed)'
 
 [aws]
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
@@ -173,9 +186,6 @@ format = '\[[$symbol($version)]($style)\]'
 [terraform]
 format = '\[[$symbol$workspace]($style)\]'
 
-[time]
-format = '\[[$time]($style)\]'
-
 [username]
 format = '\[[$user]($style)\]'
 
@@ -187,4 +197,8 @@ format = '\[[$symbol($version)]($style)\]'
 
 [zig]
 format = '\[[$symbol($version)]($style)\]'
+
+[env_var.NODE_ENV]
+format = '\[[ENV:](17) [$env_value](21)\] '
+# default = 'local'
 
