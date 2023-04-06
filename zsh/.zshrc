@@ -89,16 +89,6 @@ setopt HIST_IGNORE_SPACE autocd autopushd histignoredups
 
 source $ZSH/oh-my-zsh.sh
 
-# requires to build some python version
-# brew install xz
-if command -v brew > /dev/null
-then
-    export CFLAGS="-I$(brew --prefix xz)/include $CFLAGS"
-    export CPPFLAGS="-I$(brew --prefix xz)/include $CPPFLAGS"
-    export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
-    export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
-fi
-
 # User configuration
 # Use fzf for Ctrl-R
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -141,7 +131,22 @@ RPROMPT="%B${return_code}%b"
 
 
 # git completion
-#[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+#
+# requires to build some python version
+# brew install xz
+if command -v brew > /dev/null
+then
+    export CPPFLAGS="-I $(brew --prefix xz)/include $CPPFLAGS"
+    export CPPFLAGS="-I $(brew --prefix zlib)/include $CPPFLAGS"
+    export CFLAGS="$CPPFLAGS"
+    export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
+    export LDFLAGS="-L$(brew --prefix zlib)/lib $LDFLAGS"
+    export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
+    export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$PKG_CONFIG_PATH"
+fi
+
+export PATH="$PATH:/Users/philip/.dotnet/tools"
 
 # nvim support
 export NVM_DIR="$HOME/.nvm"
@@ -164,7 +169,7 @@ alias dir="ls -al"
 alias ll="ls -al"
 alias S="sudo"
 alias py="python3"
-if command -v nvim > /dev/null
+if command -v exa > /dev/null
 then
     alias x="exa -al"
     alias xt="exa -T"
@@ -185,6 +190,7 @@ alias HF="history | fzf "
 alias rgi="rg -i"
 alias rgj="rg -tjs -i"
 
+
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
@@ -192,11 +198,15 @@ function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 # Load local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
+# load SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh 
+
 autoload zmv
 
-export PYENV_ROOT="$HOME/.pyenv"
 if command -v pyenv >/dev/null
 then
+    export PYENV_ROOT="$HOME/.pyenv"
     export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
