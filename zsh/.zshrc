@@ -208,6 +208,9 @@ then
     eval "$(pyenv init -)"
 fi
 
+# load fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 # Starship prompt
 eval "$(starship init zsh)"
 
