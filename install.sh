@@ -105,8 +105,8 @@ done
 # supplemental bash
 #####################
 URL=https://raw.githubusercontent.com/git/git/master/contrib/completion
-wget "$URL/git-completion.bash" -O $HOME/git-completion.bash
-wget "$URL/git-completion.zsh" -O $HOME/git-completion.zsh
+curl "$URL/git-completion.bash" --output $HOME/git-completion.bash
+curl "$URL/git-completion.zsh" --output $HOME/git-completion.zsh
 unset URL
 
 #####################
