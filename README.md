@@ -50,6 +50,8 @@ e.g. `/v` or `/override`.
 - `extensions-all.txt` contains all the extensions I used over time
 - `extensions-common.txt` - most common extensions
 
+(Extensions have been exported with `code --list-extensions`.)
+
 On Windows:
 
 ```ps1
@@ -59,7 +61,7 @@ cat VSCode\extensions.txt | % { code --install-extension $_ }
 On Linux:
 
 ```sh
-cat VSCode/extensions.txt | xargs -L 1 code --install-extension
+cat VSCode/extensions-common.txt | xargs -L 1 code --install-extension
 ```
 
 ## Install Common Programs
@@ -75,7 +77,6 @@ cat VSCode/extensions.txt | xargs -L 1 code --install-extension
 scoop install git
 scoop bucket aff extras
 ```
-
 
 ### MacOS
 
@@ -109,12 +110,12 @@ Optional: nushell, xonsh
 
 Manual install:
 
-* [oh-my-zsh](https://ohmyz.sh/#install)
-* [Bitwarden](https://apps.apple.com/us/app/bitwarden/id1352778147?mt=12)
-* [VSCode](https://code.visualstudio.com/)
-* [SourceTree](https://www.sourcetreeapp.com/)
-* [Fig](https://fig.io/)
-* [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-* [Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
-* [Battery Monitor](https://apps.apple.com/us/app/battery-monitor-health-info/id836505650?mt=12)
-* [nvm - node version manager](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [oh-my-zsh](https://ohmyz.sh/#install)
+- [Bitwarden](https://apps.apple.com/us/app/bitwarden/id1352778147?mt=12)
+- [VSCode](https://code.visualstudio.com/)
+- [SourceTree](https://www.sourcetreeapp.com/)
+- [Fig](https://fig.io/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+- [Battery Monitor](https://apps.apple.com/us/app/battery-monitor-health-info/id836505650?mt=12)
+- [nvm - node version manager](https://github.com/nvm-sh/nvm#installing-and-updating)
