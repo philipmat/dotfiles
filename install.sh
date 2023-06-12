@@ -128,6 +128,7 @@ fi
 
 [ "$VERBOSE" = "true" ] && echo "Installing starship"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	mkdir -p "$HOME/.config"
 	linking_me_softly "config-extras/starship.toml" "$HOME/.config/starship.toml"
 fi
 
