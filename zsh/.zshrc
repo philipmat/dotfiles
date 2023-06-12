@@ -128,7 +128,9 @@ RPROMPT="%B${return_code}%b"
 
 
 # git completion
-[ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+# TODO: https://stackoverflow.com/a/28035917
+# [ -f $HOME/git-completion.zsh ] && source ~/git-completion.zsh
+
 #
 # requires to build some python version
 # brew install xz
