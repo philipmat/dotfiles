@@ -88,6 +88,8 @@ developercommunity.visualstudio.com###headerRegion
 ! 2022-09-11 https://www.goodreads.com
 www.goodreads.com##.modal--centered.modal--overlay.modal
 
+! 2022-12-16 https://www.msn.com
+www.msn.com##.article-video-slot
 ! 2022-10-04 https://www.nerdwallet.com
 www.nerdwallet.com###reg-modal-desktop
 
@@ -239,22 +241,94 @@ intellipaat.com##.ip-blog-show-vids-popup.ip-vk-blog-iframe
 
 ! 2023-01-06 https://stackoverflow.com
 stackoverflow.com##.js-consent-banner
+
+! 2022-04-20 https://thesweetsetup.com
+thesweetsetup.com##.rm-lightbox
+thesweetsetup.com##.rm-is-offer.rm-plain.rm-modal
+
+! 2022-04-22 https://www.geeksforgeeks.org
+www.geeksforgeeks.org##.modal-container
+
+! 2022-04-22 https://www.overstock.com
+www.overstock.com##.cl-dialog-body-modal.cl-dialog-body
+www.overstock.com##.cl-dialog-backdrop
+
+! 2022-03-20 https://www.overstock.com
+www.overstock.com###page_triggers
+
+! 2022-05-23 https://www.nme.com
+www.nme.com##.jw-reset.jw-wrapper
+
+! 2022-07-10 https://starwars.fandom.com
+starwars.fandom.com###WikiaBar
+
+! 2022-07-10 https://www.cheatsheet.com
+www.cheatsheet.com##.sticky-ad
+
+! 2022-07-11 https://www.polygon.com
+www.polygon.com##.c-toaster-stuck.c-toaster-active.c-toaster
+
+||f.convertkit.com/ckjs/ck.5.js
+
+! 2022-07-13 https://en.wikipedia.org
+en.wikipedia.org###siteNotice
+en.wikipedia.org##.frb-country-US.frb-rml-enabled.frb
+en.wikipedia.org##.cn-fundraising
+
+! 2022-08-19 https://www.nerdwallet.com
+www.nerdwallet.com##.nw-auth-stepper
+
+! 2022-10-04 https://www.nerdwallet.com
+www.nerdwallet.com###reg-modal-desktop
+
+! 2022-10-18 https://www.youtube.com
+www.youtube.com##tp-yt-paper-dialog.ytd-popup-container.style-scope
+
+daringfireball.net##body:style(font-size: 16px !important)
+wallmine.com##+js(cookie-remover)
+
+! 2022-12-21 https://unix.stackexchange.com
+stackexchange.com##.js-consent-banner
 superuser.com##.js-consent-banner
+serverfault.com##.js-consent-banner
 askubuntu.com##.js-consent-banner
 stackexchange.com##.js-consent-banner
+askdifferent.com##.js-consent-banner
 
 ! 2023-03-06 https://catch22.fandom.com
 catch22.fandom.com###WikiaBar
 catch22.fandom.com##.marketing-notifications
+! 2022-12-22 https://bikez.com
+bikez.com##.css-1b9xz1q.qc-cmp-cleanslate
 
 ! 2023-04-30 https://www.nerdwallet.com
 www.nerdwallet.com###contextual-reg-modal-desktop
+npmjs.com##.w-two-thirds-l:remove-class(w-two-thirds-l)
 
 ! 2023-05-13 https://www.geeksforgeeks.org
 www.geeksforgeeks.org##.ad-blocker-modal
 www.geeksforgeeks.org##body:style(overflow: auto !important)
+! 2023-02-11 https://www.advrider.com
+www.advrider.com##.Share-get
 
 ! 2023-05-14 https://adf.azure.com
 @@||azure.com^$font,1p
 @@||azuredatabricks.net^$font,1p
+# annoying "Chat with" popups
+||cdn.gubagoo.io
+
+! 2023-02-16 https://www.ninetowners.com
+www.ninetowners.com##.section.auth-providers
+
+! 2023-02-21 https://www.scaler.com
+www.scaler.com##.hide-in-mobile.exit-intent_modal_main_container__6uE8c
+
+! 2023-02-22 https://www.edmunds.com
+www.edmunds.com###credential_picker_container
+
+! 2023-02-25 https://www.crvownersclub.com
+www.crvownersclub.com###google-one-tap-iframe
+
+! 2023-02-26 https://www.pca.org
+www.pca.org##.show.cookiealert.text-center.alert
 
