@@ -9,7 +9,7 @@
     "debug.onTaskErrors": "showErrors",
     "debug.toolBarLocation": "docked",
     "editor.bracketPairColorization.enabled": true,
-    "editor.fontFamily": "'Victor Mono Medium', 'Cascadia Code', 'Fira Code', Consolas, Monaco, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraMono Nerd Font', 'VictorMono Nerd Font', 'CaskaydiaCove Nerd Font', 'Cascadia Code', 'Fira Code', Consolas, Monaco, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.fontSize": 11,
     "editor.inlineSuggest.enabled": true,
