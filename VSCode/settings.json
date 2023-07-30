@@ -81,7 +81,24 @@
     "python.linting.prospectorEnabled": true,
     "python.linting.pylintEnabled": false,
     "python.testing.pytestEnabled": true,
-    "sqltools.connections": [],
+    "sqltools.connections": [
+        {
+            "mssqlOptions": {
+                "appName": "SQLTools",
+                "useUTC": true,
+                "encrypt": true
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 1433,
+            "driver": "MSSQL",
+            "name": "E360 Local",
+            "group": "InTech",
+            "database": "energy360",
+            "username": "SA",
+            "password": "MyP4ssw0rd"
+        }
+    ],
     "sqltools.highlightQuery": false,
     "sqltools.autoOpenSessionFiles": false,
     "terminal.integrated.autoReplies": {
