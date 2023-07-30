@@ -173,5 +173,17 @@ if [ "$(uname)" = 'Darwin' ] ; then
     linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code - Insiders/User/snippets"
 fi
 
+
+###############
+# TMUX
+###############
+[ "$VERBOSE" = "true" ] && echo "Installing tmux configuration"
+linking_me_softly "tmux" "$HOME/.vim"
+
+for f in $GIT ; do 
+	linking_me_softly "tmux/.$f" $HOME/.$f
+done
+unset f
+
 unset LN_FLAGS OVERRIDE TEST VERBOSE
 
