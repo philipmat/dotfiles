@@ -2,7 +2,6 @@
     "[python]": {
         "editor.formatOnSave": true
     },
-    "csharpsortusings.sort.usings.splitGroups": false,
     "cSpell.userWords": [
         "reddit"
     ],
@@ -11,7 +10,6 @@
     "editor.bracketPairColorization.enabled": true,
     "editor.fontFamily": "'JetBrainsMono Nerd Font', 'FiraMono Nerd Font', 'VictorMono Nerd Font', 'CaskaydiaCove Nerd Font', 'Cascadia Code', 'Fira Code', Consolas, Monaco, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
-    "editor.fontSize": 11,
     "editor.inlineSuggest.enabled": true,
     "editor.linkedEditing": true,
     "editor.minimap.enabled": false,
@@ -153,9 +151,8 @@
     "window.menuBarVisibility": "toggle",
     "window.restoreWindows": "none",
     "window.titleBarStyle": "custom",
-    "window.zoomLevel": 1,
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "Witch Hazel",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
@@ -177,6 +174,11 @@
         "gvimrc": "vimrc"
     },
     "diffEditor.experimental.collapseUnchangedRegions": true,
+    "csharpsortusings.sort.usings.splitGroups": false,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "editor.fontWeight": "normal",
+    "editor.fontSize": 11,
     "githubPullRequests.fileListLayout": "tree"
 }
