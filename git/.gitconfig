@@ -3,8 +3,8 @@
 	status = auto
 	branch = auto
 [user]
-	name = Philip Mateescu
-	email = github@philipmat.net
+	name = Philip
+	email = github@philipm.at
 [pretty]
 	changes = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [alias]
@@ -63,3 +63,13 @@
 
 [include]
 	path = .gitconfig-extra
+[difftool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	trustExitCode = true
+[core]
+	excludesfile = /Users/philip/.gitignore_global
+[commit]
+	template = /Users/philip/.stCommitMsg
