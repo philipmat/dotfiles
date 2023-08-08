@@ -50,7 +50,8 @@ e.g. `/v` or `/override`.
 - `extensions-all.txt` contains all the extensions I used over time
 - `extensions-common.txt` - most common extensions
 
-(Extensions have been exported with `code --list-extensions`.)
+Extensions have been exported with `code --list-extensions`
+and sorted case-insensitive (`sort -f`).
 
 On Windows:
 
@@ -97,7 +98,9 @@ Nerd Fonts required for *starship*:
 brew install --cask \
   homebrew/cask-fonts/font-caskaydia-cove-nerd-font \
   homebrew/cask-fonts/font-fira-mono-nerd-font \
-  homebrew/cask-fonts/font-victor-mono-nerd-font
+  homebrew/cask-fonts/font-victor-mono-nerd-font \
+  homebrew/cask-fonts/font-iosevka-nerd-font \
+  homebrew/cask-fonts/font-jetbrains-mono-nerd-font
 ```
 
 Other installation steps:
