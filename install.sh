@@ -138,7 +138,7 @@ fi
 ###############
 [ "$VERBOSE" = "true" ] && echo "Installing git configuration"
 GIT="git-prompt.sh gitconfig gitignore_global git_template"
-for f in $GIT ; do 
+for f in $GIT ; do
 	linking_me_softly "git/.$f" $HOME/.$f
 done
 unset f
@@ -178,12 +178,9 @@ fi
 # TMUX
 ###############
 [ "$VERBOSE" = "true" ] && echo "Installing tmux configuration"
-linking_me_softly "tmux" "$HOME/.vim"
+linking_me_softly "tmux/.tmux" "$HOME/.tmux"
+linking_me_softly "tmux/.tmux.conf" "$HOME/.tmux.conf"
 
-for f in $GIT ; do 
-	linking_me_softly "tmux/.$f" $HOME/.$f
-done
-unset f
 
 unset LN_FLAGS OVERRIDE TEST VERBOSE
 
