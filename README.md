@@ -115,6 +115,7 @@ Manual install:
 - [VSCode](https://code.visualstudio.com/)
 - [SourceTree](https://www.sourcetreeapp.com/)
 - [Fig](https://fig.io/)
+- [Rectangle](https://rectangleapp.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 - [Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
 - [Battery Monitor](https://apps.apple.com/us/app/battery-monitor-health-info/id836505650?mt=12)
