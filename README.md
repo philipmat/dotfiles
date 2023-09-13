@@ -83,9 +83,9 @@ scoop bucket aff extras
 
 ```sh
 brew install \
-  bat curlie difftastic exa \
+  bat curlie difftastic eza \
   fd fzf fig fnm \
-  jq neovim pyenv \
+  gron jq neovim pyenv \
   ripgrep sqlite \
   starship tmux watch \
   glance kdiff3 rectangle \
