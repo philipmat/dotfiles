@@ -16,7 +16,7 @@ esbenp.prettier-vscode
 geddski.macros
 GitHub.github-vscode-theme
 GitHub.vscode-pull-request-github
-jongrant.csharpsortusings
+gaoshan0621.csharp-format-usings
 josefpihrt-vscode.roslynator
 mechatroner.rainbow-csv
 mohsen1.prettify-json
