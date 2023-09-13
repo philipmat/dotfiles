@@ -174,14 +174,14 @@ alias dir="ls -al"
 alias ll="ls -al"
 alias S="sudo"
 alias py="python3"
-if command -v exa > /dev/null
+if command -v eza > /dev/null
 then
-    alias x="exa -al"
-    alias xt="exa -T"
-    alias xd="exa -al -d .*"  
+    alias x="eza -al"
+    alias xt="eza -T"
+    alias xd="eza -al -d .*"  
 else
     alias x="ls -al"
-    # alias xt="exa -T"
+    # alias xt="eza -T"
     alias xd="ls -al -d .*/"  
 fi
 alias S='sudo'
