@@ -39,6 +39,10 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'phaazon/hop.nvim'
 
+" colorschemes
+Plug 'ellisonleao/gruvbox.vim'
+Plug 'arcticicestudio/nord-vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -50,6 +54,15 @@ if s:running_windows
 else
     source ~/.vim/vimrc
 endif
+
+set nocompatible
+if (has("termguicolors"))
+    set termguicolors
+endif 
+
+set background=dark
+syntax enable
+color pablo
 
 lua require('config')
 "lua << EOF
