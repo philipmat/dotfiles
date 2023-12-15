@@ -1,6 +1,7 @@
 {
     "[python]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.python"
     },
     "cSpell.userWords": [
         "reddit"
@@ -118,12 +119,11 @@
     ],
     "vim.useSystemClipboard": true,
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-    "window.autoDetectColorScheme": true,
     "window.commandCenter": true,
     "window.restoreWindows": "none",
     "window.titleBarStyle": "custom",
     "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Solarized Light",
+    "workbench.colorTheme": "Shades of Purple",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
@@ -140,9 +140,20 @@
         "vimrc": "vimrc",
         "gvimrc": "vimrc"
     },
-    "diffEditor.experimental.collapseUnchangedRegions": true,
     "csharpsortusings.sort.usings.splitGroups": false,
     "editor.fontWeight": "normal",
     "editor.fontSize": 11,
     "githubPullRequests.fileListLayout": "tree",
+    "notebook.output.textLineLimit": 100,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.experimental.showMoves": true,
+    "diffEditor.experimental.useVersion2": true,
+    "csharpFormatUsings.splitGroups": false,
+    "githubPullRequests.pullBranch": "never",
+    "ruff.lint.args": [
+        "--line-length=120"
+    ],
 }
