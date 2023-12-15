@@ -138,9 +138,11 @@ if command -v brew > /dev/null
 then
     export CPPFLAGS="-I $(brew --prefix xz)/include $CPPFLAGS"
     export CPPFLAGS="-I $(brew --prefix zlib)/include $CPPFLAGS"
+    export CPPFLAGS="-I $(brew --prefix openssl)/include $CPPFLAGS"
     export CFLAGS="$CPPFLAGS"
     export LDFLAGS="-L$(brew --prefix xz)/lib $LDFLAGS"
     export LDFLAGS="-L$(brew --prefix zlib)/lib $LDFLAGS"
+    export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
     export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
     export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$PKG_CONFIG_PATH"
 fi
@@ -194,18 +196,23 @@ alias HG="history | ag "
 alias HF="history | fzf "
 alias rgi="rg -i"
 alias rgj="rg -tjs -i"
+alias ungron="gron --ungron"
 
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 
+# aws completion
+#
+[ -f /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh ] && source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
+
 # Load local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # load SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
-[ -f ~/.sdkman/bin/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh 
+[ -f ~/.sdkman/bn/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh 
 
 autoload zmv
 
