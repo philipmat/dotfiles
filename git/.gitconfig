@@ -10,6 +10,8 @@
 [alias]
     b = branch
     br = branch -vv
+    bd = branch --delete
+    bdr = push origin --delete
     ca = commit -a -m
     chirp = cherry-pick
     co = checkout
@@ -19,6 +21,9 @@
     ctags = !.git/hooks/ctags
     conflicts = diff --name-only --diff-filter=U
     d = pull
+    delete-gone = "!bash -c \"git branch -vv | grep ': gone]'|  grep -v '\\*' | awk '{ print \\$1; }' | xargs -r git branch -d\""
+    list-gone = !git branch -vv | grep ': gone]'
+    list-merged = !git branch --merged origin/master | grep -vw master
     fap   = fetch --all --prune
     fetch-master = fetch origin master:master
     fetch-develop = fetch origin develop:develop
@@ -35,7 +40,9 @@
     lo = log --oneline --decorate
     log-file = log --color --full-diff -p
     merge-master = !git fetch origin master:master && git merge master
+    merge-main = !git fetch origin main:main && git merge main
     merge-develop = !git fetch origin develop:develop && git merge develop
+    merge-integration = !git fetch origin integration:integration && git merge integration
     p = pull --no-edit
     s = status -s 
     safe-merge = merge --no-commit
@@ -49,7 +56,7 @@
     autoSetupRemote = true
 [init]
     defaultBranch = main
-	templatedir = ~/.git_template
+	# templatedir = ~/.git_template
 [pack]
     windowMemory = 128m
     threads = 1
@@ -64,12 +71,17 @@
 [include]
 	path = .gitconfig-extra
 [difftool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$LOCAL\" \"$REMOTE\"
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/kdiff3.app/Contents/MacOS/kdiff3 \"$BASE\" \"$LOCAL\" \"$REMOTE\" -o \"$MERGED\"
+	cmd = /Applications/p4merge.app/Contents/MacOS/p4merge \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 	trustExitCode = true
 [core]
 	excludesfile = /Users/philip/.gitignore_global
+	autocrlf = input
 [commit]
 	template = /Users/philip/.stCommitMsg
+[pager]
+	branch = false
+[includeIf "gitdir:~/Projects/Domuso/"]
+    path = ~/Projects/Domuso/.gitconfig_include
