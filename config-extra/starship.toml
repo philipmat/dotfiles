@@ -21,13 +21,11 @@ $package\
 $cmake\
 $nodejs\
 $perl\
-$python \
+$python\
 $ruby\
 $rust\
 $terraform\
-$vagrant\
 $nix_shell\
-$conda\
 $aws \
 $env_var\
 $time ${custom.utctime} \
@@ -54,6 +52,7 @@ when = "true"
 format = '[$symbol($output) \]](yellow dimmed)'
 
 [aws]
+disabled = true
 format = '\[[$symbol($profile)(\($region\))(\[$duration\])]($style)\]'
 
 [cmake]
@@ -151,6 +150,7 @@ disabled = true
 format = '\[[$symbol$version]($style)\]'
 
 [perl]
+disabled = true
 format = '\[[$symbol($version)]($style)\]'
 
 [php]
@@ -169,6 +169,7 @@ format = '\[[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)\]'
 format = '\[[$symbol($version)]($style)\]'
 
 [ruby]
+disabled = true
 format = '\[[$symbol($version)]($style)\]'
 
 [rust]
