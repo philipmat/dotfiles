@@ -1,9 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -75,19 +69,30 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fd dotenv copypath git git-prompt history-substring-search python)
+
+# TODO: live without oh-my-zsh for a while
+# search for #~ it needed to uncomment
+#~ plugins=(dotenv copypath git git-prompt history-substring-search python)
 
 # Disable compinit warnings
-ZSH_DISABLE_COMPFIX="true"
+#~ ZSH_DISABLE_COMPFIX="true"
 
 # Fuzzy search for history
 # ^r: ab c searches for "*ab*c*"
 HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
+# bindkey '^[[A' history-substring-search-up
+# bindkey '^[[B' history-substring-search-down
 setopt HIST_IGNORE_SPACE autocd autopushd histignoredups
 
-source $ZSH/oh-my-zsh.sh
+# dotenv options
+ZSH_DOTENV_FILE=.dotenv
+ZSH_DOTENV_PROMPT=false
+
+# case-insensitive completion
+autoload -U compinit; compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+#~ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -160,6 +165,9 @@ then
 	eval "$(fnm env --use-on-cd)"
 fi
 
+###################################################################
+# ALIASES
+###################################################################
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -180,11 +188,11 @@ if command -v eza > /dev/null
 then
     alias x="eza -al"
     alias xt="eza -T"
-    alias xd="eza -al -d .*"  
+    alias xd="eza -al -d .*"
 else
     alias x="ls -al"
     # alias xt="eza -T"
-    alias xd="ls -al -d .*/"  
+    alias xd="ls -al -d .*/"
 fi
 alias S='sudo'
 alias df='df -h'
@@ -196,8 +204,27 @@ alias HG="history | ag "
 alias HF="history | fzf "
 alias rgi="rg -i"
 alias rgj="rg -tjs -i"
+alias rgni="rg --no-ignore"
 alias ungron="gron --ungron"
+alias mkenv='python -m venv .venv'
 
+if command -v lazygit > /dev/null
+then
+    alias gg="lazygit"
+fi
+if command -v llm > /dev/null
+then
+    alias llm-upgrade="llm install -U llm"
+    alias llm-1="llm -t one-liner "
+    alias llm-short="llm -t brief "
+    alias llm-brief="llm -t brief "
+    # use a quick model for HN summaries
+    alias llm-hn='f(){ llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$1 "summary with illustrative direct quotes";  unset -f f; }; f'
+fi
+
+
+alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
+alias speedtest="networkQuality"
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
@@ -205,29 +232,39 @@ function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 
 # aws completion
 #
-[ -f /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh ] && source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
+# [ -f /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh ] && source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
 
 # Load local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 
 # load SDKMAN
 export SDKMAN_DIR="$HOME/.sdkman"
-[ -f ~/.sdkman/bn/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh 
+[ -f ~/.sdkman/bn/sdkman-init.sh ] && source ~/.sdkman/bin/sdkman-init.sh
 
 autoload zmv
 
-if command -v pyenv >/dev/null
-then
-    export PYENV_ROOT="$HOME/.pyenv"
-    export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
-fi
+#if command -v pyenv >/dev/null
+#then
+#    export PYENV_ROOT="$HOME/.pyenv"
+#    export PATH="$PYENV_ROOT/bin:$PATH"
+#    eval "$(pyenv init -)"
+#fi
+
+# uv instead of pyenv
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+# TODO: maybe https://github.com/willkg/dotfiles/blob/main/dotfiles/bin/uv-python-symlink
 
 # load fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# loads SDKMAN
+#~ source "$HOME/.sdkman/bin/sdkman-init.sh"
+
 # Starship prompt
 eval "$(starship init zsh)"
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
+# iTerm2 shell integration
+ITERM2_SQUELCH_MARK=1
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

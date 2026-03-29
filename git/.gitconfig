@@ -3,7 +3,7 @@
 	status = auto
 	branch = auto
 [user]
-	name = Philip
+	name = Philip M
 	email = github@philipm.at
 [pretty]
 	changes = format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -12,6 +12,8 @@
     br = branch -vv
     bd = branch --delete
     bdr = push origin --delete
+    bmv = branch -m 
+    branch-rename = branch -m
     ca = commit -a -m
     chirp = cherry-pick
     co = checkout
@@ -23,9 +25,11 @@
     d = pull
     delete-gone = "!bash -c \"git branch -vv | grep ': gone]'|  grep -v '\\*' | awk '{ print \\$1; }' | xargs -r git branch -d\""
     list-gone = !git branch -vv | grep ': gone]'
-    list-merged = !git branch --merged origin/master | grep -vw master
+    list-merged = !git branch --merged origin/main | grep -vw main
+    list-merged-master = !git branch --merged origin/master | grep -vw master
     fap   = fetch --all --prune
     fetch-master = fetch origin master:master
+    fetch-main = fetch origin main:main
     fetch-develop = fetch origin develop:develop
     last = log -1 HEAD
     lf    = log --color --graph --pretty=changes --abbrev-commit -p
@@ -39,11 +43,14 @@
     ln = log --color --graph --decorate --pretty=fuller --abbrev-commit --name-only
     lo = log --oneline --decorate
     log-file = log --color --full-diff -p
-    merge-master = !git fetch origin master:master && git merge master
-    merge-main = !git fetch origin main:main && git merge main
-    merge-develop = !git fetch origin develop:develop && git merge develop
+    #merge-master = !git fetch origin master:master && git merge master
+    #merge-main = !git fetch origin main:main && git merge main
+    merge-main = !git fetch origin $(git primary):$(git primary) && git merge $(git primary)
+    #merge-develop = !git fetch origin develop:develop && git merge develop
     merge-integration = !git fetch origin integration:integration && git merge integration
     p = pull --no-edit
+    pr = pull --rebase
+    primary = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
     s = status -s 
     safe-merge = merge --no-commit
     safe-pull = !git stash && git pull && git stash pop
@@ -85,3 +92,8 @@
 	branch = false
 [includeIf "gitdir:~/Projects/Domuso/"]
     path = ~/Projects/Domuso/.gitconfig_include
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

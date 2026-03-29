@@ -146,7 +146,8 @@ set laststatus=2
 set tags=./tags,tags
 
 " Enabling the matchit plugin
-source $VIMRUNTIME/macros/matchit.vim
+" source $VIMRUNTIME/macros/matchit.vim
+runtime macros/matchit.vim
 
 "Color scheme
 syntax on
@@ -552,6 +553,11 @@ let g:use_emmet_complete_tag = 1
 " Supertab
 let g:SuperTabDefaultCompletionType = "context"
 
+" FZF
+"if exists(':FZF')
+	"nnoremap <D-S-p> :FZF
+	"nnoremap <leader>z :FZF
+"endif
 "if !exists("autocommands_loaded")
 "~	" putting SuperTab in chaining mode:
 "~	" https://github.com/ervandew/supertab/issues/52

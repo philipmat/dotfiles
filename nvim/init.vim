@@ -39,9 +39,26 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'phaazon/hop.nvim'
 
+" fzf native plugin
+Plug 'junegunn/fzf'
+" fzf.vim
+Plug 'junegunn/fzf.vim'
+
+" rainbow brackets
+Plug 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
+
 " colorschemes
-Plug 'ellisonleao/gruvbox.vim'
+Plug 'https://github.com/ellisonleao/gruvbox.nvim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'tpope/vim-vividchalk'
+Plug 'junegunn/seoul256.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'folke/tokyonight.nvim'
+Plug 'EdenEast/nightfox.nvim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
+
+" Show which keys are registered
+Plug 'folke/which-key.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -58,11 +75,30 @@ endif
 set nocompatible
 if (has("termguicolors"))
     set termguicolors
-endif 
 
-set background=dark
-syntax enable
-color pablo
+	set background=dark
+	syntax enable
+	color nord
+	
+	" Ayu
+	" let ayucolor="light"  " for light version of theme
+	" let ayucolor="mirage" " for mirage version of theme
+	" let ayucolor="dark"   " for dark version of theme
+	" colorscheme ayu
+
+	" color nightfox " dayfox, dawnfox, duskfox, nordfox, terafox, carbonfox
+
+	" colorscheme catppuccin " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+
+	"colorscheme tokyonight
+	" There are also colorschemes for the different styles.
+	" colorscheme tokyonight-night
+	" colorscheme tokyonight-storm
+	" colorscheme tokyonight-day
+	" colorscheme tokyonight-moon
+else
+	colo evening
+endif 
 
 lua require('config')
 "lua << EOF
