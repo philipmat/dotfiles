@@ -242,6 +242,7 @@ stackoverflow.com##.js-consent-banner
 superuser.com##.js-consent-banner
 askubuntu.com##.js-consent-banner
 stackexchange.com##.js-consent-banner
+serverfault.com##.js-consent-banner
 
 ! 2023-03-06 https://catch22.fandom.com
 catch22.fandom.com###WikiaBar
@@ -258,3 +259,90 @@ www.geeksforgeeks.org##body:style(overflow: auto !important)
 @@||azure.com^$font,1p
 @@||azuredatabricks.net^$font,1p
 
+! 2023-08-09 https://dynamicwallpaper.club
+dynamicwallpaper.club##.cookieControl__Bar--bottom-right.cookieControl__Bar
+
+! 2023-09-15 https://www.wired.com
+www.wired.com##.cne-video-embed
+
+! HN styles
+news.ycombinator.com###hnmain:style(width: 60% !important)
+news.ycombinator.com##.comment:style(font-size: 12pt !important)
+news.ycombinator.com##.clicky:style(font-size: 12pt !important)
+
+! 2023-09-30 https://pitchfork.com
+pitchfork.com##.cne-video-embed
+
+! 2023-09-30 https://www.amazon.com
+www.amazon.com##.amazonlive-widget-padding
+
+! 2023-10-01 https://www.vanityfair.com
+www.vanityfair.com##.sticky-box
+
+! 2023-11-10 https://www.amazon.com
+www.amazon.com##.lsw-video-container
+
+! 2023-12-12 https://www.msn.com
+www.msn.com##.intra-article-relatedcontent
+
+! 2024-01-23 https://portal.auryc.com
+||uba-api.auryc.com/event/trackingstatus$xhr,domain=portal.auryc.com
+
+! 2024-02-13 https://knife-blog.com
+knife-blog.com##.advgb-columns-container
+
+! 2024-03-16 https://arstechnica.com
+arstechnica.com##.inline-playlist
+
+! 2024-03-21 https://www.cycleworld.com
+www.cycleworld.com##.dailymotion-player-wrapper
+
+! 2024-04-08 https://us3.datadoghq.com
+us3.datadoghq.com##.druids_onboarding_billboard
+
+! 2024-05-16 https://www.motorcycle.com
+www.motorcycle.com##.js-video-wrapper.video-wrapper
+
+portal.azure.com##.ms-TextField--unresizable:style(height: 250px !important;overflow: auto !important)
+portal.azure.com##.ms-TextField--unresizable:style(overflow: auto !important)
+
+! Oct 5, 2024 https://app.travis-ci.com
+app.travis-ci.com##.ask-travis-message
+
+! Jan 13, 2025 https://community.databricks.com
+community.databricks.com##.registration-reminder-modal-lpd
+
+! Mar 15, 2025 https://www.vice.com
+www.vice.com###versus-outer-iframe
+
+! Apr 21, 2025 https://www.fastcompany.com
+www.fastcompany.com###pianoBottomBanner
+
+! May 2, 2025 https://www.revzilla.com
+www.revzilla.com##.blog-article__sticky-nav > div > .blog-gray-email-signup
+
+! May 16, 2025 https://www.clientserver.dev
+www.clientserver.dev##.cookieBanner-fZ6hup.color-bg-light-YVLLIr.pc-reset.pc-alignItems-center.pc-flexDirection-column.pc-display-flex.pencraft
+
+reddit.com##[style*="backdrop-filter"]
+reddit.com###blocking-modal
+
+! Jul 31, 2025 https://www.moonhoneytravel.com
+www.moonhoneytravel.com##.popup-all
+
+! Sep 24, 2025 https://community.databricks.com
+community.databricks.com##.ui-widget-overlay
+
+! Nov 5, 2025 https://www.visordown.com
+www.visordown.com###banner-sticky
+
+! Dec 28, 2025 https://www.theverge.com
+www.theverge.com##.duet--article--boosted-post-wrapper
+
+! Jan 27, 2026 https://www.visordown.com
+www.visordown.com##.activate.visordown
+
+! Mar 11, 2026 https://www.theverge.com
+www.theverge.com###zephr-footer-container
+
+app.shortcut.com##textarea:style(font-family: monospace !important)
