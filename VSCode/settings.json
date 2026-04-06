@@ -1,7 +1,8 @@
 {
+    "notebook.formatOnSave.enabled": true,
     "[python]": {
         "editor.formatOnSave": true,
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "charliermarsh.ruff"
     },
     "cSpell.userWords": [
         "reddit"
@@ -22,7 +23,8 @@
     "editor.stickyScroll.enabled": true,
     "editor.suggestSelection": "first",
     "emmet.includeLanguages": {
-        "django-html": "html"
+        "django-html": "html",
+        "dotnet-interactive.html": "html"
     },
     "emmet.triggerExpansionOnTab": true,
     "files.exclude": {
@@ -47,22 +49,51 @@
     "gitlens.keymap": "alternate",
     "gruvboxMaterial.darkContrast": "soft",
     "gruvboxMaterial.lightContrast": "soft",
-    "hediet.vscode-drawio.local-storage": "eyIuZHJhd2lvLWNvbmZpZyI6IntcImxhbmd1YWdlXCI6XCJcIixcImN1c3RvbUZvbnRzXCI6W10sXCJsaWJyYXJpZXNcIjpcImdlbmVyYWw7Ym9vdHN0cmFwXCIsXCJjdXN0b21MaWJyYXJpZXNcIjpbXCJMLnNjcmF0Y2hwYWRcIl0sXCJwbHVnaW5zXCI6W10sXCJyZWNlbnRDb2xvcnNcIjpbXCIzMzMzMzNcIl0sXCJmb3JtYXRXaWR0aFwiOlwiMjQwXCIsXCJjcmVhdGVUYXJnZXRcIjpmYWxzZSxcInBhZ2VGb3JtYXRcIjp7XCJ4XCI6MCxcInlcIjowLFwid2lkdGhcIjo4NTAsXCJoZWlnaHRcIjoxMTAwfSxcInNlYXJjaFwiOnRydWUsXCJzaG93U3RhcnRTY3JlZW5cIjp0cnVlLFwiZ3JpZENvbG9yXCI6XCIjZDBkMGQwXCIsXCJkYXJrR3JpZENvbG9yXCI6XCIjNmU2ZTZlXCIsXCJhdXRvc2F2ZVwiOnRydWUsXCJyZXNpemVJbWFnZXNcIjpudWxsLFwib3BlbkNvdW50ZXJcIjowLFwidmVyc2lvblwiOjE4LFwidW5pdFwiOjEsXCJpc1J1bGVyT25cIjpmYWxzZSxcInVpXCI6XCJcIn0ifQ==",
+    /*
     "macros": {
         "saveAndExitVimInsertMode": [
             "workbench.action.files.save",
             "extension.vim_escape"
         ]
     },
+    */
     "mssql.connections": [
         {
-            "authenticationType": "Integrated",
-            "connectionString": "Server=(localdb)\\localdev;Integrated Security=True;Initial Catalog=discogs",
+            "server": "(localdb)\\localdev",
             "database": "discogs",
+            "user": "",
+            "authenticationType": "Integrated",
+            "encrypt": "true",
+            "trustServerCertificate": false,
+            "connectTimeout": 30,
+            "commandTimeout": 30,
+            "connectRetryCount": 1,
+            "connectRetryInterval": 10,
+            "applicationName": "sqltools",
+            "connectionString": "",
             "password": "",
             "profileName": "LocalDev-Discogs",
-            "server": "(localdb)\\localdev",
-            "user": ""
+            "groupId": "ROOT",
+            "id": "8CA60C09-1524-4097-98C2-68CD8E5955BB",
+            "profileSource": 0
+        },
+        {
+            "authenticationType": "SqlLogin",
+            "connectTimeout": 30,
+            "applicationName": "vscode-mssql",
+            "applicationIntent": "ReadWrite",
+            "groupId": "17A33E9D-CF68-4AE6-968A-E224F61EE3F1",
+            "server": "10.30.10.10",
+            "trustServerCertificate": true,
+            "user": "ILoveToSaveEnergy@energy360-prod",
+            "password": "",
+            "savePassword": true,
+            "id": "3BB47574-CBD0-478C-B8C1-887B6F5A158C",
+            "database": "",
+            "commandTimeout": 30,
+            "encrypt": "Mandatory",
+            "profileSource": 0,
+            "profileName": "☢️ PROD RW"
         }
     ],
     "notebook.cellToolbarLocation": {
@@ -76,7 +107,7 @@
     "terminal.integrated.autoReplies": {
         "Terminate batch job (Y/N)": "Y\r"
     },
-    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.shellIntegration.enabled": false,
     "vim.easymotion": true,
     "vim.easymotionMarkerBackgroundColor": "#606060FF", // '#0000'
     "vim.easymotionMarkerForegroundColorOneChar": "#FEE715FF", // '#ff0000'
@@ -122,8 +153,7 @@
     "window.commandCenter": true,
     "window.restoreWindows": "none",
     "window.titleBarStyle": "custom",
-    "workbench.activityBar.visible": true,
-    "workbench.colorTheme": "Shades of Purple",
+    "workbench.colorTheme": "Cobalt2",
     "workbench.editorAssociations": {
         "*.ipynb": "jupyter-notebook"
     },
@@ -132,7 +162,8 @@
     "workbench.sideBar.location": "right",
     "workbench.tree.indent": 16,
     "terminal.integrated.env.osx": {
-        "FIG_NEW_SESSION": "1"
+        "FIG_NEW_SESSION": "1",
+        "CW_NEW_SESSION": "1"
     },
     "editor.accessibilitySupport": "off",
     "files.associations": {
@@ -148,12 +179,106 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
-    "diffEditor.hideUnchangedRegions.enabled": true,
     "diffEditor.experimental.showMoves": true,
-    "diffEditor.experimental.useVersion2": true,
     "csharpFormatUsings.splitGroups": false,
     "githubPullRequests.pullBranch": "never",
-    "ruff.lint.args": [
-        "--line-length=120"
+    "ruff.lineLength": 120,
+    "editor.renderWhitespace": "all",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false,
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "notebook.lineNumbers": "on",
+    "breadcrumbs.symbolSortOrder": "name",
+    "terminal.integrated.scrollback": 6000,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.zoomLevel": 1,
+    "[sql]": {
+        "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "Vue.volar"
+    },
+    "debug.showVariableTypes": true,
+    "jupyter.showVariableViewWhenDebugging": true,
+    "notebook.output.wordWrap": true,
+    "notebook.stickyScroll.enabled": true,
+    "terminal.external.osxExec": "iTerm.app",
+    "notebook.inlineValues": true,
+    "debugpy.showPythonInlineValues": true,
+    "vs-kubernetes": {
+        "vscode-kubernetes.helm-path-mac": "/Users/philip/.vs-kubernetes/tools/helm/darwin-arm64/helm",
+        "vscode-kubernetes.minikube-path-mac": "/Users/philip/.vs-kubernetes/tools/minikube/darwin-arm64/minikube"
+    },
+    "rest-client.environmentVariables": {
+        "$shared": {},
+        "buildingPerformanceDatabase": {
+            "bpd_api_key":  "ApiKey bpd-gui:b61e3727-def2-4191-9166-9d6b10545c35"
+        }
+    },
+    "prettier.bracketSameLine": true,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "mssql.connectionGroups": [
+        {
+            "name": "ROOT",
+            "id": "ROOT"
+        },
+        {
+            "name": "Intech",
+            "color": "#2A197D",
+            "id": "17A33E9D-CF68-4AE6-968A-E224F61EE3F1",
+            "parentId": "ROOT"
+        }
     ],
+    "mssql.autoDisableNonTSqlLanguageService": false,
+    "git.blame.ignoreWhitespace": true,
+    "debug.breakpointsView.presentation": "tree",
+    "terminal.integrated.profiles.osx": {
+        "bash": {
+            "path": "/bin/bash",
+            "args": [
+                "-l"
+            ]
+        },
+        "zsh": {
+            "path": "zsh",
+            "args": [
+                "-l"
+            ]
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-l"
+            ]
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "terminal.integrated.defaultProfile.osx": "bash",
+    "git.addAICoAuthor": "chatAndAgent",
+    "notebook.editorOptionsCustomizations": {
+        "editor.tabSize": 4,
+        "editor.indentSize": 4,
+        "editor.insertSpaces": true
+    },
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "chat.autopilot.enabled": true,
+    "@azure.argTenant": "6d50678b-7334-4c46-a830-70032b25a747"
 }

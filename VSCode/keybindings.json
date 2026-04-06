@@ -1,19 +1,53 @@
+// Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "ctrl+shift+t",
-        "command": "workbench.action.tasks.test"
+        "key": "shift+alt+cmd+=",
+        "command": "editor.action.fontZoomIn"
     },
     {
-        "key": "ctrl+k ctrl+,",
-        "command": "editor.emmet.action.expandAbbreviation"
+        "key": "shift+alt+cmd+-",
+        "command": "editor.action.fontZoomOut"
     },
-{
-    "key": "ctrl+k",
-    "command": "selectPrevSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-},
-{
-    "key": "ctrl+s",
-    "command": "macros.saveAndExitVimInsertMode"
- }
+    {
+        "key": "shift+cmd+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "escape",
+        "command": "-notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-notebook.cell.quitEdit",
+        "when": "notebookEditorFocused && notebookOutputFocused"
+    },
+    {
+        "key": "ctrl+escape",
+        "command": "notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && vim.active && !editorHasSelection && !editorHoverVisible && vim.mode == 'Normal'"
+    },
+    {
+        "key": "escape",
+        "command": "-notebook.cell.quitEdit",
+        "when": "inputFocus && notebookEditorFocused && vim.active && !editorHasSelection && !editorHoverVisible && vim.mode == 'Normal'"
+    },
+    {
+        "key": "cmd+0",
+        "command": "workbench.action.zoomReset"
+    },
+    {
+        "key": "cmd+numpad0",
+        "command": "-workbench.action.zoomReset"
+    },
+    {
+        "key": "cmd+0",
+        "command": "-workbench.action.focusSideBar"
+    },
+    {
+        "key": "shift+cmd+a",
+        "command": "-workbench.view.extension.azure",
+        "when": "viewContainer.workbench.view.extension.azure.enabled"
+    }
 ]
