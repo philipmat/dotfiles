@@ -83,13 +83,30 @@ scoop bucket aff extras
 
 ```sh
 brew install \
-  bat curlie difftastic eza \
-  fd fzf fig fnm \
-  gron jq neovim pyenv \
-  ripgrep sqlite \
-  starship tmux watch \
-  glance kdiff3 rectangle \
+  bat difftastic eza \
+  fd fzf gh fnm \
+  gron jq lazygit \
+  neovim nono \
+  pyenv pstree \
+  ripgrep \
+  sqlite smartmontools starship \
+  tmux unixodbc uv \
+  watch watchexec wget2 \
+  kdiff3 \
   xz
+```
+
+Optional:
+
+```sh
+brew install \
+  msodbcsql18 mssql-tools18 \
+  node qrencode \
+  pi-coding-agent glance
+```
+
+```sh
+brew install --cask claude-code iterm2 localsend temurin transmission opencode-desktop
 ```
 
 Nerd Fonts required for *starship*:
@@ -99,22 +116,19 @@ brew install --cask \
   homebrew/cask-fonts/font-caskaydia-cove-nerd-font \
   homebrew/cask-fonts/font-fira-mono-nerd-font \
   homebrew/cask-fonts/font-victor-mono-nerd-font \
-  homebrew/cask-fonts/font-iosevka-nerd-font \
+  homebrew/cask-fonts/font-maple-mono \
+  homebrew/cask-fonts/font-maple-mono-nf \
   homebrew/cask-fonts/font-jetbrains-mono-nerd-font
 ```
 
 Other installation steps:
 
 - setup `fzf`: `$(brew --prefix)/opt/fzf/install`
-- Install python: `pyenv install 3.10.9`
+- Install python: `pyenv install 3.14`
 - install nvim plugins: `nvim --headless +PlugInstall +qa`
-
-Optional: nushell, xonsh
 
 Manual install:
 
-- [oh-my-zsh](https://ohmyz.sh/#install)
-- [Bitwarden](https://apps.apple.com/us/app/bitwarden/id1352778147?mt=12)
 - [VSCode](https://code.visualstudio.com/)
 - [SourceTree](https://www.sourcetreeapp.com/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/)
