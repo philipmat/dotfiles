@@ -115,12 +115,13 @@ unset URL
 #####################
 [ "$VERBOSE" = "true" ] && echo "Installing zshrc"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
-	if [ -d "$HOME/.oh-my-zsh" ] ; then
-		[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
-	else
-		[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
-		#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	fi
+	# decided to move skip oh-my-zsh and use zsh plain
+	# if [ -d "$HOME/.oh-my-zsh" ] ; then
+	# 	[ "$VERBOSE" = "true" ] && echo "oh-my-zsh already installed at $HOME/.oh-my-zsh"
+	# else
+	# 	[ "$VERBOSE" = "true" ] && echo "Installing oh-my-zsh"
+	# 	#sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	# fi
 
 	[ "$VERBOSE" = "true" ] && echo "Linking .zshrc"
 	linking_me_softly "zsh/.zshrc" "$HOME/.zshrc"
