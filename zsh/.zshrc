@@ -220,11 +220,13 @@ then
     alias llm-brief="llm -t brief "
     # use a quick model for HN summaries
     alias llm-hn='f(){ llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$1 "summary with illustrative direct quotes";  unset -f f; }; f'
+    source ~/Projects/dotfiles/autocompletions/llm.completions.sh
 fi
 
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 alias speedtest="networkQuality"
+alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
