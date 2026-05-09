@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#  checking out a new worktree (that’s what the "$1" == "0000..." is all about)?
+if [[ "$1" == "0000000000000000000000000000000000000000" ]]; then
+	MAIN_WORKTREE=$(git worktree list | head -1 | awk '{print $1}')
+	COPY_LIST="$MAIN_WORKTREE/.worktreeinclude"
+
+	[[ ! -f "$COPY_LIST" ]] && exit 0
+
+	while IFS= read -r f || [[ -n "$f" ]]; do
+  	  [[ -z "$f" || "$f" == \#* ]] && continue
+  	  if [[ -e "$MAIN_WORKTREE/$f" && ! -e "$f" ]]; then
+    	cp -r "$MAIN_WORKTREE/$f" "$f"
+    	echo "Copied $f"
+  	  fi
+	done < "$COPY_LIST"
+fi
