@@ -233,6 +233,15 @@ then
     source ~/Projects/dotfiles/autocompletions/llm.completions.sh
 fi
 
+if command -v nono > /dev/null
+then
+	alias no-opencode="nono run --profile opencode --allow . -- opencode"
+	alias no-claude="nono run --profile claude -- claude --dangerously-skip-permissions"
+	alias no-pi="nono run --profile pi --allow . -- pi --provider openrouter"
+	# use ~/.local/bin/no-codex because it needs env vars
+	#alias no-codex="nono run --profile codex --allow . -- codex"
+fi
+
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 alias speedtest="networkQuality"
