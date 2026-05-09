@@ -217,19 +217,22 @@ alias rgj="rg -tjs -i"
 alias rgni="rg --no-ignore"
 alias ungron="gron --ungron"
 alias mkenv='python -m venv .venv'
+alias split-path="echo $PATH | tr ':' '\n'"
 
 if command -v lazygit > /dev/null
 then
     alias gg="lazygit"
 fi
+
 if command -v llm > /dev/null
 then
     alias llm-upgrade="llm install -U llm"
     alias llm-1="llm -t one-liner "
     alias llm-short="llm -t brief "
     alias llm-brief="llm -t brief "
+    alias llm-cmd="llm cmd --model 'openrouter/qwen/qwen3.6-plus:free' "
     # use a quick model for HN summaries
-    alias llm-hn='f(){ llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$1 "summary with illustrative direct quotes";  unset -f f; }; f'
+    alias llm-hn='f(){ local id="${1##*id=}"; id="${id%%[^0-9]*}" ; llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$id "summary with illustrative direct quotes";  unset -f f; }; f'
     source ~/Projects/dotfiles/autocompletions/llm.completions.sh
 fi
 
@@ -246,6 +249,7 @@ fi
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 alias speedtest="networkQuality"
 alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
+alias path-split='echo $PATH | tr ":" "\n" | sort'
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
