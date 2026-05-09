@@ -165,6 +165,16 @@ then
 	eval "$(fnm env --use-on-cd)"
 fi
 
+# fnm creates a bunch of links into $FNM_MULTISHELL_PATH = ~/.local/state/fnm_multishells
+# one link per shell instance and it never cleans them up
+# this function attempts to do that on shell exit
+cleanup_fnm() {
+  if [[ -n "$FNM_MULTISHELL_PATH" && -d "$FNM_MULTISHELL_PATH" ]]; then
+    rm -rf "$FNM_MULTISHELL_PATH"
+  fi
+}
+trap cleanup_fnm EXIT
+
 ###################################################################
 # ALIASES
 ###################################################################
