@@ -89,8 +89,41 @@ ZSH_DOTENV_FILE=.dotenv
 ZSH_DOTENV_PROMPT=false
 
 # case-insensitive completion
-autoload -U compinit; compinit
+autoload -U compinit colors; compinit
+zstyle ':completion:*' verbose yes
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+
+# only show files when autocomp on vim command
+zstyle ':completion:*:vim:*' file-name modification
+
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _approximate _ignored 
+# corrections in a different color
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+# list all file details and with colors
+zstyle ':completion:*' file-list all
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# zstyle ':completion:*' list-colors ''
+# zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+
+# complete on partial list
+# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=*'
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' max-errors 3
+# zstyle ':completion:*' menu select=long
+# zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+# zstyle :compinstall filename '/Users/philip/.zshrc'
+
+# autoload -Uz compinit
+# compinit
+# End of lines added by compinstall
+
+
+# autocd for frequent locations
+cdpath=($HOME/Projects/InTech $HOME/Projects)
 
 #~ source $ZSH/oh-my-zsh.sh
 
@@ -153,6 +186,8 @@ then
 fi
 
 export PATH="$PATH:/Users/philip/.dotnet/tools"
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 
 # nvim support
 export NVM_DIR="$HOME/.nvm"
@@ -218,6 +253,7 @@ alias rgni="rg --no-ignore"
 alias ungron="gron --ungron"
 alias mkenv='python -m venv .venv'
 alias split-path="echo $PATH | tr ':' '\n'"
+alias ze="vim ~/.zshrc && source ~/.zshrc"
 
 if command -v lazygit > /dev/null
 then
@@ -230,19 +266,45 @@ then
     alias llm-1="llm -t one-liner "
     alias llm-short="llm -t brief "
     alias llm-brief="llm -t brief "
-    alias llm-cmd="llm cmd --model 'openrouter/qwen/qwen3.6-plus:free' "
+    alias llm-cmd="llm cmd --model 'openrouter/openrouter/pareto-code'"
     # use a quick model for HN summaries
-    alias llm-hn='f(){ local id="${1##*id=}"; id="${id%%[^0-9]*}" ; llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$id "summary with illustrative direct quotes";  unset -f f; }; f'
+    # alias llm-hn='f(){ local id="${1##*id=}"; id="${id%%[^0-9]*}" ; llm -m openrouter/meta-llama/llama-3.1-8b-instruct -f hn:$id "summary with illustrative direct quotes";  unset -f f; }; f'
+    # alias llm-hn='f(){ local id="${1##*id=}"; id="${id%%[^0-9]*}" ; llm -m openrouter/openrouter/free -f hn:$id "summary with illustrative direct quotes; do not use markdown tables" | rich -w 100 -m - ;  unset -f f; }; f'
+
+	# hn-summary.yaml
+	#prompt: >
+  	#  summary with illustrative direct quotes; include a sentiment analysis with percentages at the end; 
+  	#  DO NOT USE MARKDOWN TABLES. print your model name at the end as a signature
+	llm-hn() { 
+		local id="${1##*id=}"
+		local id="${id%%[^0-9]*}" 
+		llm -m openrouter/openrouter/free -f hn:$id \
+			-t hn-summary \
+			| rich -w 100 -m -
+	}
+
     source ~/Projects/dotfiles/autocompletions/llm.completions.sh
 fi
 
 if command -v nono > /dev/null
 then
-	alias no-opencode="nono run --profile opencode --allow . -- opencode"
+	alias no-opencode="nono run --profile opencode2 --allow . -- opencode"
 	alias no-claude="nono run --profile claude -- claude --dangerously-skip-permissions"
-	alias no-pi="nono run --profile pi --allow . -- pi --provider openrouter"
+	alias clauded="claude --dangerously-skip-permissions"
+	alias no-claude-az="CLAUDE_CONFIG_DIR=~/.claude-az nono run --profile claude -- claude --dangerously-skip-permissions"
+	# alias no-pi="nono run --profile pi --allow . -- pi --provider openrouter"
 	# use ~/.local/bin/no-codex because it needs env vars
 	#alias no-codex="nono run --profile codex --allow . -- codex"
+	no-pi() {
+    	local extra_args=()
+    	local git_dir
+
+    	if git_dir="$(git rev-parse --absolute-git-dir 2>/dev/null)"; then
+      	  extra_args+=(--read-file "$git_dir/commondir")
+    	fi
+
+    	nono run --profile pi --allow . "${extra_args[@]}" -- pi --provider openrouter "$@"
+  }
 fi
 
 
@@ -250,6 +312,7 @@ alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 alias speedtest="networkQuality"
 alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
 alias path-split='echo $PATH | tr ":" "\n" | sort'
+
 
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
@@ -293,3 +356,4 @@ eval "$(starship init zsh)"
 # iTerm2 shell integration
 ITERM2_SQUELCH_MARK=1
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
