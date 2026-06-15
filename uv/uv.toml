@@ -1,0 +1,4 @@
+exclude-newer = "3 days"
+
+[pip]
+exclude-newer = "3 days"
