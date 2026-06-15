@@ -46,6 +46,7 @@
     #merge-master = !git fetch origin master:master && git merge master
     #merge-main = !git fetch origin main:main && git merge main
     merge-main = !git fetch origin $(git primary):$(git primary) && git merge $(git primary)
+    mm = !git fetch origin $(git primary):$(git primary) && git merge $(git primary)
     #merge-develop = !git fetch origin develop:develop && git merge develop
     merge-integration = !git fetch origin integration:integration && git merge integration
     p = pull --no-edit
