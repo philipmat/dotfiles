@@ -1,3 +1,4 @@
+
 ! 7/9/2017, 12:51:36 PM https://www.cnet.com/how-to/how-to-enable-or-disable-hibernate-in-windows-10/
 www.cnet.com###featuredVideo
 
@@ -23,7 +24,7 @@ www.simplyrecipes.com##.widget.fexy-video-widget
 docs.google.com##.docs-ui-unprintable.docs-border-selection-button-normal.goog-inline-block
 
 ! 3/14/2018, 2:42:59 PM https://www.amazon.com/
-www.amazon.com##.amzlv-banner-player-container
+! www.amazon.com##.amzlv-banner-player-container
 
 qnylrfckbp.com
 
@@ -227,7 +228,8 @@ en.wikipedia.org##.cn-fundraising
 daringfireball.net##body:style(font-size: 16px !important)
 
 ! 2022-10-15 https://www.youtube.com
-www.youtube.com##tp-yt-paper-dialog.ytd-popup-container.style-scope
+! note: this also blocks the share sheet. come up with a better rule
+! www.youtube.com##tp-yt-paper-dialog.ytd-popup-container.style-scope
 
 ext.ascendion.com##+js(remove-attr, class, body.pace-running)
 ext.ascendion.com##+js(remove-attr, class, body.pace-done)
@@ -274,13 +276,13 @@ news.ycombinator.com##.clicky:style(font-size: 12pt !important)
 pitchfork.com##.cne-video-embed
 
 ! 2023-09-30 https://www.amazon.com
-www.amazon.com##.amazonlive-widget-padding
+! www.amazon.com##.amazonlive-widget-padding
 
 ! 2023-10-01 https://www.vanityfair.com
 www.vanityfair.com##.sticky-box
 
 ! 2023-11-10 https://www.amazon.com
-www.amazon.com##.lsw-video-container
+! www.amazon.com##.lsw-video-container
 
 ! 2023-12-12 https://www.msn.com
 www.msn.com##.intra-article-relatedcontent
@@ -346,3 +348,12 @@ www.visordown.com##.activate.visordown
 www.theverge.com###zephr-footer-container
 
 app.shortcut.com##textarea:style(font-family: monospace !important)
+
+! Jun 1, 2026 https://www.crash.net
+www.crash.net###prompt-register-wrapper
+
+! Jun 1, 2026 https://www.motogpnews.com
+www.motogpnews.com##.grv-modal-overlay
+
+! Jun 14, 2026 https://www.merge.dev
+www.merge.dev##.show.modal-window__reskin
