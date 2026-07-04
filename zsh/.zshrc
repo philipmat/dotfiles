@@ -219,9 +219,11 @@ trap cleanup_fnm EXIT
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
+export EDITOR=vim
 if command -v nvim > /dev/null
 then
     alias vim="nvim"
+    export EDITOR=nvim
 fi
 alias zshconfig="vim ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
@@ -254,6 +256,7 @@ alias ungron="gron --ungron"
 alias mkenv='python -m venv .venv'
 alias split-path="echo $PATH | tr ':' '\n'"
 alias ze="vim ~/.zshrc && source ~/.zshrc"
+alias fd-all="fd --hidden --no-ignore"
 
 if command -v lazygit > /dev/null
 then
@@ -278,7 +281,11 @@ then
 	llm-hn() { 
 		local id="${1##*id=}"
 		local id="${id%%[^0-9]*}" 
-		llm -m openrouter/openrouter/free -f hn:$id \
+		local model="openrouter/openrouter/free"
+		# local model="openrouter/google/gemma-4-31b-it:free"
+		# local model="openrouter/openai/gpt-oss-120b:free"
+
+		llm -m $model -f hn:$id \
 			-t hn-summary \
 			| rich -w 100 -m -
 	}
