@@ -99,7 +99,7 @@ zstyle ':completion:*:vim:*' file-name modification
 
 # The following lines were added by compinstall
 
-zstyle ':completion:*' completer _expand _complete _approximate _ignored 
+zstyle ':completion:*' completer _expand _complete _approximate _ignored
 # corrections in a different color
 zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
 # list all file details and with colors
@@ -259,6 +259,8 @@ alias ungron="gron --ungron"
 alias mkenv='python -m venv .venv'
 alias split-path="echo $PATH | tr ':' '\n'"
 alias ze="vim ~/.zshrc && source ~/.zshrc"
+
+# note: on linux fd is sudo apt install fd-find
 alias fd-all="fd --hidden --no-ignore"
 
 if command -v lazygit > /dev/null
@@ -279,11 +281,11 @@ then
 
 	# hn-summary.yaml
 	#prompt: >
-  	#  summary with illustrative direct quotes; include a sentiment analysis with percentages at the end; 
+  	#  summary with illustrative direct quotes; include a sentiment analysis with percentages at the end;
   	#  DO NOT USE MARKDOWN TABLES. print your model name at the end as a signature
-	llm-hn() { 
+	llm-hn() {
 		local id="${1##*id=}"
-		local id="${id%%[^0-9]*}" 
+		local id="${id%%[^0-9]*}"
 		local model="openrouter/openrouter/free"
 		# local model="openrouter/google/gemma-4-31b-it:free"
 		# local model="openrouter/openai/gpt-oss-120b:free"
@@ -300,7 +302,6 @@ if command -v nono > /dev/null
 then
 	alias no-opencode="nono run --profile opencode2 --allow . -- opencode"
 	alias no-claude="nono run --profile claude -- claude --dangerously-skip-permissions"
-	alias clauded="claude --dangerously-skip-permissions"
 	alias no-claude-az="CLAUDE_CONFIG_DIR=~/.claude-az nono run --profile claude -- claude --dangerously-skip-permissions"
 	# alias no-pi="nono run --profile pi --allow . -- pi --provider openrouter"
 	# use ~/.local/bin/no-codex because it needs env vars
@@ -317,6 +318,10 @@ then
   }
 fi
 
+if command -v claude > /dev/null
+then
+	alias clauded="claude --dangerously-skip-permissions"
+fi
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
 if [[ "$OSTYPE" == "darwin"* ]]
@@ -373,3 +378,5 @@ then
     test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
 
+# load SSH on linux
+# [ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
