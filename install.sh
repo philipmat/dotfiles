@@ -58,7 +58,7 @@ linking_me_softly() {
 			[ "$VERBOSE" = "true" ] && echo "Skipping: $2 already exists."
 			return
 		fi
-	fi	
+	fi
 	if [ "$TEST" = "true" ] ; then
 		echo "Test only"
 		# echo "Test only TEST=$TEST"
@@ -130,7 +130,7 @@ fi
 [ "$VERBOSE" = "true" ] && echo "Installing starship"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.config"
-	linking_me_softly "config-extras/starship.toml" "$HOME/.config/starship.toml"
+	linking_me_softly "config-extra/starship.toml" "$HOME/.config/starship.toml"
 fi
 
 
@@ -184,4 +184,3 @@ linking_me_softly "tmux/.tmux.conf" "$HOME/.tmux.conf"
 
 
 unset LN_FLAGS OVERRIDE TEST VERBOSE
-
