@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "respectGitignore": false,
+  "env": {
+    "DOTNET_SYSTEM_NET_DISABLEIPV6": "1"
+  },
+  "permissions": {
+    "defaultMode": "auto",
+    "skipDangerousModePermissionPrompt": true
+  },
+  "model": "sonnet",
+  "statusLine": {
+    "type": "command",
+    "command": "sh ~/.claude/statusline-command.sh"
+  },
+  "sandbox": {
+    "enabled": true,
+    "failIfUnavailable": true,
+    "autoAllowBashIfSandboxed": false,
+    "allowUnsandboxedCommands": false,
+    "network": {
+      "allowedDomains": [
+        "localhost",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "*.nuget.org",
+        "*.datadoghq.com",
+        "*.us3.datadoghq.com",
+        "api.us3.datadoghq.com",
+        "nuget.pkg.github.com",
+        "energy360-servicebus-test.servicebus.windows.net"
+      ],
+      "allowUnixSockets": [],
+      "allowAllUnixSockets": false,
+      "allowLocalBinding": false
+    },
+    "filesystem": {
+      "allowWrite": [
+        "~/Library/Application Support/dotnet/runfile",
+        "~/.local/share/NuGet",
+        "~/.claude",
+        "~/.agents"
+      ],
+      "denyWrite": [
+        "~/Applications/"
+      ],
+      "denyRead": [
+        "~/.aws",
+        "~/.azure",
+        "~/.ssh"
+      ]
+    },
+    "enableWeakerNestedSandbox": false,
+    "enableWeakerNetworkIsolation": true,
+    "excludedCommands": [
+      "docker *"
+    ]
+  },
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
+  "skipWorkflowUsageWarning": true,
+  "theme": "auto",
+  "editorMode": "vim",
+  "skipAutoPermissionPrompt": true,
+  "disableDeepLinkRegistration": "disable",
+  "mcpServers": {
+    "rider": {
+      "type": "sse",
+      "url": "http://127.0.0.1:64342/sse"
+    },
+    "pycharm": {
+      "type": "sse",
+      "url": "http://127.0.0.1:64343/sse"
+    },
+    "shortcut": {
+      "type": "http",
+      "url": "https://mcp.shortcut.com/mcp"
+    }
+  }
+}

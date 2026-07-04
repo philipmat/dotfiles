@@ -189,6 +189,13 @@ if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 fi
 
 
+[ "$VERBOSE" = "true" ] && echo "Installing Claude settings"
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	mkdir -p "$HOME/.claude"
+	linking_me_softly "config-extras/claude/settings.json" "$HOME/.claude/settings.json"
+	linking_me_softly "config-extras/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+fi
+
 ###############
 # TMUX
 ###############
