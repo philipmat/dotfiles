@@ -37,7 +37,7 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
-Plug 'phaazon/hop.nvim'
+Plug 'smoka7/hop.nvim'
 
 " fzf native plugin
 Plug 'junegunn/fzf'
