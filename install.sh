@@ -174,6 +174,20 @@ if [ "$(uname)" = 'Darwin' ] ; then
     linking_me_softly "VSCode/snippets" "$HOME/Library/Application Support/Code - Insiders/User/snippets"
 fi
 
+# uv
+[ "$VERBOSE" = "true" ] && echo "Installing uv config"
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	mkdir -p "$HOME/.config"
+	linking_me_softly "config-extras/uv.toml" "$HOME/.config/uv.toml"
+fi
+
+[ "$VERBOSE" = "true" ] && echo "Installing zed settings"
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	mkdir -p "$HOME/.config/zed"
+	linking_me_softly "config-extras/zed/settings.json" "$HOME/.config/zed/settings.json"
+	linking_me_softly "config-extras/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+fi
+
 
 ###############
 # TMUX
