@@ -172,7 +172,7 @@ RPROMPT="%B${return_code}%b"
 #
 # requires to build some python version
 # brew install xz
-if command -v brew > /dev/null
+if [[ "$OSTYPE" == "darwin"* ]] && command -v brew > /dev/null
 then
     export CPPFLAGS="-I $(brew --prefix xz)/include $CPPFLAGS"
     export CPPFLAGS="-I $(brew --prefix zlib)/include $CPPFLAGS"
@@ -183,9 +183,12 @@ then
     export LDFLAGS="-L$(brew --prefix openssl)/lib $LDFLAGS"
     export PKG_CONFIG_PATH="$(brew --prefix xz)/lib/pkgconfig:$PKG_CONFIG_PATH"
     export PKG_CONFIG_PATH="$(brew --prefix zlib)/lib/pkgconfig:$PKG_CONFIG_PATH"
+elif [[ "$OSTYPE" == "linux"* ]] && ! command -v brew > /dev/null
+then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-export PATH="$PATH:/Users/philip/.dotnet/tools"
+export PATH="$PATH:$HOME/.dotnet/tools"
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 
 
@@ -316,7 +319,10 @@ fi
 
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
-alias speedtest="networkQuality"
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+    alias speedtest="networkQuality"
+fi
 alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
 alias path-split='echo $PATH | tr ":" "\n" | sort'
 
@@ -327,7 +333,7 @@ function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
 
 # aws completion
 #
-# [ -f /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh ] && source /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh
+# [ -f "$(brew --prefix)/share/zsh/site-functions/aws_zsh_completer.sh" ] && source "$(brew --prefix)/share/zsh/site-functions/aws_zsh_completer.sh"
 
 # Load local settings
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
@@ -360,7 +366,10 @@ eval "$(uvx --generate-shell-completion zsh)"
 # Starship prompt
 eval "$(starship init zsh)"
 
-# iTerm2 shell integration
-ITERM2_SQUELCH_MARK=1
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# iTerm2 shell integration (macOS only)
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+    ITERM2_SQUELCH_MARK=1
+    test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+fi
 
