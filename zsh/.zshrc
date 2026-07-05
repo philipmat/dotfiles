@@ -341,6 +341,11 @@ alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
 alias path-split='echo $PATH | tr ":" "\n" | sort'
 
 
+if [[ "$OSTYPE" == "linux-gnu" ]] ; then
+	if command -v podman > /dev/null ; then
+		alias docker='podman'
+	fi
+fi
 # Functions for interactive mode
 # For non-interactive mode, place functions in ~/.zshenv
 function mkcd() { [ -n "$1" ] && mkdir -p "$@" && cd "$1" ; }
