@@ -33,13 +33,13 @@
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-a": ["terminal::SendKeystroke", "ctrl-a"],
+      "ctrl-a": ["terminal::SendKeystroke", "Home"],
     },
   },
   {
     "context": "Terminal",
     "bindings": {
-      "ctrl-e": ["terminal::SendKeystroke", "ctrl-e"],
+      "ctrl-e": ["terminal::SendKeystroke", "End"],
     },
   },
 ]
