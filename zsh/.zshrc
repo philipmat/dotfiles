@@ -261,7 +261,14 @@ alias split-path="echo $PATH | tr ':' '\n'"
 alias ze="vim ~/.zshrc && source ~/.zshrc"
 
 # note: on linux fd is sudo apt install fd-find
-alias fd-all="fd --hidden --no-ignore"
+if command -v fd > /dev/null
+then
+	alias fd-all="fd --hidden --no-ignore"
+elif command -v fdfind > /dev/null
+then
+	alias fd="fdfind"
+	alias fd-all="fdfind --hidden --no-ignore"
+fi
 
 if command -v lazygit > /dev/null
 then
