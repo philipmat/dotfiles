@@ -3,7 +3,7 @@ function _dotfiles_install_llm() {
     local target="$HOME"
     if [[ "$OSTYPE" == "darwin"* ]]
     then
-        local target="$HOME/Library/Application\ Support/io.datasette.llm"
+        local target="$HOME/Library/Application Support/io.datasette.llm"
     fi
     mkdir -p "$target"
     linking_me_softly "$dot_path/templates" "$target/templates"
