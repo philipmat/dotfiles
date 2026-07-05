@@ -35,12 +35,24 @@ get_abs_filename() {
 	elif [ -f "$1" ]; then
     	# file
     	if [[ $1 = */* ]]; then
-        	# >&2 echo "ABS 2. $(cd "${1%/*}"; pwd)/${1##*/}"
+        	# >&2 echo "ABS 2. $(cd "${3%/*}"; pwd)/${1##*/}"
         	echo "$(cd "${1%/*}"; pwd)/${1##*/}"
     	else
         	# >&2 echo "ABS 3. $(pwd)/$1"
         	echo "$(pwd)/$1"
     	fi
+	elif [ -f "$(pwd)/$1" ]; then
+    	# file
+    	if [[ $1 = */* ]]; then
+        	# >&2 echo "ABS 4. $(cd "${1%/*}"; pwd)/${1##*/}"
+        	echo "$(cd "${1%/*}"; pwd)/${1##*/}"
+    	else
+        	# >&2 echo "ABS 5. $(pwd)/$1"
+        	echo "$(pwd)/$1"
+    	fi
+	else
+	    # [[ -f "$(pwd)/$1" ]] && echo " it's a file"
+	    >&2 echo "⁉️ neither $1 nor $(pwd)/$1 are directories or a files"
 	fi
 }
 
@@ -108,6 +120,8 @@ URL=https://raw.githubusercontent.com/git/git/master/contrib/completion
 curl "$URL/git-completion.bash" --output $HOME/git-completion.bash
 curl "$URL/git-completion.zsh" --output $HOME/git-completion.zsh
 unset URL
+
+CURRENT_FOLDER = "$(pwd)"
 
 #####################
 # zsh. First install oh-my-zsh, then link our zshrc
@@ -180,23 +194,23 @@ fi
 [ "$VERBOSE" = "true" ] && echo "Installing uv config"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.config"
-	linking_me_softly "config-extras/uv.toml" "$HOME/.config/uv.toml"
+	linking_me_softly "config-extra/uv.toml" "$HOME/.config/uv.toml"
 fi
 
 # Zed edior
 [ "$VERBOSE" = "true" ] && echo "Installing zed settings"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.config/zed"
-	linking_me_softly "config-extras/zed/settings.json" "$HOME/.config/zed/settings.json"
-	linking_me_softly "config-extras/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+	linking_me_softly "config-extra/zed/settings.json" "$HOME/.config/zed/settings.json"
+	linking_me_softly "config-extra/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 fi
 
 # Claude Code
 [ "$VERBOSE" = "true" ] && echo "Installing Claude settings"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.claude"
-	linking_me_softly "config-extras/claude/settings.json" "$HOME/.claude/settings.json"
-	linking_me_softly "config-extras/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
+	linking_me_softly "config-extra/claude/settings.json" "$HOME/.claude/settings.json"
+	linking_me_softly "config-extra/claude/statusline-command.sh" "$HOME/.claude/statusline-command.sh"
 fi
 
 ###############
