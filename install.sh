@@ -34,7 +34,7 @@ get_abs_filename() {
     	echo "$(cd "$1"; pwd)"
 	elif [ -f "$1" ]; then
     	# file
-    	if [ "$1" = "*/*" ]; then
+    	if [[ $1 = */* ]]; then
         	# >&2 echo "ABS 2. $(cd "${1%/*}"; pwd)/${1##*/}"
         	echo "$(cd "${1%/*}"; pwd)/${1##*/}"
     	else
@@ -60,7 +60,7 @@ linking_me_softly() {
 		fi
 	fi
 	if [ "$TEST" = "true" ] ; then
-		echo "Test only"
+		echo "Test only. Would ln $LN_FLAGS $real_source $2"
 		# echo "Test only TEST=$TEST"
 		# [ "false" = "true" ] && echo "false=true"
 		# [ "true" = "true" ] && echo "true=true"
@@ -183,6 +183,7 @@ if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	linking_me_softly "config-extras/uv.toml" "$HOME/.config/uv.toml"
 fi
 
+# Zed edior
 [ "$VERBOSE" = "true" ] && echo "Installing zed settings"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.config/zed"
@@ -190,7 +191,7 @@ if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	linking_me_softly "config-extras/zed/keymap.json" "$HOME/.config/zed/keymap.json"
 fi
 
-
+# Claude Code
 [ "$VERBOSE" = "true" ] && echo "Installing Claude settings"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	mkdir -p "$HOME/.claude"
