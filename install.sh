@@ -161,6 +161,8 @@ linking_me_softly "vim" "$HOME/.vim"
 [ "$(uname)" = 'Darwin' ] && \
     linking_me_softly "vim/xvimrc.vim" "$HOME/.xvimrc"
 
+# .ideavimrc goes in the root
+linking_me_softly "vim/.ideavimrc" "$HOME/.ideavimrc"
 
 ###############
 # VSCode
