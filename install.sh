@@ -81,7 +81,7 @@ if [ "$TEST" = "false" ] ; then
 fi
 
 # file links
-file_links=(bash ctags hg python tmux)
+file_links=(bash ctags hg python tmux llm)
 
 for directory in $(ls -d */) ; do
 	dir=${directory%%/}

@@ -1,0 +1,9 @@
+prompt: >
+  summary with illustrative direct quotes; include a sentiment analysis with percentages at the end; 
+  **VERY IMPORTANT**:
+    - DO NOT USE MARKDOWN TABLES IN OUTPUT.
+    - Ignore entries that have `null` points.
+    - Favor comments with higher points
+
+  at the end, write what model your system prompt tells you to identify as;
+  if you don't have a specific model name, print your provider or maker
