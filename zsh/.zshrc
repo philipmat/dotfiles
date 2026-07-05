@@ -290,6 +290,8 @@ then
 	#prompt: >
   	#  summary with illustrative direct quotes; include a sentiment analysis with percentages at the end;
   	#  DO NOT USE MARKDOWN TABLES. print your model name at the end as a signature
+    # install rich with uv-tool-install rich-cli and then
+    # ln -s ~/.local/share/uv/tools/rich-cli/bin/rich ~/.local/bin/rich
 	llm-hn() {
 		local id="${1##*id=}"
 		local id="${id%%[^0-9]*}"
