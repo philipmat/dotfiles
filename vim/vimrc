@@ -157,9 +157,9 @@ syntax on
 set background=dark
 
 let g:molokai_original = 0
- 
+
 " Solarized
-let g:solarized_contrast='normal'  " high, normal, or low   
+let g:solarized_contrast='normal'  " high, normal, or low
 " let g:solarized_termtrans=0
 " let g:solarized_degrade=0
 " let g:solarized_bold=1
@@ -245,7 +245,7 @@ if !exists("autocommands_loaded")
 	let autocommands_loaded = 1
 
 	" Resize splits when the window is resized
-	" au VimResized * exe "normal! \<c-w>="	
+	" au VimResized * exe "normal! \<c-w>="
 
 	" autosave when 'losing focus' - ignore unnamed buffers
 	au FocusLost,BufLeave * silent! up
@@ -259,7 +259,7 @@ if !exists("autocommands_loaded")
 	"au BufWritePost,FocusLost,BufLeave,TabLeave * stopinsert
 	" also consider:
 	au BufWritePost,FocusLost,BufLeave,TabLeave * call feedkeys("\<C-\>\<C-n>")
-	
+
 	" TODO: for terminals with less than 256-colors don't do cursorline on
 	" active window - it shows as underline
 	augroup highlightcursorline
@@ -274,6 +274,7 @@ if !exists("autocommands_loaded")
 		"au FileType javascript setl makeprg=jsl\ -conf\ ~/jsl.conf\ -process\ %
 		au FileType javascript setl makeprg=node\ %
 		au FileType javascript setl fdm=syntax
+		au FileType javascript setl sw=2 ts=2
 	augroup END
 
 	au BufNewFile,BufRead *.config setl ft=xml
@@ -290,24 +291,24 @@ if !exists("autocommands_loaded")
 		au FileType python setl fdm=indent et ts=4 sw=4
 		" au FileType python setl omnifunc=pythoncomplete#Complete
 		"au FileType python setl omnifunc=
-		
+
 
 		"au BufRead *.py nmap <F5> :!python %<CR>
 		au FileType python nmap <buffer> <leader>2 <Esc>:setl shiftwidth=2 softtabstop=2 expandtab
 		au FileType python nmap <buffer> <leader>4 <Esc>:setl shiftwidth=4 softtabstop=4 expandtab
 		au FileType python map <buffer> <leader>8 <Esc>:call Flake8()<CR>
 	augroup END
-	
+
 	augroup xml
 		"au FileType xml let g:xml_syntax_folding=1
 		au FileType xml setl foldmethod=syntax
 		"au FileType xml :syntax on
 	augroup END
-	
+
 	augroup markdown
 		au FileType markdown setl expandtab shiftwidth=4 softtabstop=4
 	augroup END
-	
+
 	augroup yaml
 		au FileType yaml setl expandtab shiftwidth=2 softtabstop=2
 		au BufNewFile,BufReadPost *playbook*.yml setl syntax=ansible
@@ -316,11 +317,11 @@ if !exists("autocommands_loaded")
 
 	augroup coffeescript
 		au FileType coffee setl foldmethod=indent
-		"au BufNewFile,BufReadPost *.coffee setl foldmethod=indent "nofoldenable	
+		"au BufNewFile,BufReadPost *.coffee setl foldmethod=indent "nofoldenable
 		" To get standard two-space indentation in CoffeeScript files, add this line to your vimrc:
 		au BufNewFile,BufReadPost *.coffee setl shiftwidth=2 expandtab
 	augroup END
-	
+
 	" Put these in an autocmd group, so that we can delete them easily.
 	"augroup commonfiles
 	"	au BufReadPre,BufNewFile
