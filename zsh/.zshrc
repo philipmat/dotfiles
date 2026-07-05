@@ -330,6 +330,8 @@ fi
 if command -v claude > /dev/null
 then
 	alias clauded="claude --dangerously-skip-permissions"
+	# create a settings.nosandbox.json with ' { "sandbox": { "enabled": false } } '
+	alias claude-nosandbox='claude --settings ~/.claude/settings.nosandbox.json'
 fi
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"

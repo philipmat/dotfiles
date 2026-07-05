@@ -13,7 +13,7 @@
     "command": "sh ~/.claude/statusline-command.sh"
   },
   "sandbox": {
-    "enabled": false,
+    "enabled": true,
     "failIfUnavailable": true,
     "autoAllowBashIfSandboxed": false,
     "allowUnsandboxedCommands": false,
