@@ -19,7 +19,8 @@ call plug#begin('~/.config/nvim/plugged')
 " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 " On-demand loading
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+" Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'preservim/nerdtree', { 'on':  'NERDTreeToggle' }
 " Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
 " Using a non-default branch
@@ -49,7 +50,10 @@ Plug 'https://gitlab.com/HiPhish/rainbow-delimiters.nvim'
 
 " colorschemes
 Plug 'https://github.com/ellisonleao/gruvbox.nvim'
-Plug 'arcticicestudio/nord-vim'
+
+" Plug 'arcticicestudio/nord-vim'
+Plug 'nordtheme/vim'
+
 Plug 'tpope/vim-vividchalk'
 Plug 'junegunn/seoul256.vim'
 Plug 'ayu-theme/ayu-vim'
@@ -78,7 +82,7 @@ if (has("termguicolors"))
 
 	set background=dark
 	syntax enable
-	color nord
+	color duskfox
 	
 	" Ayu
 	" let ayucolor="light"  " for light version of theme
