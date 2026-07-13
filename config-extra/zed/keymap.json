@@ -9,7 +9,8 @@
   {
     "context": "Workspace",
     "bindings": {
-      // "shift shift": "file_finder::Toggle"
+      "shift shift": "file_finder::Toggle"
+      // "ctrl-enter": "editor::OpenContextMenu"
     },
   },
   {
@@ -22,11 +23,6 @@
     "context": "Workspace",
     "bindings": {
       "alt-?": "agent::ToggleFocus",
-    },
-  },
-  {
-    "context": "Workspace",
-    "bindings": {
       "cmd-?": null,
     },
   },
@@ -34,11 +30,6 @@
     "context": "Terminal",
     "bindings": {
       "ctrl-a": ["terminal::SendKeystroke", "Home"],
-    },
-  },
-  {
-    "context": "Terminal",
-    "bindings": {
       "ctrl-e": ["terminal::SendKeystroke", "End"],
     },
   },
