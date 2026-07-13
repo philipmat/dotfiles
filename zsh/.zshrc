@@ -296,8 +296,8 @@ then
 		local id="${1##*id=}"
 		local id="${id%%[^0-9]*}"
 		local model="openrouter/openrouter/free"
-		# local model="openrouter/google/gemma-4-31b-it:free"
-		# local model="openrouter/openai/gpt-oss-120b:free"
+		#local model="openrouter/google/gemma-4-31b-it:free"
+		#local model="openrouter/openai/gpt-oss-120b:free"
 
 		llm -m $model -f hn:$id \
 			-t hn-summary \
@@ -332,6 +332,12 @@ then
 	alias clauded="claude --dangerously-skip-permissions"
 	# create a settings.nosandbox.json with ' { "sandbox": { "enabled": false } } '
 	alias claude-nosandbox='claude --settings ~/.claude/settings.nosandbox.json'
+fi
+
+if command -v codex > /dev/null
+then
+	alias codex-ph="CODEX_HOME=~/.codex-philip open -n -a Codex"
+	alias no-codex-w='nono run --profile codex --allow . -- codex --sandbox danger-full-access --ask-for-approval on-request'
 fi
 
 alias whatsmyip="dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com"
