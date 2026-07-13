@@ -18,15 +18,16 @@ set clipboard+=unnamedplus
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
 
 " Highlight copied text
-" Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank'
 
 " Commentary plugin
 " Plug 'tpope/vim-commentary'
 
-"Plug 'easymotion/vim-easymotion'
+Plug 'easymotion/vim-easymotion'
 set easymotion
 
-"Plug 'tpope/vim-surround'
+Plug 'tpope/vim-surround'
+set surround
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
