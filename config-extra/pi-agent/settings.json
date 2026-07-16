@@ -59,6 +59,8 @@
       "context_pct",
       "token_in",
       "token_out",
+      "cache_read",
+      "cache_write",
       "cost",
       "time_spent"
     ],
@@ -70,7 +72,7 @@
     ],
     "options": {
       "path": {
-        "mode": "basename",
+        "mode": "abbreviated",
         "maxLength": 32
       },
       "git": {
