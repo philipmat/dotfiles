@@ -197,6 +197,13 @@ if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
 	linking_me_softly "config-extra/uv.toml" "$HOME/.config/uv.toml"
 fi
 
+# pi-agent
+[ "$VERBOSE" = "true" ] && echo "Installing uv config"
+if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
+	mkdir -p "$HOME/.pi/agent"
+	linking_me_softly "config-extra/pi-agent/settings.json" "$HOME/.pi/agent/settings.json"
+fi
+
 # Zed edior
 [ "$VERBOSE" = "true" ] && echo "Installing zed settings"
 if [[ "$(uname)" = 'Darwin' || "$(uname)" = 'Linux' ]]; then
