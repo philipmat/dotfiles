@@ -248,6 +248,8 @@ fi
 # x folder - lists contents of folder
 # x file - prints contents of file
 # x file folder file folder - works on one by one
+# simpler version, no bat or eza 
+# x() { if [ -d "$1" ]; then ls -al "$@"; else less "$@"; fi; }
 x() {
  local lister
  if command -v eza >/dev/null; then
