@@ -246,7 +246,12 @@ else
 fi
 alias S='sudo'
 alias df='df -h'
-alias l='less'
+if command -v bat > /dev/null ; then
+	alias l='bat'
+else 
+	alias l='less'
+fi
+
 alias tmuxa='tmux new -A -s'
 alias g='git'
 alias H="history"
