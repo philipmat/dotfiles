@@ -236,14 +236,38 @@ alias S="sudo"
 alias py="python3"
 if command -v eza > /dev/null
 then
-    alias x="eza -al"
+    # alias x="eza -al"
     alias xt="eza -T"
     alias xd="eza -al -d .*"
 else
-    alias x="ls -al"
+    # alias x="ls -al"
     # alias xt="eza -T"
     alias xd="ls -al -d .*/"
 fi
+
+# x folder - lists contents of folder
+# x file - prints contents of file
+# x file folder file folder - works on one by one
+x() {
+ local lister
+ if command -v eza >/dev/null; then
+   lister="eza -al"
+ else
+   lister="ls -al"
+ fi
+
+ for a in "$@"; do
+   if [ -d "$a" ]; then
+     eval "$lister" "$a"
+   elif command -v bat >/dev/null; then
+     bat "$a"
+   else
+     less "$a"
+   fi
+   echo
+ done
+}
+
 alias S='sudo'
 alias df='df -h'
 if command -v bat > /dev/null ; then
