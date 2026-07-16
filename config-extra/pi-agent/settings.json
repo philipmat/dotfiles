@@ -47,6 +47,54 @@
     "npm:pi-btw",
     "npm:pi-interactive-shell",
     "git:github.com/davebcn87/pi-autoresearch",
-    "npm:pi-multi-account"
-  ]
+    "npm:pi-multi-account",
+    "npm:pi-stickybar"
+  ],
+  "stickybar": {
+    "fixedEditor": true,
+    "mouseScroll": true,
+    "showLastPrompt": true,
+    "top": [
+      "git",
+      "context_pct",
+      "token_in",
+      "token_out",
+      "cost",
+      "time_spent"
+    ],
+    "bottom": [
+      "model",
+      "thinking",
+      "path",
+      "extension_statuses"
+    ],
+    "options": {
+      "path": {
+        "mode": "basename",
+        "maxLength": 32
+      },
+      "git": {
+        "polling": "full",
+        "showBranch": true,
+        "showStaged": true,
+        "showUnstaged": true,
+        "showUntracked": true
+      },
+      "time": {
+        "format": "24h",
+        "showSeconds": false
+      }
+    },
+    "customItems": [],
+    "vibe": {
+      "theme": null,
+      "mode": "generate",
+      "model": "openai-codex/gpt-5.4-mini",
+      "rainbow": true,
+      "fallback": "Working",
+      "refreshInterval": 30,
+      "prompt": "Generate a 2-4 word {theme} themed loading message ending in ... for: {task}. {exclude} Output only the message.",
+      "maxLength": 65
+    }
+  }
 }
