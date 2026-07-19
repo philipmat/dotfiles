@@ -83,16 +83,20 @@ scoop bucket aff extras
 
 ```sh
 brew install \
-  bat difftastic eza \
+  bat btop \
+  difftastic eza \
   fd fzf gh fnm \
-  gron jq lazygit \
+  gron \
+  iterm2 \
+  jq \
+  kdiff3 \
+  lazygit localsend \
   neovim nono \
   pyenv pstree \
   ripgrep \
   sqlite smartmontools starship \
-  tmux unixodbc uv \
+  tmux uv \
   watch watchexec wget2 \
-  kdiff3 \
   xz
 ```
 
@@ -100,13 +104,20 @@ Optional:
 
 ```sh
 brew install \
-  msodbcsql18 mssql-tools18 \
+  dos2unix \
+  glance \
+  unixodbc msodbcsql18 mssql-tools18 \
   node qrencode \
-  pi-coding-agent glance
+  orbstack \
+  opencode opencode-desktop \
+  pi-coding-agent  \
+  sshpass \
+  unixodbc \
+  whatcable-cli
 ```
 
 ```sh
-brew install --cask claude-code iterm2 localsend temurin transmission opencode-desktop
+brew install --cask claude-code temurin transmission opencode-desktop codex
 ```
 
 Nerd Fonts required for *starship*:
@@ -130,8 +141,11 @@ Other installation steps:
 Manual install:
 
 - [VSCode](https://code.visualstudio.com/)
-- [SourceTree](https://www.sourcetreeapp.com/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-- [Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac)
+- [Zed](https://zed.dev/)
 - [Battery Monitor](https://apps.apple.com/us/app/battery-monitor-health-info/id836505650?mt=12)
-- [nvm - node version manager](https://github.com/nvm-sh/nvm#installing-and-updating)
+- [Rectangle Pro](https://rectangleapp.com/pro/)
+- [JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/)
+- [DaisyDisk](https://daisydiskapp.com/); alternative: [Grand Perspective](https://grandperspectiv.sourceforge.net/)
+- [Nimble Commander](https://magnumbytes.com/)
+- [NetNewsWire](https://netnewswire.com/)
+- [LINQPad](https://www.linqpad.net/)
