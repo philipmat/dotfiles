@@ -113,7 +113,7 @@ brew install \
   pi-coding-agent  \
   sshpass \
   unixodbc \
-  whatcable-cli
+  darrylmorley/whatcable/whatcable-cli
 ```
 
 ```sh
