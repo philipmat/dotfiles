@@ -1,12 +1,14 @@
+# for profiling enable this and then add `zprof` at the end of the file
+# zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
+#export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="robbyrussell"
-ZSH_THEME="bira"
+# ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -258,7 +260,7 @@ x() {
    lister="ls -al"
  fi
 
- for a in "$@"; do
+ for a in "${@:-.}"; do
    if [ -d "$a" ]; then
      eval "$lister" "$a"
    elif command -v bat >/dev/null; then
@@ -377,6 +379,7 @@ then
     alias speedtest="networkQuality"
 fi
 alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
+alias brew-dep-tree='brew deps --tree --installed'
 alias path-split='echo $PATH | tr ":" "\n" | sort'
 
 
@@ -457,3 +460,6 @@ fi
 # 		start_agent;
 # 	fi
 # fi
+# enable zprof for profiling
+# zprof
+
