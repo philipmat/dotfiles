@@ -138,7 +138,7 @@ Other installation steps:
 - Install python: `pyenv install 3.14`
 - install nvim plugins: `nvim --headless +PlugInstall +qa`
 
-Manual install:
+### Manual install
 
 - [VSCode](https://code.visualstudio.com/)
 - [Zed](https://zed.dev/)
