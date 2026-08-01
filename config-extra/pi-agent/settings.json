@@ -48,7 +48,8 @@
     "npm:pi-interactive-shell",
     "git:github.com/davebcn87/pi-autoresearch",
     "npm:pi-multi-account",
-    "npm:pi-stickybar"
+    "npm:pi-stickybar",
+    "npm:pi-blackhole"
   ],
   "stickybar": {
     "fixedEditor": true,
