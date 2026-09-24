@@ -2,16 +2,20 @@
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
   "respectGitignore": false,
   "env": {
-    "DOTNET_SYSTEM_NET_DISABLEIPV6": "1"
+    "DOTNET_SYSTEM_NET_DISABLEIPV6": "1",
+    "DO_NOT_TRACK": "1",
+    "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
+		"CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
   },
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus[1m]",
   "statusLine": {
     "type": "command",
     "command": "sh ~/.claude/statusline-command.sh"
   },
+  "outputStyle": "Concise",
   "sandbox": {
     "enabled": true,
     "failIfUnavailable": true,
@@ -31,7 +35,7 @@
       ],
       "allowUnixSockets": [],
       "allowAllUnixSockets": false,
-      "allowLocalBinding": false
+      "allowLocalBinding": true
     },
     "filesystem": {
       "allowWrite": [
@@ -53,7 +57,8 @@
     "enableWeakerNestedSandbox": false,
     "enableWeakerNetworkIsolation": true,
     "excludedCommands": [
-      "docker *"
+      "docker *",
+      "pgrep *"
     ]
   },
   "effortLevel": "high",
@@ -65,12 +70,12 @@
   "disableDeepLinkRegistration": "disable",
   "mcpServers": {
     "rider": {
-      "type": "sse",
-      "url": "http://127.0.0.1:64342/sse"
+      "url": "http://127.0.0.1:64482/stream",
+      "type": "http"
     },
     "pycharm": {
-      "type": "sse",
-      "url": "http://127.0.0.1:64343/sse"
+      "url": "http://127.0.0.1:64343/stream",
+      "type": "http"
     },
     "shortcut": {
       "type": "http",
