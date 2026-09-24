@@ -79,6 +79,11 @@
 # Disable compinit warnings
 #~ ZSH_DISABLE_COMPFIX="true"
 
+# History - sync defaults between macOS and Linux
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY
+
 # Fuzzy search for history
 # ^r: ab c searches for "*ab*c*"
 HISTORY_SUBSTRING_SEARCH_FUZZY='yes'
