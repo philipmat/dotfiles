@@ -33,4 +33,10 @@
       "ctrl-e": ["terminal::SendKeystroke", "End"],
     },
   },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "ctrl-~": "workspace::NewTerminal"
+    }
+  }
 ]

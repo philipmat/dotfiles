@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "restore_on_startup": "launchpad",
   "use_smartcase_search": true,
   "colorize_brackets": true,
   "vim": {
@@ -27,6 +28,10 @@
     "dock": "left"
   },
   "agent": {
+    "auto_compact": {
+      "threshold": "75%"
+    },
+    "use_modifier_to_send": true,
     "tool_permissions": {
       "tools": {
         "terminal": {
@@ -34,23 +39,18 @@
         }
       }
     },
-    "dock": "right",
+    "dock": "left",
     "default_profile": "write",
     "default_model": {
-      "enable_thinking": false,
+      "enable_thinking": true,
       "provider": "openrouter",
-      "model": "openrouter/pareto-code"
+      "model": "deepseek/deepseek-v4.1-flash"
     },
     "favorite_models": [
       {
         "provider": "openrouter",
         "model": "openrouter/pareto-code",
         "enable_thinking": false
-      },
-      {
-        "provider": "openrouter",
-        "model": "deepseek/deepseek-v4-flash",
-        "enable_thinking": true
       },
       {
         "provider": "openrouter",
@@ -70,6 +70,11 @@
       {
         "provider": "openrouter",
         "model": "xiaomi/mimo-v2.5",
+        "enable_thinking": true
+      },
+      {
+        "provider": "openrouter",
+        "model": "deepseek/deepseek-v4.1-flash",
         "enable_thinking": true
       }
     ],
