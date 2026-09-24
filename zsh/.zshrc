@@ -253,29 +253,36 @@ fi
 # simpler version, no bat or eza 
 # x() { if [ -d "$1" ]; then ls -al "$@"; else less "$@"; fi; }
 x() {
- local lister
- if command -v eza >/dev/null; then
-   lister="eza -al"
- else
-   lister="ls -al"
- fi
+  local lister
 
- for a in "${@:-.}"; do
-   if [ -d "$a" ]; then
-     eval "$lister" "$a"
-   elif command -v bat >/dev/null; then
-     bat "$a"
-   else
-     less "$a"
-   fi
-   echo
- done
+  if command -v eza >/dev/null 2>&1; then
+    lister=eza
+  else
+    lister=ls
+  fi
+
+  if [ "$#" -eq 0 ]; then
+    set -- .
+  fi
+
+  for a in "$@"; do
+    if [ -d "$a" ]; then
+      "$lister" -al -- "$a"
+    elif command -v bat >/dev/null 2>&1; then
+      bat -- "$a"
+    else
+      less -- "$a"
+    fi
+    printf '\n'
+  done
 }
 
 alias S='sudo'
 alias df='df -h'
 if command -v bat > /dev/null ; then
 	alias l='bat'
+	alias batm='bat --language=markdown'
+	alias fz="fzf --preview 'bat --color=always {}'"
 else 
 	alias l='less'
 fi
@@ -291,6 +298,7 @@ alias rgni="rg --no-ignore"
 alias ungron="gron --ungron"
 alias mkenv='python -m venv .venv'
 alias split-path="echo $PATH | tr ':' '\n'"
+alias path-split='echo $PATH | tr ":" "\n" | sort'
 alias ze="vim ~/.zshrc && source ~/.zshrc"
 
 # note: on linux fd is sudo apt install fd-find
@@ -335,6 +343,9 @@ then
 		llm -m $model -f hn:$id \
 			-t hn-summary \
 			| rich -w 100 -m -
+		#llm -m $model -f hn:$id \
+		# 	-t hn-summary \
+		#	| bat --language=markdown --color=always
 	}
 
     source ~/Projects/dotfiles/autocompletions/llm.completions.sh
@@ -380,7 +391,6 @@ then
 fi
 alias brew-list-desc="brew list --formula | xargs -n1 brew desc"
 alias brew-dep-tree='brew deps --tree --installed'
-alias path-split='echo $PATH | tr ":" "\n" | sort'
 
 
 if [[ "$OSTYPE" == "linux-gnu" ]] ; then
