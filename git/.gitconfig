@@ -22,7 +22,12 @@
     conf = diff --name-only --diff-filter=U
     ctags = !.git/hooks/ctags
     conflicts = diff --name-only --diff-filter=U
-    d = pull
+    # Difftastic aliases, so `git dlog -p` is `git log -p`
+    # with difftastic and likewise for the other subcommands.
+    dlog = -c diff.external=difft log --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
+    ddiff = -c diff.external=difft diff
+    # d = pull
     delete-gone = "!bash -c \"git branch -vv | grep ': gone]'|  grep -v '\\*' | awk '{ print \\$1; }' | xargs -r git branch -d\""
     list-gone = !git branch -vv | grep ': gone]'
     list-merged = !git branch --merged origin/main | grep -vw main
