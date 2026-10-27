@@ -7,6 +7,7 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "diff_view_style": "unified",
   "restore_on_startup": "launchpad",
   "use_smartcase_search": true,
   "colorize_brackets": true,
@@ -42,6 +43,7 @@
     "dock": "left",
     "default_profile": "write",
     "default_model": {
+      "effort": "high",
       "enable_thinking": true,
       "provider": "openrouter",
       "model": "deepseek/deepseek-v4.1-flash"
@@ -54,17 +56,7 @@
       },
       {
         "provider": "openrouter",
-        "model": "moonshotai/kimi-k2.6",
-        "enable_thinking": true
-      },
-      {
-        "provider": "openrouter",
         "model": "minimax/minimax-m2.7",
-        "enable_thinking": true
-      },
-      {
-        "provider": "openrouter",
-        "model": "minimax/minimax-m2.5",
         "enable_thinking": true
       },
       {
@@ -76,6 +68,24 @@
         "provider": "openrouter",
         "model": "deepseek/deepseek-v4.1-flash",
         "enable_thinking": true
+      },
+      {
+        "provider": "openrouter",
+        "model": "moonshotai/kimi-k3",
+        "enable_thinking": true,
+        "effort": "max"
+      },
+      {
+        "provider": "openrouter",
+        "model": "z-ai/glm-5.3",
+        "enable_thinking": true,
+        "effort": "max"
+      },
+      {
+        "provider": "openrouter",
+        "model": "openai/gpt-6-luna",
+        "enable_thinking": true,
+        "effort": "medium"
       }
     ],
     "model_parameters": []
