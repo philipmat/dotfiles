@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.85.1",
+  "lastChangelogVersion": "0.87.1",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-sol",
+  "defaultModel": "gpt-6-luna",
   "defaultThinkingLevel": "high",
   "theme": "dark",
   "subagents": {
@@ -89,5 +89,6 @@
       "prompt": "Generate a 2-4 word {theme} themed loading message ending in ... for: {task}. {exclude} Output only the message.",
       "maxLength": 65
     }
-  }
+  },
+  "hideThinkingBlock": false
 }
