@@ -80,6 +80,7 @@
 #~ ZSH_DISABLE_COMPFIX="true"
 
 # History - sync defaults between macOS and Linux
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt SHARE_HISTORY
